@@ -86,7 +86,7 @@ function isConflictFree(subgroups: Subgroup[], conflictMap: Map<string, Set<stri
   for (let i = 0; i < subgroups.length; i++) {
     for (let j = i + 1; j < subgroups.length; j++) {
       if (conflictMap.get(subgroups[i].id)?.has(subgroups[j].id) ||
-          conflictMap.get(subgroups[j].id)?.has(subgroups[i].id)) {
+        conflictMap.get(subgroups[j].id)?.has(subgroups[i].id)) {
         return false;
       }
     }
@@ -110,7 +110,7 @@ function powerSet<T>(arr: T[]): T[][] {
 function enumerateIndependentSets(subgroups: Subgroup[]): string[][] {
   if (subgroups.length === 0) return [];
   const n = subgroups.length;
-  if (n > 20) {
+  if (n > 50) {
     throw new Error(`Too many conflicting subgroups (${n}) to enumerate; max supported is 20.`);
   }
 

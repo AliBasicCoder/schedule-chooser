@@ -1,0 +1,3216 @@
+{
+    "meta": {
+        "termName": "FCAI Timetable 2026-2027 (First Semester) - First Level",
+        "dayOrder": [
+            "Sat",
+            "Sun",
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu"
+        ],
+        "dayStart": "08:00",
+        "dayEnd": "19:30"
+    },
+    "groups": [
+        {
+            "id": "grp-major-group",
+            "name": "Major Group (A or B)",
+            "required": true,
+            "conflictsWith": [],
+            "subgroups": [
+                {
+                    "id": "sub-group-a",
+                    "name": "Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b"
+                    ]
+                },
+                {
+                    "id": "sub-group-b",
+                    "name": "Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "grp-fundamentals-of-computer-sciences-lab",
+            "name": "Fundamentals of Computer Sciences (Lab) Section",
+            "required": true,
+            "conflictsWith": [],
+            "subgroups": [
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                    "name": "Sat P2 (S3, 4) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                    "name": "Sun P3 (S5, 6) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5",
+                        "sub-math-0-tut-a-s5_6_7_8-sun-p3"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                    "name": "Sun P4 (S7, 8) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                    "name": "Mon P1 (S25, 26) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5",
+                        "sub-discrete-mathematics-tut-a-s25_26_27_28_29_30_31_32-mon-p1"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                    "name": "Mon P4 (S9, 10) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5",
+                        "sub-electronics-tut-a-s8_9_10_11-mon-p4",
+                        "sub-mathematics-1-tut-a-s9_10_11_12-mon-p4"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                    "name": "Mon P5 (S11, 12) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                    "name": "Mon P6 (S1, 2) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                    "name": "Mon P7 (S13, 14) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                    "name": "Tue P4 (S15, 16, 17, 18) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5",
+                        "sub-discrete-mathematics-tut-a-s13_14_15_16-tue-p4"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                    "name": "Tue P5 (S19, 20) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                    "name": "Wed P4 (S27, 28, 29, 30) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5",
+                        "sub-electronics-tut-a-s24_25_26_27_28_29_30-wed-p4"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                    "name": "Wed P5 (S21, 22) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                    "name": "Thu P5 (S23, 24) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                    "name": "Thu P6 (S31, 32) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                    "name": "Sat P2 (S33, 34) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                    "name": "Sun P3 (S35, 36) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                    "name": "Sun P4 (S39, 40) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                    "name": "Mon P3 (S45, 46) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                    "name": "Mon P5 (S47, 48) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                    "name": "Tue P2 (S49, 50) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                    "name": "Tue P4 (S53, 54) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5",
+                        "sub-discrete-mathematics-tut-b-s45_46_47_48_53_54_55_56-tue-p4"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                    "name": "Tue P5 (S37, 38) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                    "name": "Wed P3 (S55, 56) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                    "name": "Wed P5 (S57, 58) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                    "name": "Wed P6 (S43, 44, 51, 52) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                    "name": "Thu P4 (S59, 60) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5",
+                    "name": "Thu P5 (S41, 42) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "grp-math-0-tutorial",
+            "name": "Math_0 (Tutorial) Section",
+            "required": true,
+            "conflictsWith": [],
+            "subgroups": [
+                {
+                    "id": "sub-math-0-tut-a-s1_2_3_4-sat-p3",
+                    "name": "Sat P3 (S1, 2, 3, 4) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-math-0-tut-a-s5_6_7_8-sun-p3",
+                        "sub-math-0-tut-a-s9_10-wed-p2",
+                        "sub-math-0-tut-b-s11_12_13_14-sun-p4",
+                        "sub-math-0-tut-b-s15_16_17_18_19_20-thu-p4"
+                    ]
+                },
+                {
+                    "id": "sub-math-0-tut-a-s5_6_7_8-sun-p3",
+                    "name": "Sun P3 (S5, 6, 7, 8) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-math-0-tut-a-s1_2_3_4-sat-p3",
+                        "sub-math-0-tut-a-s9_10-wed-p2",
+                        "sub-math-0-tut-b-s11_12_13_14-sun-p4",
+                        "sub-math-0-tut-b-s15_16_17_18_19_20-thu-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3"
+                    ]
+                },
+                {
+                    "id": "sub-math-0-tut-a-s9_10-wed-p2",
+                    "name": "Wed P2 (S9, 10) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-math-0-tut-a-s1_2_3_4-sat-p3",
+                        "sub-math-0-tut-a-s5_6_7_8-sun-p3",
+                        "sub-math-0-tut-b-s11_12_13_14-sun-p4",
+                        "sub-math-0-tut-b-s15_16_17_18_19_20-thu-p4"
+                    ]
+                },
+                {
+                    "id": "sub-math-0-tut-b-s11_12_13_14-sun-p4",
+                    "name": "Sun P4 (S11, 12, 13, 14) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-math-0-tut-a-s1_2_3_4-sat-p3",
+                        "sub-math-0-tut-a-s5_6_7_8-sun-p3",
+                        "sub-math-0-tut-a-s9_10-wed-p2",
+                        "sub-math-0-tut-b-s15_16_17_18_19_20-thu-p4"
+                    ]
+                },
+                {
+                    "id": "sub-math-0-tut-b-s15_16_17_18_19_20-thu-p4",
+                    "name": "Thu P4 (S15, 16, 17, 18, 19, 20) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-math-0-tut-a-s1_2_3_4-sat-p3",
+                        "sub-math-0-tut-a-s5_6_7_8-sun-p3",
+                        "sub-math-0-tut-a-s9_10-wed-p2",
+                        "sub-math-0-tut-b-s11_12_13_14-sun-p4"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "grp-mathematics-1-tutorial",
+            "name": "Mathematics-1 (Tutorial) Section",
+            "required": true,
+            "conflictsWith": [],
+            "subgroups": [
+                {
+                    "id": "sub-mathematics-1-tut-a-s1_2_3_4-sun-p3",
+                    "name": "Sun P3 (S1, 2, 3, 4) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-mathematics-1-tut-a-s9_10_11_12-mon-p4",
+                        "sub-mathematics-1-tut-a-s5_6_7_8-mon-p5",
+                        "sub-mathematics-1-tut-a-s13_14_15_16-thu-p4",
+                        "sub-mathematics-1-tut-b-s17_18_19_20-sun-p4",
+                        "sub-mathematics-1-tut-b-s29_30_31_32-wed-p3",
+                        "sub-mathematics-1-tut-b-s25_26_27_28-wed-p5",
+                        "sub-mathematics-1-tut-b-s21_22_23_24-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-mathematics-1-tut-a-s9_10_11_12-mon-p4",
+                    "name": "Mon P4 (S9, 10, 11, 12) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-mathematics-1-tut-a-s1_2_3_4-sun-p3",
+                        "sub-mathematics-1-tut-a-s5_6_7_8-mon-p5",
+                        "sub-mathematics-1-tut-a-s13_14_15_16-thu-p4",
+                        "sub-mathematics-1-tut-b-s17_18_19_20-sun-p4",
+                        "sub-mathematics-1-tut-b-s29_30_31_32-wed-p3",
+                        "sub-mathematics-1-tut-b-s25_26_27_28-wed-p5",
+                        "sub-mathematics-1-tut-b-s21_22_23_24-thu-p5",
+                        "sub-electronics-tut-a-s8_9_10_11-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4"
+                    ]
+                },
+                {
+                    "id": "sub-mathematics-1-tut-a-s5_6_7_8-mon-p5",
+                    "name": "Mon P5 (S5, 6, 7, 8) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-mathematics-1-tut-a-s1_2_3_4-sun-p3",
+                        "sub-mathematics-1-tut-a-s9_10_11_12-mon-p4",
+                        "sub-mathematics-1-tut-a-s13_14_15_16-thu-p4",
+                        "sub-mathematics-1-tut-b-s17_18_19_20-sun-p4",
+                        "sub-mathematics-1-tut-b-s29_30_31_32-wed-p3",
+                        "sub-mathematics-1-tut-b-s25_26_27_28-wed-p5",
+                        "sub-mathematics-1-tut-b-s21_22_23_24-thu-p5",
+                        "sub-electronics-tut-a-s1_2_3_4_5_6_7-mon-p5"
+                    ]
+                },
+                {
+                    "id": "sub-mathematics-1-tut-a-s13_14_15_16-thu-p4",
+                    "name": "Thu P4 (S13, 14, 15, 16) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-mathematics-1-tut-a-s1_2_3_4-sun-p3",
+                        "sub-mathematics-1-tut-a-s9_10_11_12-mon-p4",
+                        "sub-mathematics-1-tut-a-s5_6_7_8-mon-p5",
+                        "sub-mathematics-1-tut-b-s17_18_19_20-sun-p4",
+                        "sub-mathematics-1-tut-b-s29_30_31_32-wed-p3",
+                        "sub-mathematics-1-tut-b-s25_26_27_28-wed-p5",
+                        "sub-mathematics-1-tut-b-s21_22_23_24-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-mathematics-1-tut-b-s17_18_19_20-sun-p4",
+                    "name": "Sun P4 (S17, 18, 19, 20) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-mathematics-1-tut-a-s1_2_3_4-sun-p3",
+                        "sub-mathematics-1-tut-a-s9_10_11_12-mon-p4",
+                        "sub-mathematics-1-tut-a-s5_6_7_8-mon-p5",
+                        "sub-mathematics-1-tut-a-s13_14_15_16-thu-p4",
+                        "sub-mathematics-1-tut-b-s29_30_31_32-wed-p3",
+                        "sub-mathematics-1-tut-b-s25_26_27_28-wed-p5",
+                        "sub-mathematics-1-tut-b-s21_22_23_24-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-mathematics-1-tut-b-s29_30_31_32-wed-p3",
+                    "name": "Wed P3 (S29, 30, 31, 32) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-mathematics-1-tut-a-s1_2_3_4-sun-p3",
+                        "sub-mathematics-1-tut-a-s9_10_11_12-mon-p4",
+                        "sub-mathematics-1-tut-a-s5_6_7_8-mon-p5",
+                        "sub-mathematics-1-tut-a-s13_14_15_16-thu-p4",
+                        "sub-mathematics-1-tut-b-s17_18_19_20-sun-p4",
+                        "sub-mathematics-1-tut-b-s25_26_27_28-wed-p5",
+                        "sub-mathematics-1-tut-b-s21_22_23_24-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-mathematics-1-tut-b-s25_26_27_28-wed-p5",
+                    "name": "Wed P5 (S25, 26, 27, 28) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-mathematics-1-tut-a-s1_2_3_4-sun-p3",
+                        "sub-mathematics-1-tut-a-s9_10_11_12-mon-p4",
+                        "sub-mathematics-1-tut-a-s5_6_7_8-mon-p5",
+                        "sub-mathematics-1-tut-a-s13_14_15_16-thu-p4",
+                        "sub-mathematics-1-tut-b-s17_18_19_20-sun-p4",
+                        "sub-mathematics-1-tut-b-s29_30_31_32-wed-p3",
+                        "sub-mathematics-1-tut-b-s21_22_23_24-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-mathematics-1-tut-b-s21_22_23_24-thu-p5",
+                    "name": "Thu P5 (S21, 22, 23, 24) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-mathematics-1-tut-a-s1_2_3_4-sun-p3",
+                        "sub-mathematics-1-tut-a-s9_10_11_12-mon-p4",
+                        "sub-mathematics-1-tut-a-s5_6_7_8-mon-p5",
+                        "sub-mathematics-1-tut-a-s13_14_15_16-thu-p4",
+                        "sub-mathematics-1-tut-b-s17_18_19_20-sun-p4",
+                        "sub-mathematics-1-tut-b-s29_30_31_32-wed-p3",
+                        "sub-mathematics-1-tut-b-s25_26_27_28-wed-p5"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "grp-discrete-mathematics-tutorial",
+            "name": "Discrete Mathematics (Tutorial) Section",
+            "required": true,
+            "conflictsWith": [],
+            "subgroups": [
+                {
+                    "id": "sub-discrete-mathematics-tut-a-s25_26_27_28_29_30_31_32-mon-p1",
+                    "name": "Mon P1 (S25, 26, 27, 28, 29, 30, 31, 32) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-discrete-mathematics-tut-a-s9_10_11_12-tue-p1",
+                        "sub-discrete-mathematics-tut-a-s1_2_3_4_5_6_7_8-tue-p2",
+                        "sub-discrete-mathematics-tut-a-s13_14_15_16-tue-p4",
+                        "sub-discrete-mathematics-tut-a-s17_18_19_20-wed-p3",
+                        "sub-discrete-mathematics-tut-a-s21_22_23_24-wed-p4",
+                        "sub-discrete-mathematics-tut-b-s33_34_35_36_37_38_39_40-sun-p5",
+                        "sub-discrete-mathematics-tut-b-s49_50_51_52-tue-p1",
+                        "sub-discrete-mathematics-tut-b-s41_42_43_44-tue-p2",
+                        "sub-discrete-mathematics-tut-b-s45_46_47_48_53_54_55_56-tue-p4",
+                        "sub-discrete-mathematics-tut-b-s57_58_59_60_61_62_63_64-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1"
+                    ]
+                },
+                {
+                    "id": "sub-discrete-mathematics-tut-a-s9_10_11_12-tue-p1",
+                    "name": "Tue P1 (S9, 10, 11, 12) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-discrete-mathematics-tut-a-s25_26_27_28_29_30_31_32-mon-p1",
+                        "sub-discrete-mathematics-tut-a-s1_2_3_4_5_6_7_8-tue-p2",
+                        "sub-discrete-mathematics-tut-a-s13_14_15_16-tue-p4",
+                        "sub-discrete-mathematics-tut-a-s17_18_19_20-wed-p3",
+                        "sub-discrete-mathematics-tut-a-s21_22_23_24-wed-p4",
+                        "sub-discrete-mathematics-tut-b-s33_34_35_36_37_38_39_40-sun-p5",
+                        "sub-discrete-mathematics-tut-b-s49_50_51_52-tue-p1",
+                        "sub-discrete-mathematics-tut-b-s41_42_43_44-tue-p2",
+                        "sub-discrete-mathematics-tut-b-s45_46_47_48_53_54_55_56-tue-p4",
+                        "sub-discrete-mathematics-tut-b-s57_58_59_60_61_62_63_64-wed-p4",
+                        "sub-electronics-tut-a-s12_13_14_15_16_17_18-tue-p1"
+                    ]
+                },
+                {
+                    "id": "sub-discrete-mathematics-tut-a-s1_2_3_4_5_6_7_8-tue-p2",
+                    "name": "Tue P2 (S1, 2, 3, 4, 5, 6, 7, 8) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-discrete-mathematics-tut-a-s25_26_27_28_29_30_31_32-mon-p1",
+                        "sub-discrete-mathematics-tut-a-s9_10_11_12-tue-p1",
+                        "sub-discrete-mathematics-tut-a-s13_14_15_16-tue-p4",
+                        "sub-discrete-mathematics-tut-a-s17_18_19_20-wed-p3",
+                        "sub-discrete-mathematics-tut-a-s21_22_23_24-wed-p4",
+                        "sub-discrete-mathematics-tut-b-s33_34_35_36_37_38_39_40-sun-p5",
+                        "sub-discrete-mathematics-tut-b-s49_50_51_52-tue-p1",
+                        "sub-discrete-mathematics-tut-b-s41_42_43_44-tue-p2",
+                        "sub-discrete-mathematics-tut-b-s45_46_47_48_53_54_55_56-tue-p4",
+                        "sub-discrete-mathematics-tut-b-s57_58_59_60_61_62_63_64-wed-p4"
+                    ]
+                },
+                {
+                    "id": "sub-discrete-mathematics-tut-a-s13_14_15_16-tue-p4",
+                    "name": "Tue P4 (S13, 14, 15, 16) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-discrete-mathematics-tut-a-s25_26_27_28_29_30_31_32-mon-p1",
+                        "sub-discrete-mathematics-tut-a-s9_10_11_12-tue-p1",
+                        "sub-discrete-mathematics-tut-a-s1_2_3_4_5_6_7_8-tue-p2",
+                        "sub-discrete-mathematics-tut-a-s17_18_19_20-wed-p3",
+                        "sub-discrete-mathematics-tut-a-s21_22_23_24-wed-p4",
+                        "sub-discrete-mathematics-tut-b-s33_34_35_36_37_38_39_40-sun-p5",
+                        "sub-discrete-mathematics-tut-b-s49_50_51_52-tue-p1",
+                        "sub-discrete-mathematics-tut-b-s41_42_43_44-tue-p2",
+                        "sub-discrete-mathematics-tut-b-s45_46_47_48_53_54_55_56-tue-p4",
+                        "sub-discrete-mathematics-tut-b-s57_58_59_60_61_62_63_64-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4"
+                    ]
+                },
+                {
+                    "id": "sub-discrete-mathematics-tut-a-s17_18_19_20-wed-p3",
+                    "name": "Wed P3 (S17, 18, 19, 20) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-discrete-mathematics-tut-a-s25_26_27_28_29_30_31_32-mon-p1",
+                        "sub-discrete-mathematics-tut-a-s9_10_11_12-tue-p1",
+                        "sub-discrete-mathematics-tut-a-s1_2_3_4_5_6_7_8-tue-p2",
+                        "sub-discrete-mathematics-tut-a-s13_14_15_16-tue-p4",
+                        "sub-discrete-mathematics-tut-a-s21_22_23_24-wed-p4",
+                        "sub-discrete-mathematics-tut-b-s33_34_35_36_37_38_39_40-sun-p5",
+                        "sub-discrete-mathematics-tut-b-s49_50_51_52-tue-p1",
+                        "sub-discrete-mathematics-tut-b-s41_42_43_44-tue-p2",
+                        "sub-discrete-mathematics-tut-b-s45_46_47_48_53_54_55_56-tue-p4",
+                        "sub-discrete-mathematics-tut-b-s57_58_59_60_61_62_63_64-wed-p4"
+                    ]
+                },
+                {
+                    "id": "sub-discrete-mathematics-tut-a-s21_22_23_24-wed-p4",
+                    "name": "Wed P4 (S21, 22, 23, 24) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-discrete-mathematics-tut-a-s25_26_27_28_29_30_31_32-mon-p1",
+                        "sub-discrete-mathematics-tut-a-s9_10_11_12-tue-p1",
+                        "sub-discrete-mathematics-tut-a-s1_2_3_4_5_6_7_8-tue-p2",
+                        "sub-discrete-mathematics-tut-a-s13_14_15_16-tue-p4",
+                        "sub-discrete-mathematics-tut-a-s17_18_19_20-wed-p3",
+                        "sub-discrete-mathematics-tut-b-s33_34_35_36_37_38_39_40-sun-p5",
+                        "sub-discrete-mathematics-tut-b-s49_50_51_52-tue-p1",
+                        "sub-discrete-mathematics-tut-b-s41_42_43_44-tue-p2",
+                        "sub-discrete-mathematics-tut-b-s45_46_47_48_53_54_55_56-tue-p4",
+                        "sub-discrete-mathematics-tut-b-s57_58_59_60_61_62_63_64-wed-p4",
+                        "sub-electronics-tut-a-s24_25_26_27_28_29_30-wed-p4"
+                    ]
+                },
+                {
+                    "id": "sub-discrete-mathematics-tut-b-s33_34_35_36_37_38_39_40-sun-p5",
+                    "name": "Sun P5 (S33, 34, 35, 36, 37, 38, 39, 40) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-discrete-mathematics-tut-a-s25_26_27_28_29_30_31_32-mon-p1",
+                        "sub-discrete-mathematics-tut-a-s9_10_11_12-tue-p1",
+                        "sub-discrete-mathematics-tut-a-s1_2_3_4_5_6_7_8-tue-p2",
+                        "sub-discrete-mathematics-tut-a-s13_14_15_16-tue-p4",
+                        "sub-discrete-mathematics-tut-a-s17_18_19_20-wed-p3",
+                        "sub-discrete-mathematics-tut-a-s21_22_23_24-wed-p4",
+                        "sub-discrete-mathematics-tut-b-s49_50_51_52-tue-p1",
+                        "sub-discrete-mathematics-tut-b-s41_42_43_44-tue-p2",
+                        "sub-discrete-mathematics-tut-b-s45_46_47_48_53_54_55_56-tue-p4",
+                        "sub-discrete-mathematics-tut-b-s57_58_59_60_61_62_63_64-wed-p4"
+                    ]
+                },
+                {
+                    "id": "sub-discrete-mathematics-tut-b-s49_50_51_52-tue-p1",
+                    "name": "Tue P1 (S49, 50, 51, 52) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-discrete-mathematics-tut-a-s25_26_27_28_29_30_31_32-mon-p1",
+                        "sub-discrete-mathematics-tut-a-s9_10_11_12-tue-p1",
+                        "sub-discrete-mathematics-tut-a-s1_2_3_4_5_6_7_8-tue-p2",
+                        "sub-discrete-mathematics-tut-a-s13_14_15_16-tue-p4",
+                        "sub-discrete-mathematics-tut-a-s17_18_19_20-wed-p3",
+                        "sub-discrete-mathematics-tut-a-s21_22_23_24-wed-p4",
+                        "sub-discrete-mathematics-tut-b-s33_34_35_36_37_38_39_40-sun-p5",
+                        "sub-discrete-mathematics-tut-b-s41_42_43_44-tue-p2",
+                        "sub-discrete-mathematics-tut-b-s45_46_47_48_53_54_55_56-tue-p4",
+                        "sub-discrete-mathematics-tut-b-s57_58_59_60_61_62_63_64-wed-p4"
+                    ]
+                },
+                {
+                    "id": "sub-discrete-mathematics-tut-b-s41_42_43_44-tue-p2",
+                    "name": "Tue P2 (S41, 42, 43, 44) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-discrete-mathematics-tut-a-s25_26_27_28_29_30_31_32-mon-p1",
+                        "sub-discrete-mathematics-tut-a-s9_10_11_12-tue-p1",
+                        "sub-discrete-mathematics-tut-a-s1_2_3_4_5_6_7_8-tue-p2",
+                        "sub-discrete-mathematics-tut-a-s13_14_15_16-tue-p4",
+                        "sub-discrete-mathematics-tut-a-s17_18_19_20-wed-p3",
+                        "sub-discrete-mathematics-tut-a-s21_22_23_24-wed-p4",
+                        "sub-discrete-mathematics-tut-b-s33_34_35_36_37_38_39_40-sun-p5",
+                        "sub-discrete-mathematics-tut-b-s49_50_51_52-tue-p1",
+                        "sub-discrete-mathematics-tut-b-s45_46_47_48_53_54_55_56-tue-p4",
+                        "sub-discrete-mathematics-tut-b-s57_58_59_60_61_62_63_64-wed-p4"
+                    ]
+                },
+                {
+                    "id": "sub-discrete-mathematics-tut-b-s45_46_47_48_53_54_55_56-tue-p4",
+                    "name": "Tue P4 (S45, 46, 47, 48, 53, 54, 55, 56) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-discrete-mathematics-tut-a-s25_26_27_28_29_30_31_32-mon-p1",
+                        "sub-discrete-mathematics-tut-a-s9_10_11_12-tue-p1",
+                        "sub-discrete-mathematics-tut-a-s1_2_3_4_5_6_7_8-tue-p2",
+                        "sub-discrete-mathematics-tut-a-s13_14_15_16-tue-p4",
+                        "sub-discrete-mathematics-tut-a-s17_18_19_20-wed-p3",
+                        "sub-discrete-mathematics-tut-a-s21_22_23_24-wed-p4",
+                        "sub-discrete-mathematics-tut-b-s33_34_35_36_37_38_39_40-sun-p5",
+                        "sub-discrete-mathematics-tut-b-s49_50_51_52-tue-p1",
+                        "sub-discrete-mathematics-tut-b-s41_42_43_44-tue-p2",
+                        "sub-discrete-mathematics-tut-b-s57_58_59_60_61_62_63_64-wed-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4"
+                    ]
+                },
+                {
+                    "id": "sub-discrete-mathematics-tut-b-s57_58_59_60_61_62_63_64-wed-p4",
+                    "name": "Wed P4 (S57, 58, 59, 60, 61, 62, 63, 64) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-discrete-mathematics-tut-a-s25_26_27_28_29_30_31_32-mon-p1",
+                        "sub-discrete-mathematics-tut-a-s9_10_11_12-tue-p1",
+                        "sub-discrete-mathematics-tut-a-s1_2_3_4_5_6_7_8-tue-p2",
+                        "sub-discrete-mathematics-tut-a-s13_14_15_16-tue-p4",
+                        "sub-discrete-mathematics-tut-a-s17_18_19_20-wed-p3",
+                        "sub-discrete-mathematics-tut-a-s21_22_23_24-wed-p4",
+                        "sub-discrete-mathematics-tut-b-s33_34_35_36_37_38_39_40-sun-p5",
+                        "sub-discrete-mathematics-tut-b-s49_50_51_52-tue-p1",
+                        "sub-discrete-mathematics-tut-b-s41_42_43_44-tue-p2",
+                        "sub-discrete-mathematics-tut-b-s45_46_47_48_53_54_55_56-tue-p4",
+                        "sub-electronics-tut-b-s55_56_57_58_59_60-wed-p4"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "grp-electronics-tutorial",
+            "name": "Electronics (Tutorial) Section",
+            "required": true,
+            "conflictsWith": [],
+            "subgroups": [
+                {
+                    "id": "sub-electronics-tut-a-s8_9_10_11-mon-p4",
+                    "name": "Mon P4 (S8, 9, 10, 11) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-electronics-tut-a-s1_2_3_4_5_6_7-mon-p5",
+                        "sub-electronics-tut-a-s12_13_14_15_16_17_18-tue-p1",
+                        "sub-electronics-tut-a-s19_20_21_22_23-tue-p4",
+                        "sub-electronics-tut-a-s24_25_26_27_28_29_30-wed-p4",
+                        "sub-electronics-tut-b-s39_40_41_42_43_44_45_46-sun-p3",
+                        "sub-electronics-tut-b-s51_52_53_54-mon-p4",
+                        "sub-electronics-tut-b-s35_36_37_38-tue-p2",
+                        "sub-electronics-tut-b-s31_32_33_34-tue-p4",
+                        "sub-electronics-tut-b-s55_56_57_58_59_60-wed-p4",
+                        "sub-electronics-tut-b-s55_56_57_58-thu-p4",
+                        "sub-electronics-tut-b-s47_48_49_50-thu-p5",
+                        "sub-mathematics-1-tut-a-s9_10_11_12-mon-p4",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4"
+                    ]
+                },
+                {
+                    "id": "sub-electronics-tut-a-s1_2_3_4_5_6_7-mon-p5",
+                    "name": "Mon P5 (S1, 2, 3, 4, 5, 6, 7) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-electronics-tut-a-s8_9_10_11-mon-p4",
+                        "sub-electronics-tut-a-s12_13_14_15_16_17_18-tue-p1",
+                        "sub-electronics-tut-a-s19_20_21_22_23-tue-p4",
+                        "sub-electronics-tut-a-s24_25_26_27_28_29_30-wed-p4",
+                        "sub-electronics-tut-b-s39_40_41_42_43_44_45_46-sun-p3",
+                        "sub-electronics-tut-b-s51_52_53_54-mon-p4",
+                        "sub-electronics-tut-b-s35_36_37_38-tue-p2",
+                        "sub-electronics-tut-b-s31_32_33_34-tue-p4",
+                        "sub-electronics-tut-b-s55_56_57_58_59_60-wed-p4",
+                        "sub-electronics-tut-b-s55_56_57_58-thu-p4",
+                        "sub-electronics-tut-b-s47_48_49_50-thu-p5",
+                        "sub-mathematics-1-tut-a-s5_6_7_8-mon-p5"
+                    ]
+                },
+                {
+                    "id": "sub-electronics-tut-a-s12_13_14_15_16_17_18-tue-p1",
+                    "name": "Tue P1 (S12, 13, 14, 15, 16, 17, 18) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-electronics-tut-a-s8_9_10_11-mon-p4",
+                        "sub-electronics-tut-a-s1_2_3_4_5_6_7-mon-p5",
+                        "sub-electronics-tut-a-s19_20_21_22_23-tue-p4",
+                        "sub-electronics-tut-a-s24_25_26_27_28_29_30-wed-p4",
+                        "sub-electronics-tut-b-s39_40_41_42_43_44_45_46-sun-p3",
+                        "sub-electronics-tut-b-s51_52_53_54-mon-p4",
+                        "sub-electronics-tut-b-s35_36_37_38-tue-p2",
+                        "sub-electronics-tut-b-s31_32_33_34-tue-p4",
+                        "sub-electronics-tut-b-s55_56_57_58_59_60-wed-p4",
+                        "sub-electronics-tut-b-s55_56_57_58-thu-p4",
+                        "sub-electronics-tut-b-s47_48_49_50-thu-p5",
+                        "sub-discrete-mathematics-tut-a-s9_10_11_12-tue-p1"
+                    ]
+                },
+                {
+                    "id": "sub-electronics-tut-a-s19_20_21_22_23-tue-p4",
+                    "name": "Tue P4 (S19, 20, 21, 22, 23) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-electronics-tut-a-s8_9_10_11-mon-p4",
+                        "sub-electronics-tut-a-s1_2_3_4_5_6_7-mon-p5",
+                        "sub-electronics-tut-a-s12_13_14_15_16_17_18-tue-p1",
+                        "sub-electronics-tut-a-s24_25_26_27_28_29_30-wed-p4",
+                        "sub-electronics-tut-b-s39_40_41_42_43_44_45_46-sun-p3",
+                        "sub-electronics-tut-b-s51_52_53_54-mon-p4",
+                        "sub-electronics-tut-b-s35_36_37_38-tue-p2",
+                        "sub-electronics-tut-b-s31_32_33_34-tue-p4",
+                        "sub-electronics-tut-b-s55_56_57_58_59_60-wed-p4",
+                        "sub-electronics-tut-b-s55_56_57_58-thu-p4",
+                        "sub-electronics-tut-b-s47_48_49_50-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-electronics-tut-a-s24_25_26_27_28_29_30-wed-p4",
+                    "name": "Wed P4 (S24, 25, 26, 27, 28, 29, 30) - Group A",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-b",
+                        "sub-electronics-tut-a-s8_9_10_11-mon-p4",
+                        "sub-electronics-tut-a-s1_2_3_4_5_6_7-mon-p5",
+                        "sub-electronics-tut-a-s12_13_14_15_16_17_18-tue-p1",
+                        "sub-electronics-tut-a-s19_20_21_22_23-tue-p4",
+                        "sub-electronics-tut-b-s39_40_41_42_43_44_45_46-sun-p3",
+                        "sub-electronics-tut-b-s51_52_53_54-mon-p4",
+                        "sub-electronics-tut-b-s35_36_37_38-tue-p2",
+                        "sub-electronics-tut-b-s31_32_33_34-tue-p4",
+                        "sub-electronics-tut-b-s55_56_57_58_59_60-wed-p4",
+                        "sub-electronics-tut-b-s55_56_57_58-thu-p4",
+                        "sub-electronics-tut-b-s47_48_49_50-thu-p5",
+                        "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                        "sub-discrete-mathematics-tut-a-s21_22_23_24-wed-p4"
+                    ]
+                },
+                {
+                    "id": "sub-electronics-tut-b-s39_40_41_42_43_44_45_46-sun-p3",
+                    "name": "Sun P3 (S39, 40, 41, 42, 43, 44, 45, 46) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-electronics-tut-a-s8_9_10_11-mon-p4",
+                        "sub-electronics-tut-a-s1_2_3_4_5_6_7-mon-p5",
+                        "sub-electronics-tut-a-s12_13_14_15_16_17_18-tue-p1",
+                        "sub-electronics-tut-a-s19_20_21_22_23-tue-p4",
+                        "sub-electronics-tut-a-s24_25_26_27_28_29_30-wed-p4",
+                        "sub-electronics-tut-b-s51_52_53_54-mon-p4",
+                        "sub-electronics-tut-b-s35_36_37_38-tue-p2",
+                        "sub-electronics-tut-b-s31_32_33_34-tue-p4",
+                        "sub-electronics-tut-b-s55_56_57_58_59_60-wed-p4",
+                        "sub-electronics-tut-b-s55_56_57_58-thu-p4",
+                        "sub-electronics-tut-b-s47_48_49_50-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-electronics-tut-b-s51_52_53_54-mon-p4",
+                    "name": "Mon P4 (S51, 52, 53, 54) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-electronics-tut-a-s8_9_10_11-mon-p4",
+                        "sub-electronics-tut-a-s1_2_3_4_5_6_7-mon-p5",
+                        "sub-electronics-tut-a-s12_13_14_15_16_17_18-tue-p1",
+                        "sub-electronics-tut-a-s19_20_21_22_23-tue-p4",
+                        "sub-electronics-tut-a-s24_25_26_27_28_29_30-wed-p4",
+                        "sub-electronics-tut-b-s39_40_41_42_43_44_45_46-sun-p3",
+                        "sub-electronics-tut-b-s35_36_37_38-tue-p2",
+                        "sub-electronics-tut-b-s31_32_33_34-tue-p4",
+                        "sub-electronics-tut-b-s55_56_57_58_59_60-wed-p4",
+                        "sub-electronics-tut-b-s55_56_57_58-thu-p4",
+                        "sub-electronics-tut-b-s47_48_49_50-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-electronics-tut-b-s35_36_37_38-tue-p2",
+                    "name": "Tue P2 (S35, 36, 37, 38) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-electronics-tut-a-s8_9_10_11-mon-p4",
+                        "sub-electronics-tut-a-s1_2_3_4_5_6_7-mon-p5",
+                        "sub-electronics-tut-a-s12_13_14_15_16_17_18-tue-p1",
+                        "sub-electronics-tut-a-s19_20_21_22_23-tue-p4",
+                        "sub-electronics-tut-a-s24_25_26_27_28_29_30-wed-p4",
+                        "sub-electronics-tut-b-s39_40_41_42_43_44_45_46-sun-p3",
+                        "sub-electronics-tut-b-s51_52_53_54-mon-p4",
+                        "sub-electronics-tut-b-s31_32_33_34-tue-p4",
+                        "sub-electronics-tut-b-s55_56_57_58_59_60-wed-p4",
+                        "sub-electronics-tut-b-s55_56_57_58-thu-p4",
+                        "sub-electronics-tut-b-s47_48_49_50-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-electronics-tut-b-s31_32_33_34-tue-p4",
+                    "name": "Tue P4 (S31, 32, 33, 34) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-electronics-tut-a-s8_9_10_11-mon-p4",
+                        "sub-electronics-tut-a-s1_2_3_4_5_6_7-mon-p5",
+                        "sub-electronics-tut-a-s12_13_14_15_16_17_18-tue-p1",
+                        "sub-electronics-tut-a-s19_20_21_22_23-tue-p4",
+                        "sub-electronics-tut-a-s24_25_26_27_28_29_30-wed-p4",
+                        "sub-electronics-tut-b-s39_40_41_42_43_44_45_46-sun-p3",
+                        "sub-electronics-tut-b-s51_52_53_54-mon-p4",
+                        "sub-electronics-tut-b-s35_36_37_38-tue-p2",
+                        "sub-electronics-tut-b-s55_56_57_58_59_60-wed-p4",
+                        "sub-electronics-tut-b-s55_56_57_58-thu-p4",
+                        "sub-electronics-tut-b-s47_48_49_50-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-electronics-tut-b-s55_56_57_58_59_60-wed-p4",
+                    "name": "Wed P4 (S55, 56, 57, 58, 59, 60) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-electronics-tut-a-s8_9_10_11-mon-p4",
+                        "sub-electronics-tut-a-s1_2_3_4_5_6_7-mon-p5",
+                        "sub-electronics-tut-a-s12_13_14_15_16_17_18-tue-p1",
+                        "sub-electronics-tut-a-s19_20_21_22_23-tue-p4",
+                        "sub-electronics-tut-a-s24_25_26_27_28_29_30-wed-p4",
+                        "sub-electronics-tut-b-s39_40_41_42_43_44_45_46-sun-p3",
+                        "sub-electronics-tut-b-s51_52_53_54-mon-p4",
+                        "sub-electronics-tut-b-s35_36_37_38-tue-p2",
+                        "sub-electronics-tut-b-s31_32_33_34-tue-p4",
+                        "sub-electronics-tut-b-s55_56_57_58-thu-p4",
+                        "sub-electronics-tut-b-s47_48_49_50-thu-p5",
+                        "sub-discrete-mathematics-tut-b-s57_58_59_60_61_62_63_64-wed-p4"
+                    ]
+                },
+                {
+                    "id": "sub-electronics-tut-b-s55_56_57_58-thu-p4",
+                    "name": "Thu P4 (S55, 56, 57, 58) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-electronics-tut-a-s8_9_10_11-mon-p4",
+                        "sub-electronics-tut-a-s1_2_3_4_5_6_7-mon-p5",
+                        "sub-electronics-tut-a-s12_13_14_15_16_17_18-tue-p1",
+                        "sub-electronics-tut-a-s19_20_21_22_23-tue-p4",
+                        "sub-electronics-tut-a-s24_25_26_27_28_29_30-wed-p4",
+                        "sub-electronics-tut-b-s39_40_41_42_43_44_45_46-sun-p3",
+                        "sub-electronics-tut-b-s51_52_53_54-mon-p4",
+                        "sub-electronics-tut-b-s35_36_37_38-tue-p2",
+                        "sub-electronics-tut-b-s31_32_33_34-tue-p4",
+                        "sub-electronics-tut-b-s55_56_57_58_59_60-wed-p4",
+                        "sub-electronics-tut-b-s47_48_49_50-thu-p5"
+                    ]
+                },
+                {
+                    "id": "sub-electronics-tut-b-s47_48_49_50-thu-p5",
+                    "name": "Thu P5 (S47, 48, 49, 50) - Group B",
+                    "conflictMode": "conflicting",
+                    "conflictsWith": [
+                        "sub-group-a",
+                        "sub-electronics-tut-a-s8_9_10_11-mon-p4",
+                        "sub-electronics-tut-a-s1_2_3_4_5_6_7-mon-p5",
+                        "sub-electronics-tut-a-s12_13_14_15_16_17_18-tue-p1",
+                        "sub-electronics-tut-a-s19_20_21_22_23-tue-p4",
+                        "sub-electronics-tut-a-s24_25_26_27_28_29_30-wed-p4",
+                        "sub-electronics-tut-b-s39_40_41_42_43_44_45_46-sun-p3",
+                        "sub-electronics-tut-b-s51_52_53_54-mon-p4",
+                        "sub-electronics-tut-b-s35_36_37_38-tue-p2",
+                        "sub-electronics-tut-b-s31_32_33_34-tue-p4",
+                        "sub-electronics-tut-b-s55_56_57_58_59_60-wed-p4",
+                        "sub-electronics-tut-b-s55_56_57_58-thu-p4"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "grp-retake-structprog",
+            "name": "Structured Programming (Retake)",
+            "required": false,
+            "conflictsWith": [],
+            "subgroups": []
+        },
+        {
+            "id": "grp-retake-probstat1",
+            "name": "Probability and Statistics-1 (Retake)",
+            "required": false,
+            "conflictsWith": [],
+            "subgroups": []
+        },
+        {
+            "id": "grp-retake-math2",
+            "name": "Mathematics-2 (Retake)",
+            "required": false,
+            "conflictsWith": [],
+            "subgroups": []
+        }
+    ],
+    "classes": [
+        {
+            "id": "lec-creative-thinking-communication-skills-a",
+            "name": "Creative Thinking & Communication Skills",
+            "type": "lecture",
+            "groupId": "grp-major-group",
+            "subgroupId": "sub-group-a",
+            "instructor": "Dr. Omima Saeid",
+            "location": "I. Farag Hall",
+            "credits": 3,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sat",
+                    "start": "08:00",
+                    "end": "09:30"
+                }
+            ]
+        },
+        {
+            "id": "lec-technical-report-writing-a",
+            "name": "Technical Report Writing",
+            "type": "lecture",
+            "groupId": "grp-major-group",
+            "subgroupId": "sub-group-a",
+            "instructor": "Prof. Ehab El-Khodary",
+            "location": "I. Farag Hall",
+            "credits": 3,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sun",
+                    "start": "08:00",
+                    "end": "09:30"
+                }
+            ]
+        },
+        {
+            "id": "lec-fundamentals-of-computer-sciences-a",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lecture",
+            "groupId": "grp-major-group",
+            "subgroupId": "sub-group-a",
+            "instructor": "Dr. Manar El-Kady & Dr. Laila Safoury",
+            "location": "I. Farag Hall",
+            "credits": 3,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sun",
+                    "start": "09:30",
+                    "end": "11:00"
+                },
+                {
+                    "day": "Thu",
+                    "start": "08:00",
+                    "end": "09:30"
+                }
+            ]
+        },
+        {
+            "id": "lec-math-0-a",
+            "name": "Math_0",
+            "type": "lecture",
+            "groupId": "grp-major-group",
+            "subgroupId": "sub-group-a",
+            "instructor": "Dr. Mai Abdel-Ghafar",
+            "location": "I. Farag Hall",
+            "credits": 3,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sun",
+                    "start": "16:15",
+                    "end": "17:45"
+                }
+            ]
+        },
+        {
+            "id": "lec-electronics-a",
+            "name": "Electronics",
+            "type": "lecture",
+            "groupId": "grp-major-group",
+            "subgroupId": "sub-group-a",
+            "instructor": "Dr. Elham Shawky & Dr. Ibrahim Zidan",
+            "location": "I. Farag Hall",
+            "credits": 3,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "09:30",
+                    "end": "11:00"
+                },
+                {
+                    "day": "Thu",
+                    "start": "11:15",
+                    "end": "12:45"
+                }
+            ]
+        },
+        {
+            "id": "lec-discrete-mathematics-a",
+            "name": "Discrete Mathematics",
+            "type": "lecture",
+            "groupId": "grp-major-group",
+            "subgroupId": "sub-group-a",
+            "instructor": "Dr. Shourouk Wael & Dr. Mai Abdel-Ghafar",
+            "location": "I. Farag Hall",
+            "credits": 3,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "11:15",
+                    "end": "12:45"
+                },
+                {
+                    "day": "Thu",
+                    "start": "09:30",
+                    "end": "11:00"
+                }
+            ]
+        },
+        {
+            "id": "lec-mathematics-1-a",
+            "name": "Mathematics-1",
+            "type": "lecture",
+            "groupId": "grp-major-group",
+            "subgroupId": "sub-group-a",
+            "instructor": "Dr. Hala Fayez",
+            "location": "I. Farag Hall",
+            "credits": 3,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Wed",
+                    "start": "08:00",
+                    "end": "09:30"
+                },
+                {
+                    "day": "Wed",
+                    "start": "09:30",
+                    "end": "11:00"
+                }
+            ]
+        },
+        {
+            "id": "lec-creative-thinking-communication-skills-b",
+            "name": "Creative Thinking & Communication Skills",
+            "type": "lecture",
+            "groupId": "grp-major-group",
+            "subgroupId": "sub-group-b",
+            "instructor": "Dr. Omima Saeid",
+            "location": "Al-Shafei Hall",
+            "credits": 3,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sat",
+                    "start": "08:00",
+                    "end": "09:30"
+                }
+            ]
+        },
+        {
+            "id": "lec-technical-report-writing-b",
+            "name": "Technical Report Writing",
+            "type": "lecture",
+            "groupId": "grp-major-group",
+            "subgroupId": "sub-group-b",
+            "instructor": "Prof. Ehab El-Khodary",
+            "location": "Al-Shafei Hall",
+            "credits": 3,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sun",
+                    "start": "08:00",
+                    "end": "09:30"
+                }
+            ]
+        },
+        {
+            "id": "lec-fundamentals-of-computer-sciences-b",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lecture",
+            "groupId": "grp-major-group",
+            "subgroupId": "sub-group-b",
+            "instructor": "Dr. Manar El-Kady & Dr. Laila Safoury",
+            "location": "Al-Shafei Hall",
+            "credits": 3,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sun",
+                    "start": "09:30",
+                    "end": "11:00"
+                },
+                {
+                    "day": "Thu",
+                    "start": "08:00",
+                    "end": "09:30"
+                }
+            ]
+        },
+        {
+            "id": "lec-math-0-b",
+            "name": "Math_0",
+            "type": "lecture",
+            "groupId": "grp-major-group",
+            "subgroupId": "sub-group-b",
+            "instructor": "Dr. Mai Abdel-Ghafar",
+            "location": "I. Farag Hall",
+            "credits": 3,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sun",
+                    "start": "16:15",
+                    "end": "17:45"
+                }
+            ]
+        },
+        {
+            "id": "lec-electronics-b",
+            "name": "Electronics",
+            "type": "lecture",
+            "groupId": "grp-major-group",
+            "subgroupId": "sub-group-b",
+            "instructor": "Dr. Elham Shawky & Dr. Ibrahim Zidan",
+            "location": "Al-Shafei Hall",
+            "credits": 3,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "08:00",
+                    "end": "09:30"
+                },
+                {
+                    "day": "Thu",
+                    "start": "11:15",
+                    "end": "12:45"
+                }
+            ]
+        },
+        {
+            "id": "lec-discrete-mathematics-b",
+            "name": "Discrete Mathematics",
+            "type": "lecture",
+            "groupId": "grp-major-group",
+            "subgroupId": "sub-group-b",
+            "instructor": "Dr. Shourouk Wael & Dr. Mai Abdel-Ghafar",
+            "location": "Al-Shafei Hall",
+            "credits": 3,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "09:30",
+                    "end": "11:00"
+                },
+                {
+                    "day": "Thu",
+                    "start": "09:30",
+                    "end": "11:00"
+                }
+            ]
+        },
+        {
+            "id": "lec-mathematics-1-b",
+            "name": "Mathematics-1",
+            "type": "lecture",
+            "groupId": "grp-major-group",
+            "subgroupId": "sub-group-b",
+            "instructor": "Dr. Hala Fayez",
+            "location": "Al-Shafei Hall",
+            "credits": 3,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Wed",
+                    "start": "08:00",
+                    "end": "09:30"
+                },
+                {
+                    "day": "Wed",
+                    "start": "09:30",
+                    "end": "11:00"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+            "instructor": "",
+            "location": "Lab 8",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sat",
+                    "start": "09:30",
+                    "end": "11:00"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-2",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+            "instructor": "",
+            "location": "Library Lab",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sun",
+                    "start": "11:15",
+                    "end": "12:45"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-3",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+            "instructor": "",
+            "location": "Lab 7",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sun",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-4",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+            "instructor": "",
+            "location": "Lab 7",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "08:00",
+                    "end": "09:30"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-5",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+            "instructor": "",
+            "location": "Lab 3",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-6",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+            "instructor": "",
+            "location": "Lab 6",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "14:30",
+                    "end": "16:00"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-7",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+            "instructor": "",
+            "location": "Lab 7",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "16:15",
+                    "end": "17:45"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-8",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+            "instructor": "",
+            "location": "Lab 6",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "18:00",
+                    "end": "19:30"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-9",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+            "instructor": "",
+            "location": "Lab 6 / Lab 3",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Tue",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-10",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+            "instructor": "",
+            "location": "Lab 6",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Tue",
+                    "start": "14:30",
+                    "end": "16:00"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-11",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+            "instructor": "",
+            "location": "Lab 6 / Lab 7",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Wed",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-12",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+            "instructor": "",
+            "location": "Library Lab",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Wed",
+                    "start": "14:30",
+                    "end": "16:00"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-13",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+            "instructor": "",
+            "location": "Library Lab",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Thu",
+                    "start": "14:30",
+                    "end": "16:00"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-14",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+            "instructor": "",
+            "location": "Library Lab",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Thu",
+                    "start": "16:15",
+                    "end": "17:45"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-15",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+            "instructor": "",
+            "location": "Lab 6",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sat",
+                    "start": "09:30",
+                    "end": "11:00"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-16",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+            "instructor": "",
+            "location": "Lab 7",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sun",
+                    "start": "11:15",
+                    "end": "12:45"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-17",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+            "instructor": "",
+            "location": "Lab 8",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sun",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-18",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+            "instructor": "",
+            "location": "Lab 7",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "11:15",
+                    "end": "12:45"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-19",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+            "instructor": "",
+            "location": "Lab 8",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "14:30",
+                    "end": "16:00"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-20",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+            "instructor": "",
+            "location": "Lab 8",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Tue",
+                    "start": "09:30",
+                    "end": "11:00"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-21",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+            "instructor": "",
+            "location": "Library Lab",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Tue",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-22",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+            "instructor": "",
+            "location": "Lab 7",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Tue",
+                    "start": "14:30",
+                    "end": "16:00"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-23",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+            "instructor": "",
+            "location": "Lab 3",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Wed",
+                    "start": "11:15",
+                    "end": "12:45"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-24",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+            "instructor": "",
+            "location": "Lab 5",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Wed",
+                    "start": "14:30",
+                    "end": "16:00"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-25",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+            "instructor": "",
+            "location": "Lab 5 / Lab 7",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Wed",
+                    "start": "16:15",
+                    "end": "17:45"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-26",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+            "instructor": "",
+            "location": "Lab 5",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Thu",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-fundamentals-of-computer-sciences-lab-27",
+            "name": "Fundamentals of Computer Sciences",
+            "type": "lab",
+            "groupId": "grp-fundamentals-of-computer-sciences-lab",
+            "subgroupId": "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5",
+            "instructor": "",
+            "location": "Lab 7",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Thu",
+                    "start": "14:30",
+                    "end": "16:00"
+                }
+            ]
+        },
+        {
+            "id": "class-math-0-tutorial",
+            "name": "Math_0",
+            "type": "tutorial",
+            "groupId": "grp-math-0-tutorial",
+            "subgroupId": "sub-math-0-tut-a-s1_2_3_4-sat-p3",
+            "instructor": "",
+            "location": "Hall 8",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sat",
+                    "start": "11:15",
+                    "end": "12:45"
+                }
+            ]
+        },
+        {
+            "id": "class-math-0-tutorial-2",
+            "name": "Math_0",
+            "type": "tutorial",
+            "groupId": "grp-math-0-tutorial",
+            "subgroupId": "sub-math-0-tut-a-s5_6_7_8-sun-p3",
+            "instructor": "",
+            "location": "Hall 10",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sun",
+                    "start": "11:15",
+                    "end": "12:45"
+                }
+            ]
+        },
+        {
+            "id": "class-math-0-tutorial-3",
+            "name": "Math_0",
+            "type": "tutorial",
+            "groupId": "grp-math-0-tutorial",
+            "subgroupId": "sub-math-0-tut-a-s9_10-wed-p2",
+            "instructor": "",
+            "location": "Hall 10",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Wed",
+                    "start": "09:30",
+                    "end": "11:00"
+                }
+            ]
+        },
+        {
+            "id": "class-math-0-tutorial-4",
+            "name": "Math_0",
+            "type": "tutorial",
+            "groupId": "grp-math-0-tutorial",
+            "subgroupId": "sub-math-0-tut-b-s11_12_13_14-sun-p4",
+            "instructor": "",
+            "location": "Hall 10",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sun",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-math-0-tutorial-5",
+            "name": "Math_0",
+            "type": "tutorial",
+            "groupId": "grp-math-0-tutorial",
+            "subgroupId": "sub-math-0-tut-b-s15_16_17_18_19_20-thu-p4",
+            "instructor": "",
+            "location": "Hall 8",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Thu",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-mathematics-1-tutorial",
+            "name": "Mathematics-1",
+            "type": "tutorial",
+            "groupId": "grp-mathematics-1-tutorial",
+            "subgroupId": "sub-mathematics-1-tut-a-s1_2_3_4-sun-p3",
+            "instructor": "",
+            "location": "Hall 9",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sun",
+                    "start": "11:15",
+                    "end": "12:45"
+                }
+            ]
+        },
+        {
+            "id": "class-mathematics-1-tutorial-2",
+            "name": "Mathematics-1",
+            "type": "tutorial",
+            "groupId": "grp-mathematics-1-tutorial",
+            "subgroupId": "sub-mathematics-1-tut-a-s9_10_11_12-mon-p4",
+            "instructor": "",
+            "location": "Hall 10",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-mathematics-1-tutorial-3",
+            "name": "Mathematics-1",
+            "type": "tutorial",
+            "groupId": "grp-mathematics-1-tutorial",
+            "subgroupId": "sub-mathematics-1-tut-a-s5_6_7_8-mon-p5",
+            "instructor": "",
+            "location": "Hall 9",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "14:30",
+                    "end": "16:00"
+                }
+            ]
+        },
+        {
+            "id": "class-mathematics-1-tutorial-4",
+            "name": "Mathematics-1",
+            "type": "tutorial",
+            "groupId": "grp-mathematics-1-tutorial",
+            "subgroupId": "sub-mathematics-1-tut-a-s13_14_15_16-thu-p4",
+            "instructor": "",
+            "location": "Hall 10",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Thu",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-mathematics-1-tutorial-5",
+            "name": "Mathematics-1",
+            "type": "tutorial",
+            "groupId": "grp-mathematics-1-tutorial",
+            "subgroupId": "sub-mathematics-1-tut-b-s17_18_19_20-sun-p4",
+            "instructor": "",
+            "location": "Hall 9",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sun",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-mathematics-1-tutorial-6",
+            "name": "Mathematics-1",
+            "type": "tutorial",
+            "groupId": "grp-mathematics-1-tutorial",
+            "subgroupId": "sub-mathematics-1-tut-b-s29_30_31_32-wed-p3",
+            "instructor": "",
+            "location": "Hall 10",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Wed",
+                    "start": "11:15",
+                    "end": "12:45"
+                }
+            ]
+        },
+        {
+            "id": "class-mathematics-1-tutorial-7",
+            "name": "Mathematics-1",
+            "type": "tutorial",
+            "groupId": "grp-mathematics-1-tutorial",
+            "subgroupId": "sub-mathematics-1-tut-b-s25_26_27_28-wed-p5",
+            "instructor": "",
+            "location": "Hall 9",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Wed",
+                    "start": "14:30",
+                    "end": "16:00"
+                }
+            ]
+        },
+        {
+            "id": "class-mathematics-1-tutorial-8",
+            "name": "Mathematics-1",
+            "type": "tutorial",
+            "groupId": "grp-mathematics-1-tutorial",
+            "subgroupId": "sub-mathematics-1-tut-b-s21_22_23_24-thu-p5",
+            "instructor": "",
+            "location": "Hall 10",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Thu",
+                    "start": "14:30",
+                    "end": "16:00"
+                }
+            ]
+        },
+        {
+            "id": "class-discrete-mathematics-tutorial",
+            "name": "Discrete Mathematics",
+            "type": "tutorial",
+            "groupId": "grp-discrete-mathematics-tutorial",
+            "subgroupId": "sub-discrete-mathematics-tut-a-s25_26_27_28_29_30_31_32-mon-p1",
+            "instructor": "",
+            "location": "Hall 9 / Hall 10",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "08:00",
+                    "end": "09:30"
+                }
+            ]
+        },
+        {
+            "id": "class-discrete-mathematics-tutorial-2",
+            "name": "Discrete Mathematics",
+            "type": "tutorial",
+            "groupId": "grp-discrete-mathematics-tutorial",
+            "subgroupId": "sub-discrete-mathematics-tut-a-s9_10_11_12-tue-p1",
+            "instructor": "",
+            "location": "Hall 10",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Tue",
+                    "start": "08:00",
+                    "end": "09:30"
+                }
+            ]
+        },
+        {
+            "id": "class-discrete-mathematics-tutorial-3",
+            "name": "Discrete Mathematics",
+            "type": "tutorial",
+            "groupId": "grp-discrete-mathematics-tutorial",
+            "subgroupId": "sub-discrete-mathematics-tut-a-s1_2_3_4_5_6_7_8-tue-p2",
+            "instructor": "",
+            "location": "Hall 7",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Tue",
+                    "start": "09:30",
+                    "end": "11:00"
+                }
+            ]
+        },
+        {
+            "id": "class-discrete-mathematics-tutorial-4",
+            "name": "Discrete Mathematics",
+            "type": "tutorial",
+            "groupId": "grp-discrete-mathematics-tutorial",
+            "subgroupId": "sub-discrete-mathematics-tut-a-s13_14_15_16-tue-p4",
+            "instructor": "",
+            "location": "Hall 9",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Tue",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-discrete-mathematics-tutorial-5",
+            "name": "Discrete Mathematics",
+            "type": "tutorial",
+            "groupId": "grp-discrete-mathematics-tutorial",
+            "subgroupId": "sub-discrete-mathematics-tut-a-s17_18_19_20-wed-p3",
+            "instructor": "",
+            "location": "Hall 9",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Wed",
+                    "start": "11:15",
+                    "end": "12:45"
+                }
+            ]
+        },
+        {
+            "id": "class-discrete-mathematics-tutorial-6",
+            "name": "Discrete Mathematics",
+            "type": "tutorial",
+            "groupId": "grp-discrete-mathematics-tutorial",
+            "subgroupId": "sub-discrete-mathematics-tut-a-s21_22_23_24-wed-p4",
+            "instructor": "",
+            "location": "Hall 10",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Wed",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-discrete-mathematics-tutorial-7",
+            "name": "Discrete Mathematics",
+            "type": "tutorial",
+            "groupId": "grp-discrete-mathematics-tutorial",
+            "subgroupId": "sub-discrete-mathematics-tut-b-s33_34_35_36_37_38_39_40-sun-p5",
+            "instructor": "",
+            "location": "Hall 9 / Hall 10",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sun",
+                    "start": "14:30",
+                    "end": "16:00"
+                }
+            ]
+        },
+        {
+            "id": "class-discrete-mathematics-tutorial-8",
+            "name": "Discrete Mathematics",
+            "type": "tutorial",
+            "groupId": "grp-discrete-mathematics-tutorial",
+            "subgroupId": "sub-discrete-mathematics-tut-b-s49_50_51_52-tue-p1",
+            "instructor": "",
+            "location": "Hall 9",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Tue",
+                    "start": "08:00",
+                    "end": "09:30"
+                }
+            ]
+        },
+        {
+            "id": "class-discrete-mathematics-tutorial-9",
+            "name": "Discrete Mathematics",
+            "type": "tutorial",
+            "groupId": "grp-discrete-mathematics-tutorial",
+            "subgroupId": "sub-discrete-mathematics-tut-b-s41_42_43_44-tue-p2",
+            "instructor": "",
+            "location": "Hall 9",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Tue",
+                    "start": "09:30",
+                    "end": "11:00"
+                }
+            ]
+        },
+        {
+            "id": "class-discrete-mathematics-tutorial-10",
+            "name": "Discrete Mathematics",
+            "type": "tutorial",
+            "groupId": "grp-discrete-mathematics-tutorial",
+            "subgroupId": "sub-discrete-mathematics-tut-b-s45_46_47_48_53_54_55_56-tue-p4",
+            "instructor": "",
+            "location": "Hall 10 / Hall 9",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Tue",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-discrete-mathematics-tutorial-11",
+            "name": "Discrete Mathematics",
+            "type": "tutorial",
+            "groupId": "grp-discrete-mathematics-tutorial",
+            "subgroupId": "sub-discrete-mathematics-tut-b-s57_58_59_60_61_62_63_64-wed-p4",
+            "instructor": "",
+            "location": "Hall 9 / Hall 10",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Wed",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-electronics-tutorial",
+            "name": "Electronics",
+            "type": "tutorial",
+            "groupId": "grp-electronics-tutorial",
+            "subgroupId": "sub-electronics-tut-a-s8_9_10_11-mon-p4",
+            "instructor": "",
+            "location": "Hall 9",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-electronics-tutorial-2",
+            "name": "Electronics",
+            "type": "tutorial",
+            "groupId": "grp-electronics-tutorial",
+            "subgroupId": "sub-electronics-tut-a-s1_2_3_4_5_6_7-mon-p5",
+            "instructor": "",
+            "location": "Hall 7",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "14:30",
+                    "end": "16:00"
+                }
+            ]
+        },
+        {
+            "id": "class-electronics-tutorial-3",
+            "name": "Electronics",
+            "type": "tutorial",
+            "groupId": "grp-electronics-tutorial",
+            "subgroupId": "sub-electronics-tut-a-s12_13_14_15_16_17_18-tue-p1",
+            "instructor": "",
+            "location": "Hall 7",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Tue",
+                    "start": "08:00",
+                    "end": "09:30"
+                }
+            ]
+        },
+        {
+            "id": "class-electronics-tutorial-4",
+            "name": "Electronics",
+            "type": "tutorial",
+            "groupId": "grp-electronics-tutorial",
+            "subgroupId": "sub-electronics-tut-a-s19_20_21_22_23-tue-p4",
+            "instructor": "",
+            "location": "Hall 8",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Tue",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-electronics-tutorial-5",
+            "name": "Electronics",
+            "type": "tutorial",
+            "groupId": "grp-electronics-tutorial",
+            "subgroupId": "sub-electronics-tut-a-s24_25_26_27_28_29_30-wed-p4",
+            "instructor": "",
+            "location": "Hall 7",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Wed",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-electronics-tutorial-6",
+            "name": "Electronics",
+            "type": "tutorial",
+            "groupId": "grp-electronics-tutorial",
+            "subgroupId": "sub-electronics-tut-b-s39_40_41_42_43_44_45_46-sun-p3",
+            "instructor": "",
+            "location": "Hall 7",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sun",
+                    "start": "11:15",
+                    "end": "12:45"
+                }
+            ]
+        },
+        {
+            "id": "class-electronics-tutorial-7",
+            "name": "Electronics",
+            "type": "tutorial",
+            "groupId": "grp-electronics-tutorial",
+            "subgroupId": "sub-electronics-tut-b-s51_52_53_54-mon-p4",
+            "instructor": "",
+            "location": "Hall 10",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-electronics-tutorial-8",
+            "name": "Electronics",
+            "type": "tutorial",
+            "groupId": "grp-electronics-tutorial",
+            "subgroupId": "sub-electronics-tut-b-s35_36_37_38-tue-p2",
+            "instructor": "",
+            "location": "Hall 10",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Tue",
+                    "start": "09:30",
+                    "end": "11:00"
+                }
+            ]
+        },
+        {
+            "id": "class-electronics-tutorial-9",
+            "name": "Electronics",
+            "type": "tutorial",
+            "groupId": "grp-electronics-tutorial",
+            "subgroupId": "sub-electronics-tut-b-s31_32_33_34-tue-p4",
+            "instructor": "",
+            "location": "Hall 10",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Tue",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-electronics-tutorial-10",
+            "name": "Electronics",
+            "type": "tutorial",
+            "groupId": "grp-electronics-tutorial",
+            "subgroupId": "sub-electronics-tut-b-s55_56_57_58_59_60-wed-p4",
+            "instructor": "",
+            "location": "Hall 7",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Wed",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-electronics-tutorial-11",
+            "name": "Electronics",
+            "type": "tutorial",
+            "groupId": "grp-electronics-tutorial",
+            "subgroupId": "sub-electronics-tut-b-s55_56_57_58-thu-p4",
+            "instructor": "",
+            "location": "Hall 9",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Thu",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "class-electronics-tutorial-12",
+            "name": "Electronics",
+            "type": "tutorial",
+            "groupId": "grp-electronics-tutorial",
+            "subgroupId": "sub-electronics-tut-b-s47_48_49_50-thu-p5",
+            "instructor": "",
+            "location": "Hall 9",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Thu",
+                    "start": "14:30",
+                    "end": "16:00"
+                }
+            ]
+        },
+        {
+            "id": "retake-structprog-lab",
+            "name": "Structured Programming",
+            "type": "lab",
+            "groupId": "grp-retake-structprog",
+            "subgroupId": null,
+            "instructor": "",
+            "location": "Lab 7 / Lab 5 / Lab 6 / Lab 3",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sat",
+                    "start": "08:00",
+                    "end": "09:30"
+                },
+                {
+                    "day": "Sat",
+                    "start": "09:30",
+                    "end": "11:00"
+                },
+                {
+                    "day": "Sat",
+                    "start": "11:15",
+                    "end": "12:45"
+                },
+                {
+                    "day": "Sat",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "retake-structprog-lec",
+            "name": "Structured Programming",
+            "type": "lecture",
+            "groupId": "grp-retake-structprog",
+            "subgroupId": null,
+            "instructor": "Dr. Soha Makady",
+            "location": "Exam. Room 404",
+            "credits": 3,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sun",
+                    "start": "08:00",
+                    "end": "09:30"
+                },
+                {
+                    "day": "Sun",
+                    "start": "09:30",
+                    "end": "11:00"
+                }
+            ]
+        },
+        {
+            "id": "retake-probstat1-lec",
+            "name": "Probability and Statistics-1",
+            "type": "lecture",
+            "groupId": "grp-retake-probstat1",
+            "subgroupId": null,
+            "instructor": "Dr. Mai Abdel-Ghafar",
+            "location": "Exam. Room 404",
+            "credits": 3,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Sun",
+                    "start": "12:45",
+                    "end": "14:15"
+                },
+                {
+                    "day": "Sun",
+                    "start": "14:30",
+                    "end": "16:00"
+                }
+            ]
+        },
+        {
+            "id": "retake-probstat1-sec",
+            "name": "Probability and Statistics-1",
+            "type": "tutorial",
+            "groupId": "grp-retake-probstat1",
+            "subgroupId": null,
+            "instructor": "",
+            "location": "Exam. Room 404",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "12:45",
+                    "end": "14:15"
+                }
+            ]
+        },
+        {
+            "id": "retake-math2-lec",
+            "name": "Mathematics-2",
+            "type": "lecture",
+            "groupId": "grp-retake-math2",
+            "subgroupId": null,
+            "instructor": "Dr. Shourouk Wael",
+            "location": "Exam. Room 404",
+            "credits": 3,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "08:00",
+                    "end": "09:30"
+                },
+                {
+                    "day": "Mon",
+                    "start": "09:30",
+                    "end": "11:00"
+                }
+            ]
+        },
+        {
+            "id": "retake-math2-sec",
+            "name": "Mathematics-2",
+            "type": "tutorial",
+            "groupId": "grp-retake-math2",
+            "subgroupId": null,
+            "instructor": "",
+            "location": "Exam. Room 404",
+            "credits": 0,
+            "attendAllSessions": false,
+            "sessions": [
+                {
+                    "day": "Mon",
+                    "start": "11:15",
+                    "end": "12:45"
+                }
+            ]
+        }
+    ]
+}

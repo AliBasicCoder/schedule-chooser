@@ -7,7 +7,6 @@ import type {
   GeneratedSchedule,
   SolverConfig,
   SolverResult,
-  Subgroup,
 } from '../types/schedule';
 import { hasBlocked, hasOverlap, sessionToSlotKeys, timeToMin } from './time';
 
@@ -81,83 +80,119 @@ export function scoreSchedule(
   return { timeFit, days, gaps };
 }
 
-/** Check whether a subset of subgroups is mutually conflict-free */
-function isConflictFree(subgroups: Subgroup[], conflictMap: Map<string, Set<string>>): boolean {
-  for (let i = 0; i < subgroups.length; i++) {
-    for (let j = i + 1; j < subgroups.length; j++) {
-      if (conflictMap.get(subgroups[i].id)?.has(subgroups[j].id) ||
-        conflictMap.get(subgroups[j].id)?.has(subgroups[i].id)) {
-        return false;
-      }
-    }
-  }
-  return true;
+// ────────────────────────────────────────────────────────────────────────────
+// Group tree helpers
+// ────────────────────────────────────────────────────────────────────────────
+
+interface GroupTreeContext {
+  groupById: Map<string, Group>;
+  childrenOf: Map<string, string[]>;  // parentId → child group IDs
 }
 
-/** Power set helper */
-function powerSet<T>(arr: T[]): T[][] {
-  const result: T[][] = [[]];
-  for (const item of arr) {
-    const len = result.length;
-    for (let i = 0; i < len; i++) {
-      result.push([...result[i], item]);
+/** Build parent→children lookup from a flat group list */
+function buildGroupTree(groups: Group[]): GroupTreeContext {
+  const groupById = new Map<string, Group>();
+  const childrenOf = new Map<string, string[]>();
+
+  for (const g of groups) {
+    groupById.set(g.id, g);
+  }
+
+  for (const g of groups) {
+    const pid = g.parentId ?? null;
+    if (pid !== null) {
+      if (!childrenOf.has(pid)) childrenOf.set(pid, []);
+      childrenOf.get(pid)!.push(g.id);
     }
+  }
+
+  return { groupById, childrenOf };
+}
+
+/** Get all descendant group IDs (inclusive) */
+function getDescendants(groupId: string, ctx: GroupTreeContext): string[] {
+  const result: string[] = [groupId];
+  const children = ctx.childrenOf.get(groupId) || [];
+  for (const childId of children) {
+    result.push(...getDescendants(childId, ctx));
   }
   return result;
 }
 
-/** Enumerate all valid independent sets for conflicting subgroups */
-function enumerateIndependentSets(subgroups: Subgroup[]): string[][] {
-  if (subgroups.length === 0) return [];
-  const n = subgroups.length;
-  if (n > 50) {
-    throw new Error(`Too many conflicting subgroups (${n}) to enumerate; max supported is 20.`);
+/** Get all ancestor group IDs (exclusive — does not include self) */
+function getAncestors(groupId: string, ctx: GroupTreeContext): string[] {
+  const result: string[] = [];
+  let current = ctx.groupById.get(groupId);
+  while (current && current.parentId) {
+    result.push(current.parentId);
+    current = ctx.groupById.get(current.parentId);
   }
-
-  // Pre-build conflict map for O(1) lookups instead of Array.includes
-  const conflictMap = new Map<string, Set<string>>();
-  for (const sg of subgroups) {
-    conflictMap.set(sg.id, new Set(sg.conflictsWith || []));
-  }
-
-  const results: string[][] = [];
-  for (let mask = 1; mask < (1 << n); mask++) {
-    const subset: Subgroup[] = [];
-    for (let i = 0; i < n; i++) {
-      if (mask & (1 << i)) subset.push(subgroups[i]);
-    }
-    if (isConflictFree(subset, conflictMap)) {
-      results.push(subset.map((s) => s.id));
-    }
-  }
-  return results;
+  return result;
 }
 
 /**
- * Get all valid subgroup combinations for a group.
+ * Get all valid group-selection combinations for a root group's subtree.
+ *
+ * Returns an array of group-ID arrays. Each inner array is a set of selected
+ * group IDs (the root + chosen descendants) that form a valid selection.
+ *
+ * For childrenConflict parents: branch on each child (pick exactly one).
+ * For non-childrenConflict parents: include all children.
+ * Recurse into each child's subtree.
  */
-export function getSubgroupCombinations(group: Group): string[][] {
-  const subgroups = group.subgroups || [];
-  if (subgroups.length === 0) return [[]];
+function getGroupCombinations(
+  groupId: string,
+  ctx: GroupTreeContext,
+  manualChoices?: Record<string, { groupIds?: string[]; subgroupIds?: string[] }>
+): string[][] {
+  const children = ctx.childrenOf.get(groupId) || [];
+  const group = ctx.groupById.get(groupId)!;
 
-  const conflicting = subgroups.filter((s) => s.conflictMode === 'conflicting');
-  const nonConflicting = subgroups.filter((s) => s.conflictMode !== 'conflicting');
+  if (children.length === 0) {
+    // Leaf group — just itself
+    return [[groupId]];
+  }
 
-  const conflictingCombos = enumerateIndependentSets(conflicting);
-  const ncIds = nonConflicting.map((s) => s.id);
-  const ncCombos = powerSet(ncIds);
-
-  const result: string[][] = [];
-  const ccList = conflictingCombos.length > 0 ? conflictingCombos : [[]];
-
-  for (const cc of ccList) {
-    for (const nc of ncCombos) {
-      result.push([...cc, ...nc]);
+  // If manual choices exist for this group, filter children accordingly
+  let activeChildren = children;
+  const choice = manualChoices?.[groupId];
+  const chosenList = choice?.groupIds || choice?.subgroupIds;
+  if (chosenList && chosenList.length > 0) {
+    const chosenSet = new Set(chosenList);
+    const filtered = children.filter((c) => chosenSet.has(c));
+    if (filtered.length > 0) {
+      activeChildren = filtered;
     }
   }
 
-  return result;
+  if (group.childrenConflict) {
+    // Pick exactly one child, recurse into its subtree
+    const result: string[][] = [];
+    for (const childId of activeChildren) {
+      const childCombos = getGroupCombinations(childId, ctx, manualChoices);
+      for (const combo of childCombos) {
+        result.push([groupId, ...combo]);
+      }
+    }
+    return result;
+  } else {
+    // Include active children — cartesian product of their combos
+    let combos: string[][] = [[groupId]];
+    for (const childId of activeChildren) {
+      const childCombos = getGroupCombinations(childId, ctx, manualChoices);
+      const newCombos: string[][] = [];
+      for (const existing of combos) {
+        for (const childCombo of childCombos) {
+          newCombos.push([...existing, ...childCombo]);
+        }
+      }
+      combos = newCombos;
+    }
+    return combos;
+  }
 }
+
+// ────────────────────────────────────────────────────────────────────────────
 
 type Decision =
   | { type: 'standalone'; classObj: ClassItem }
@@ -190,8 +225,6 @@ export function generateSchedules(
   const crossedSet = new Set(crossedOff);
 
   // Use a higher internal generation limit so the post-sort has a diverse pool.
-  // Without this, DFS fills up maxResults from the first branches explored,
-  // never reaching alternative sessions that may score better.
   const generationLimit = Math.min(maxResults * 20, 10000);
 
   // Pre-sort each class's sessions by time-fit penalty so the solver
@@ -223,20 +256,33 @@ export function generateSchedules(
     }
   }
 
+  // Build group tree
+  const treeCtx = buildGroupTree(groups);
+
+  // Identify root groups (no parent)
+  const rootGroups = groups.filter((g) => !g.parentId);
+
   const standaloneClasses = classes.filter((c) => c.groupId === null || c.groupId === undefined);
-  const groupedClasses = classes.filter((c) => c.groupId !== null && c.groupId !== undefined);
 
-  const classesByGroupSub: Record<string, ClassItem[]> = {};
+  // Build a map of groupId → classes that directly belong to that group
   const classesByGroup: Record<string, ClassItem[]> = {};
+  for (const c of classes) {
+    if (c.groupId) {
+      if (!classesByGroup[c.groupId]) classesByGroup[c.groupId] = [];
+      classesByGroup[c.groupId].push(c);
+    }
+  }
 
-  for (const c of groupedClasses) {
-    const key = `${c.groupId}|${c.subgroupId || ''}`;
-    if (!classesByGroupSub[key]) classesByGroupSub[key] = [];
-    classesByGroupSub[key].push(c);
-
-    const gKey = c.groupId as string;
-    if (!classesByGroup[gKey]) classesByGroup[gKey] = [];
-    classesByGroup[gKey].push(c);
+  // Collect all classes belonging to a group and its descendants
+  function getClassesForGroupTree(groupId: string): ClassItem[] {
+    const descendantIds = getDescendants(groupId, treeCtx);
+    const result: ClassItem[] = [];
+    for (const gid of descendantIds) {
+      if (classesByGroup[gid]) {
+        result.push(...classesByGroup[gid]);
+      }
+    }
+    return result;
   }
 
   const decisions: Decision[] = [];
@@ -244,8 +290,8 @@ export function generateSchedules(
     decisions.push({ type: 'standalone', classObj: c });
   }
 
-  const reqGroups = groups.filter((g) => g.required);
-  const optGroups = groups.filter((g) => !g.required);
+  const reqGroups = rootGroups.filter((g) => g.required);
+  const optGroups = rootGroups.filter((g) => !g.required);
   for (const g of [...reqGroups, ...optGroups]) {
     decisions.push({ type: 'group', group: g });
   }
@@ -334,7 +380,6 @@ export function generateSchedules(
 
     if (dec.type === 'standalone') {
       // Standalone classes are always required — the user explicitly added them.
-      // If tryAddClass can't place any session, the branch correctly prunes.
       tryAddClass(dec.classObj, () => backtrack(decIdx + 1));
     } else if (dec.type === 'group') {
       const group = dec.group;
@@ -345,7 +390,7 @@ export function generateSchedules(
         return;
       }
 
-      const allGroupClasses = classesByGroup[group.id] || [];
+      const allGroupClasses = getClassesForGroupTree(group.id);
       if (allGroupClasses.length === 0) {
         if (group.required) return;
         backtrack(decIdx + 1);
@@ -353,7 +398,6 @@ export function generateSchedules(
       }
 
       // If optional and no class in this group is pinned, explore the "skip group" branch first.
-      // Intentional fall-through: we then also explore "include group" branches below.
       if (!group.required) {
         const hasPinnedInGroup = allGroupClasses.some((c) => pinnedSet.has(c.id));
         if (!hasPinnedInGroup) {
@@ -361,49 +405,79 @@ export function generateSchedules(
         }
       }
 
-      // Determine subgroup combinations
-      let subCombos: string[][];
-      if (groupMode === 'manual' && manualGroupChoices && manualGroupChoices[group.id]) {
-        subCombos = [manualGroupChoices[group.id].subgroupIds || []];
-      } else {
-        subCombos = getSubgroupCombinations(group);
+      // Determine group selection combinations
+      const combos = getGroupCombinations(
+        group.id,
+        treeCtx,
+        groupMode === 'manual' ? manualGroupChoices : undefined
+      );
+
+      // Apply group-level conflicts: exclude conflicting groups and their descendants
+      const newExclusions: string[] = [];
+      for (const gid of (group.conflictsWith || [])) {
+        if (!excludedGroups.has(gid)) {
+          const descendants = getDescendants(gid, treeCtx);
+          for (const d of descendants) {
+            if (!excludedGroups.has(d)) {
+              newExclusions.push(d);
+              excludedGroups.add(d);
+            }
+          }
+        }
       }
 
-      const newExclusions = (group.conflictsWith || []).filter((gid) => !excludedGroups.has(gid));
-      for (const gid of newExclusions) excludedGroups.add(gid);
-
-      for (const combo of subCombos) {
+      for (const combo of combos) {
         if (results.length >= generationLimit) break;
 
+        // combo is a list of selected group IDs in this tree
+        // Collect classes that directly belong to any selected group
+        const selectedGroupIds = new Set(combo);
         const selectedClasses: ClassItem[] = [];
-        const directKey = `${group.id}|`;
-        if (classesByGroupSub[directKey]) {
-          selectedClasses.push(...classesByGroupSub[directKey]);
-        }
-        for (const sgId of combo) {
-          const key = `${group.id}|${sgId}`;
-          if (classesByGroupSub[key]) {
-            selectedClasses.push(...classesByGroupSub[key]);
+        for (const gid of selectedGroupIds) {
+          if (classesByGroup[gid]) {
+            selectedClasses.push(...classesByGroup[gid]);
           }
         }
 
         if (selectedClasses.length === 0 && group.required) continue;
 
+        // Check if any pinned class's group is outside this combo
         let pinConflict = false;
         for (const c of allGroupClasses) {
-          if (pinnedSet.has(c.id) && c.subgroupId && !combo.includes(c.subgroupId)) {
+          if (pinnedSet.has(c.id) && c.groupId && !selectedGroupIds.has(c.groupId)) {
             pinConflict = true;
             break;
           }
         }
         if (pinConflict) continue;
 
+        // Apply cross-group conflicts from selected child groups
+        const comboExclusions: string[] = [];
+        for (const gid of selectedGroupIds) {
+          const g = treeCtx.groupById.get(gid);
+          if (g && g.conflictsWith) {
+            for (const conflictGid of g.conflictsWith) {
+              const descendants = getDescendants(conflictGid, treeCtx);
+              for (const d of descendants) {
+                if (!excludedGroups.has(d)) {
+                  comboExclusions.push(d);
+                  excludedGroups.add(d);
+                }
+              }
+            }
+          }
+        }
+
         processGroupClasses(selectedClasses, 0, () => {
           backtrack(decIdx + 1);
         });
+
+        // Undo combo-specific exclusions
+        for (const d of comboExclusions) excludedGroups.delete(d);
       }
 
-      for (const gid of newExclusions) excludedGroups.delete(gid);
+      // Undo root-level exclusions
+      for (const d of newExclusions) excludedGroups.delete(d);
     }
   }
 

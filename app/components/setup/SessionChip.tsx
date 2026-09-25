@@ -23,12 +23,8 @@ export function SessionChip({ chip, interactive = true }: SessionChipProps) {
   const isCrossedDueToPin = isSessionCrossedDueToPin(classObj.id, sessionIndex);
   const isCrossed = isSessionCrossed(classObj.id, sessionIndex);
 
-  // Group and Subgroup names
+  // Group name (from flat groups list)
   const group = classObj.groupId ? scheduleData?.groups.find((g) => g.id === classObj.groupId) : null;
-  const subgroup =
-    group && classObj.subgroupId
-      ? group.subgroups?.find((sg) => sg.id === classObj.subgroupId)
-      : null;
 
   // Type gradient styling
   const getTypeStyle = (type?: string) => {
@@ -50,7 +46,7 @@ export function SessionChip({ chip, interactive = true }: SessionChipProps) {
   // Tooltip content
   const tooltipLines = [
     classObj.name,
-    group || subgroup ? `Group: ${[group?.name, subgroup?.name].filter(Boolean).join(' • ')}` : '',
+    group ? `Group: ${group.name}` : '',
     classObj.instructor ? `Instructor: ${classObj.instructor}` : '',
     classObj.location ? `Location: ${classObj.location}` : '',
     `Time: ${session.day} ${session.start}–${session.end}`,
@@ -145,16 +141,11 @@ export function SessionChip({ chip, interactive = true }: SessionChipProps) {
         )}
       </div>
 
-      {/* Badges / Subgroup & Info Row */}
+      {/* Badges / Group & Info Row */}
       <div className="flex items-center gap-1 overflow-hidden leading-none">
-        {/* Subgroup / Group Badge */}
-        {subgroup && width > 60 && (
+        {/* Group Badge */}
+        {group && width > 60 && (
           <span className="shrink-0 rounded bg-black/40 px-1 py-0.5 text-[8.5px] font-bold text-white border border-white/20">
-            {subgroup.name}
-          </span>
-        )}
-        {!subgroup && group && width > 80 && (
-          <span className="shrink-0 rounded bg-black/30 px-1 py-0.5 text-[8.5px] font-medium text-white/90">
             {group.name}
           </span>
         )}

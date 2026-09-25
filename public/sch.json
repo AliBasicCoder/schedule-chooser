@@ -14,177 +14,165 @@
         {
             "id": "grp-ml-lab",
             "name": "Machine Learning Lab Section",
+            "parentId": null,
             "required": true,
-            "conflictsWith": [],
-            "subgroups": [
-                {
-                    "id": "sub-ml-s12",
-                    "name": "S1,S2",
-                    "conflictMode": "conflicting",
-                    "conflictsWith": [
-                        "sub-ml-s34",
-                        "sub-ml-s56",
-                        "sub-ml-s78",
-                        "sub-sc-s12"
-                    ]
-                },
-                {
-                    "id": "sub-ml-s34",
-                    "name": "S3,S4",
-                    "conflictMode": "conflicting",
-                    "conflictsWith": [
-                        "sub-ml-s12",
-                        "sub-ml-s56",
-                        "sub-ml-s78",
-                        "sub-sc-s34"
-                    ]
-                },
-                {
-                    "id": "sub-ml-s56",
-                    "name": "S5,S6",
-                    "conflictMode": "conflicting",
-                    "conflictsWith": [
-                        "sub-ml-s12",
-                        "sub-ml-s34",
-                        "sub-ml-s78",
-                        "sub-sc-s56"
-                    ]
-                },
-                {
-                    "id": "sub-ml-s78",
-                    "name": "S7,S8",
-                    "conflictMode": "conflicting",
-                    "conflictsWith": [
-                        "sub-ml-s12",
-                        "sub-ml-s34",
-                        "sub-ml-s56",
-                        "sub-sc-s78"
-                    ]
-                }
+            "childrenConflict": true,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-ml-s12",
+            "name": "S1,S2",
+            "parentId": "grp-ml-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": [
+                "sub-sc-s12"
+            ]
+        },
+        {
+            "id": "sub-ml-s34",
+            "name": "S3,S4",
+            "parentId": "grp-ml-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": [
+                "sub-sc-s34"
+            ]
+        },
+        {
+            "id": "sub-ml-s56",
+            "name": "S5,S6",
+            "parentId": "grp-ml-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": [
+                "sub-sc-s56"
+            ]
+        },
+        {
+            "id": "sub-ml-s78",
+            "name": "S7,S8",
+            "parentId": "grp-ml-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": [
+                "sub-sc-s78"
             ]
         },
         {
             "id": "grp-sc-lab",
             "name": "Soft Computing Lab Section",
+            "parentId": null,
             "required": true,
-            "conflictsWith": [],
-            "subgroups": [
-                {
-                    "id": "sub-sc-s12",
-                    "name": "S1,S2",
-                    "conflictMode": "conflicting",
-                    "conflictsWith": [
-                        "sub-sc-s34",
-                        "sub-sc-s56",
-                        "sub-sc-s78",
-                        "sub-ml-s12"
-                    ]
-                },
-                {
-                    "id": "sub-sc-s34",
-                    "name": "S3,S4",
-                    "conflictMode": "conflicting",
-                    "conflictsWith": [
-                        "sub-sc-s12",
-                        "sub-sc-s56",
-                        "sub-sc-s78",
-                        "sub-ml-s34"
-                    ]
-                },
-                {
-                    "id": "sub-sc-s56",
-                    "name": "S5,S6",
-                    "conflictMode": "conflicting",
-                    "conflictsWith": [
-                        "sub-sc-s12",
-                        "sub-sc-s34",
-                        "sub-sc-s78",
-                        "sub-ml-s56"
-                    ]
-                },
-                {
-                    "id": "sub-sc-s78",
-                    "name": "S7,S8",
-                    "conflictMode": "conflicting",
-                    "conflictsWith": [
-                        "sub-sc-s12",
-                        "sub-sc-s34",
-                        "sub-sc-s56",
-                        "sub-ml-s78"
-                    ]
-                }
+            "childrenConflict": true,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-sc-s12",
+            "name": "S1,S2",
+            "parentId": "grp-sc-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": [
+                "sub-ml-s12"
+            ]
+        },
+        {
+            "id": "sub-sc-s34",
+            "name": "S3,S4",
+            "parentId": "grp-sc-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": [
+                "sub-ml-s34"
+            ]
+        },
+        {
+            "id": "sub-sc-s56",
+            "name": "S5,S6",
+            "parentId": "grp-sc-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": [
+                "sub-ml-s56"
+            ]
+        },
+        {
+            "id": "sub-sc-s78",
+            "name": "S7,S8",
+            "parentId": "grp-sc-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": [
+                "sub-ml-s78"
             ]
         },
         {
             "id": "grp-compilers-lab",
             "name": "Compilers Lab Section",
+            "parentId": null,
             "required": true,
-            "conflictsWith": [],
-            "subgroups": [
-                {
-                    "id": "sub-comp-s34",
-                    "name": "S3,S4",
-                    "conflictMode": "conflicting",
-                    "conflictsWith": [
-                        "sub-comp-s12",
-                        "sub-comp-s56"
-                    ]
-                },
-                {
-                    "id": "sub-comp-s12",
-                    "name": "S1,S2",
-                    "conflictMode": "conflicting",
-                    "conflictsWith": [
-                        "sub-comp-s34",
-                        "sub-comp-s56"
-                    ]
-                },
-                {
-                    "id": "sub-comp-s56",
-                    "name": "S5,S6",
-                    "conflictMode": "conflicting",
-                    "conflictsWith": [
-                        "sub-comp-s34",
-                        "sub-comp-s12",
-                        "sub-st-s56"
-                    ]
-                }
+            "childrenConflict": true,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-comp-s34",
+            "name": "S3,S4",
+            "parentId": "grp-compilers-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-comp-s12",
+            "name": "S1,S2",
+            "parentId": "grp-compilers-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-comp-s56",
+            "name": "S5,S6",
+            "parentId": "grp-compilers-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": [
+                "sub-st-s56"
             ]
         },
         {
             "id": "grp-selectedtopics-lab",
             "name": "Selected Topics in Computer Science-1 Lab Section",
+            "parentId": null,
             "required": true,
-            "conflictsWith": [],
-            "subgroups": [
-                {
-                    "id": "sub-st-s12",
-                    "name": "S1,S2",
-                    "conflictMode": "conflicting",
-                    "conflictsWith": [
-                        "sub-st-s34",
-                        "sub-st-s56"
-                    ]
-                },
-                {
-                    "id": "sub-st-s34",
-                    "name": "S3,S4",
-                    "conflictMode": "conflicting",
-                    "conflictsWith": [
-                        "sub-st-s12",
-                        "sub-st-s56"
-                    ]
-                },
-                {
-                    "id": "sub-st-s56",
-                    "name": "S5,S6",
-                    "conflictMode": "conflicting",
-                    "conflictsWith": [
-                        "sub-st-s34",
-                        "sub-st-s12",
-                        "sub-comp-s56"
-                    ]
-                }
+            "childrenConflict": true,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-st-s12",
+            "name": "S1,S2",
+            "parentId": "grp-selectedtopics-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-st-s34",
+            "name": "S3,S4",
+            "parentId": "grp-selectedtopics-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-st-s56",
+            "name": "S5,S6",
+            "parentId": "grp-selectedtopics-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": [
+                "sub-comp-s56"
             ]
         }
     ],
@@ -194,7 +182,6 @@
             "name": "Machine Learning",
             "type": "lecture",
             "groupId": null,
-            "subgroupId": null,
             "instructor": "Prof. Khaled Tawfik & Dr. Basma Mokhtar",
             "location": "Hall 7",
             "credits": 3,
@@ -217,7 +204,6 @@
             "name": "Compilers",
             "type": "lecture",
             "groupId": null,
-            "subgroupId": null,
             "instructor": "Dr. Amin Alam",
             "location": "Exam. Room 411",
             "credits": 3,
@@ -240,7 +226,6 @@
             "name": "Soft Computing",
             "type": "lecture",
             "groupId": null,
-            "subgroupId": null,
             "instructor": "Dr. Sabah El-Sayed",
             "location": "Exam. Room 411",
             "credits": 3,
@@ -263,7 +248,6 @@
             "name": "Selected Topics in Computer Science-1",
             "type": "lecture",
             "groupId": null,
-            "subgroupId": null,
             "instructor": "Dr. Mohamed Abdel-Wahab",
             "location": "Exam. Room 404",
             "credits": 3,
@@ -285,8 +269,7 @@
             "id": "ml-lab-s12",
             "name": "Machine Learning Lab",
             "type": "lab",
-            "groupId": "grp-ml-lab",
-            "subgroupId": "sub-ml-s12",
+            "groupId": "sub-ml-s12",
             "instructor": "",
             "location": "Lab 8",
             "credits": 0,
@@ -303,8 +286,7 @@
             "id": "ml-lab-s34",
             "name": "Machine Learning Lab",
             "type": "lab",
-            "groupId": "grp-ml-lab",
-            "subgroupId": "sub-ml-s34",
+            "groupId": "sub-ml-s34",
             "instructor": "",
             "location": "Lab 8",
             "credits": 0,
@@ -321,8 +303,7 @@
             "id": "ml-lab-s56",
             "name": "Machine Learning Lab",
             "type": "lab",
-            "groupId": "grp-ml-lab",
-            "subgroupId": "sub-ml-s56",
+            "groupId": "sub-ml-s56",
             "instructor": "",
             "location": "Ben-ElSarayat Lab 35",
             "credits": 0,
@@ -339,8 +320,7 @@
             "id": "ml-lab-s78",
             "name": "Machine Learning Lab",
             "type": "lab",
-            "groupId": "grp-ml-lab",
-            "subgroupId": "sub-ml-s78",
+            "groupId": "sub-ml-s78",
             "instructor": "",
             "location": "Ben-ElSarayat Lab 35",
             "credits": 0,
@@ -357,8 +337,7 @@
             "id": "sc-lab-s12",
             "name": "Soft Computing Lab",
             "type": "lab",
-            "groupId": "grp-sc-lab",
-            "subgroupId": "sub-sc-s12",
+            "groupId": "sub-sc-s12",
             "instructor": "",
             "location": "Lab 7",
             "credits": 0,
@@ -375,8 +354,7 @@
             "id": "sc-lab-s34",
             "name": "Soft Computing Lab",
             "type": "lab",
-            "groupId": "grp-sc-lab",
-            "subgroupId": "sub-sc-s34",
+            "groupId": "sub-sc-s34",
             "instructor": "",
             "location": "Lab 7",
             "credits": 0,
@@ -393,8 +371,7 @@
             "id": "sc-lab-s56",
             "name": "Soft Computing Lab",
             "type": "lab",
-            "groupId": "grp-sc-lab",
-            "subgroupId": "sub-sc-s56",
+            "groupId": "sub-sc-s56",
             "instructor": "",
             "location": "Ben-ElSarayat Lab 32",
             "credits": 0,
@@ -411,8 +388,7 @@
             "id": "sc-lab-s78",
             "name": "Soft Computing Lab",
             "type": "lab",
-            "groupId": "grp-sc-lab",
-            "subgroupId": "sub-sc-s78",
+            "groupId": "sub-sc-s78",
             "instructor": "",
             "location": "Ben-ElSarayat Lab 32",
             "credits": 0,
@@ -429,8 +405,7 @@
             "id": "comp-lab-s34",
             "name": "Compilers Lab",
             "type": "lab",
-            "groupId": "grp-compilers-lab",
-            "subgroupId": "sub-comp-s34",
+            "groupId": "sub-comp-s34",
             "instructor": "",
             "location": "Ben-ElSarayat Lab 32",
             "credits": 0,
@@ -447,8 +422,7 @@
             "id": "comp-lab-s12",
             "name": "Compilers Lab",
             "type": "lab",
-            "groupId": "grp-compilers-lab",
-            "subgroupId": "sub-comp-s12",
+            "groupId": "sub-comp-s12",
             "instructor": "",
             "location": "Ben-ElSarayat Lab 32",
             "credits": 0,
@@ -465,8 +439,7 @@
             "id": "comp-lab-s56",
             "name": "Compilers Lab",
             "type": "lab",
-            "groupId": "grp-compilers-lab",
-            "subgroupId": "sub-comp-s56",
+            "groupId": "sub-comp-s56",
             "instructor": "",
             "location": "Ben-ElSarayat Lab 32",
             "credits": 0,
@@ -483,8 +456,7 @@
             "id": "st-lab-s12",
             "name": "Selected Topics in Computer Science-1 Lab",
             "type": "lab",
-            "groupId": "grp-selectedtopics-lab",
-            "subgroupId": "sub-st-s12",
+            "groupId": "sub-st-s12",
             "instructor": "",
             "location": "Ben-ElSarayat Lab 35",
             "credits": 0,
@@ -501,8 +473,7 @@
             "id": "st-lab-s34",
             "name": "Selected Topics in Computer Science-1 Lab",
             "type": "lab",
-            "groupId": "grp-selectedtopics-lab",
-            "subgroupId": "sub-st-s34",
+            "groupId": "sub-st-s34",
             "instructor": "",
             "location": "Ben-ElSarayat Lab 35",
             "credits": 0,
@@ -519,8 +490,7 @@
             "id": "st-lab-s56",
             "name": "Selected Topics in Computer Science-1 Lab",
             "type": "lab",
-            "groupId": "grp-selectedtopics-lab",
-            "subgroupId": "sub-st-s56",
+            "groupId": "sub-st-s56",
             "instructor": "",
             "location": "Ben-ElSarayat Lab 35",
             "credits": 0,

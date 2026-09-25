@@ -12,7 +12,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { useSchedule } from '../../context/ScheduleContext';
-import type { GeneratedSchedule, ScheduleData } from '../../types/schedule';
+import type { GeneratedSchedule, ScheduleData, Group } from '../../types/schedule';
 import { timeToMin, minToTime } from '../../utils/time';
 
 interface PlainEnglishScheduleProps {
@@ -34,7 +34,16 @@ interface ConcreteMeeting {
   location?: string;
   credits: number;
   groupName?: string | null;
-  subgroupName?: string | null;
+}
+
+function getGroupAncestry(groupId: string | null | undefined, groupMap: Map<string, Group>): string[] {
+  const chain: string[] = [];
+  let curr = groupId ? groupMap.get(groupId) : undefined;
+  while (curr) {
+    chain.unshift(curr.name);
+    curr = curr.parentId ? groupMap.get(curr.parentId) : undefined;
+  }
+  return chain;
 }
 
 export function PlainEnglishSchedule({
@@ -57,11 +66,8 @@ export function PlainEnglishSchedule({
     if (!cls) continue;
     enrolledClasses.add(cls.id);
 
-    const group = cls.groupId ? groupMap.get(cls.groupId) : null;
-    const subgroup =
-      group && cls.subgroupId
-        ? group.subgroups?.find((s) => s.id === cls.subgroupId)
-        : null;
+    const groupAncestry = getGroupAncestry(cls.groupId, groupMap);
+    const groupName = groupAncestry.length > 0 ? groupAncestry.join(' • ') : null;
 
     for (const sIdx of sel.sessionIndices) {
       const s = cls.sessions[sIdx];
@@ -79,8 +85,7 @@ export function PlainEnglishSchedule({
         instructor: cls.instructor,
         location: cls.location,
         credits: cls.credits || 0,
-        groupName: group?.name || null,
-        subgroupName: subgroup?.name || null,
+        groupName,
       });
     }
   }
@@ -131,7 +136,7 @@ export function PlainEnglishSchedule({
         const m = dayList[i];
         let line = `  ${m.start} - ${m.end}: ${m.className}`;
         if (m.type) line += ` (${m.type.toUpperCase()})`;
-        if (m.subgroupName) line += ` [${m.subgroupName}]`;
+        if (m.groupName) line += ` [${m.groupName}]`;
         if (m.location) line += ` at ${m.location}`;
         if (m.instructor) line += ` with ${m.instructor}`;
         lines.push(line);
@@ -152,11 +157,9 @@ export function PlainEnglishSchedule({
     for (const cId of enrolledClasses) {
       const cls = classMap.get(cId);
       if (!cls) continue;
-      const group = cls.groupId ? groupMap.get(cls.groupId) : null;
-      const subgroup = group && cls.subgroupId ? group.subgroups?.find((s) => s.id === cls.subgroupId) : null;
+      const groupAncestry = getGroupAncestry(cls.groupId, groupMap);
       let desc = `• ${cls.name} (${cls.credits || 0} credits)`;
-      if (group) desc += ` - ${group.name}`;
-      if (subgroup) desc += ` (${subgroup.name})`;
+      if (groupAncestry.length > 0) desc += ` - ${groupAncestry.join(' • ')}`;
       lines.push(desc);
     }
 
@@ -286,10 +289,10 @@ export function PlainEnglishSchedule({
                             </span>
                           </div>
 
-                          {/* Subgroup / Section Info */}
-                          {(m.subgroupName || m.groupName) && (
+                          {/* Group / Section Info */}
+                          {m.groupName && (
                             <div className="mt-1 text-[11px] text-[#00D4AA] font-semibold">
-                              {m.subgroupName || m.groupName}
+                              {m.groupName}
                             </div>
                           )}
 
@@ -338,11 +341,7 @@ export function PlainEnglishSchedule({
           {Array.from(enrolledClasses).map((cId) => {
             const cls = classMap.get(cId);
             if (!cls) return null;
-            const group = cls.groupId ? groupMap.get(cls.groupId) : null;
-            const subgroup =
-              group && cls.subgroupId
-                ? group.subgroups?.find((s) => s.id === cls.subgroupId)
-                : null;
+            const groupAncestry = getGroupAncestry(cls.groupId, groupMap);
 
             return (
               <div
@@ -354,7 +353,9 @@ export function PlainEnglishSchedule({
                   <div className="font-semibold text-white truncate">{cls.name}</div>
                   <div className="text-[11px] text-slate-400">
                     {cls.credits ? `${cls.credits} credits` : '0 credits'}
-                    {subgroup && <span className="text-[#00D4AA] font-medium"> • {subgroup.name}</span>}
+                    {groupAncestry.length > 0 && (
+                      <span className="text-[#00D4AA] font-medium"> • {groupAncestry.join(' • ')}</span>
+                    )}
                   </div>
                 </div>
               </div>

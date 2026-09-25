@@ -53,6 +53,7 @@ export interface ScheduleContextType {
   updateTimeWindow: (start: string, end: string) => void;
   updatePriorityOrder: (order: PriorityCriterion[]) => void;
   setGroupMode: (mode: 'auto' | 'manual') => void;
+  setManualGroupChoice: (parentId: string, childId: string, isRadio: boolean, checked: boolean) => void;
   setManualSubgroupChoice: (groupId: string, subgroupId: string, isRadio: boolean, checked: boolean) => void;
   resetAll: () => void;
   runScheduleGeneration: () => void;
@@ -556,14 +557,69 @@ export function ScheduleProvider({ children }: { children: React.ReactNode }) {
     const groupMap: Record<string, any> = {};
     for (const g of scheduleData.groups) groupMap[g.id] = g;
 
+    // Helper: get all ancestors of a group
+    function getAncestorIds(gid: string): string[] {
+      const ancestors: string[] = [];
+      let cur = groupMap[gid];
+      while (cur && cur.parentId) {
+        ancestors.push(cur.parentId);
+        cur = groupMap[cur.parentId];
+      }
+      return ancestors;
+    }
+
+    // Check explicit conflictsWith (including inherited from ancestors)
     for (const gid of pinnedGroupIds) {
       const group = groupMap[gid];
-      if (group && group.conflictsWith) {
-        for (const conflictGid of group.conflictsWith) {
-          if (pinnedGroupIds.has(conflictGid)) {
-            errors.push(
-              `Pinned classes are in conflicting groups: "${group.name}" and "${groupMap[conflictGid]?.name || conflictGid}"`
-            );
+      if (!group) continue;
+
+      // Check direct and ancestor conflictsWith
+      const idsToCheck = [gid, ...getAncestorIds(gid)];
+      for (const checkId of idsToCheck) {
+        const g = groupMap[checkId];
+        if (g && g.conflictsWith) {
+          for (const conflictGid of g.conflictsWith) {
+            // Check if any pinned group is this conflict target or a descendant of it
+            for (const pinnedGid of pinnedGroupIds) {
+              if (pinnedGid === gid) continue;
+              const pinnedAncestors = [pinnedGid, ...getAncestorIds(pinnedGid)];
+              if (pinnedAncestors.includes(conflictGid)) {
+                errors.push(
+                  `Pinned classes are in conflicting groups: "${group.name}" and "${groupMap[pinnedGid]?.name || pinnedGid}"`
+                );
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Check childrenConflict: if two pinned classes' groups share a parent with childrenConflict,
+    // and they are in different child branches, that's a conflict
+    const pinnedGroupArray = Array.from(pinnedGroupIds);
+    for (let i = 0; i < pinnedGroupArray.length; i++) {
+      for (let j = i + 1; j < pinnedGroupArray.length; j++) {
+        const g1 = pinnedGroupArray[i];
+        const g2 = pinnedGroupArray[j];
+        const ancestors1 = [g1, ...getAncestorIds(g1)];
+        const ancestors2 = [g2, ...getAncestorIds(g2)];
+
+        // Find the lowest common ancestor
+        for (const a1 of ancestors1) {
+          if (ancestors2.includes(a1)) {
+            // a1 is a common ancestor — check if it has childrenConflict
+            const commonParent = groupMap[a1];
+            if (commonParent && commonParent.childrenConflict) {
+              // Determine which direct children of this parent each belongs to
+              const directChild1 = ancestors1[ancestors1.indexOf(a1) - 1] || g1;
+              const directChild2 = ancestors2[ancestors2.indexOf(a1) - 1] || g2;
+              if (directChild1 !== directChild2) {
+                errors.push(
+                  `Pinned classes are in conflicting branches under "${commonParent.name}": "${groupMap[g1]?.name || g1}" and "${groupMap[g2]?.name || g2}"`
+                );
+              }
+            }
+            break;
           }
         }
       }
@@ -689,6 +745,7 @@ export function ScheduleProvider({ children }: { children: React.ReactNode }) {
         updateTimeWindow,
         updatePriorityOrder,
         setGroupMode,
+        setManualGroupChoice: setManualSubgroupChoice,
         setManualSubgroupChoice,
         resetAll,
         runScheduleGeneration,

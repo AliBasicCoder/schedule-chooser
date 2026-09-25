@@ -13,7 +13,6 @@ export interface ClassItem {
   name: string;
   type?: ClassType;
   groupId?: string | null;
-  subgroupId?: string | null;
   instructor?: string;
   location?: string;
   credits?: number;
@@ -21,19 +20,13 @@ export interface ClassItem {
   sessions: Session[];
 }
 
-export interface Subgroup {
-  id: string;
-  name: string;
-  conflictMode?: 'conflicting' | 'non-conflicting';
-  conflictsWith?: string[];
-}
-
 export interface Group {
   id: string;
   name: string;
+  parentId?: string | null;       // null or absent = root group
   required: boolean;
-  conflictsWith?: string[];
-  subgroups?: Subgroup[];
+  childrenConflict?: boolean;     // true = direct children are mutually exclusive (pick at most one)
+  conflictsWith?: string[];       // explicit cross-tree conflicts with other group IDs
 }
 
 export interface ScheduleMeta {
@@ -96,7 +89,7 @@ export interface SolverConfig {
   pinnedClasses: Record<string, number | null>;
   crossedOff?: string[];
   groupMode: 'auto' | 'manual';
-  manualGroupChoices?: Record<string, { subgroupIds: string[] }>;
+  manualGroupChoices?: Record<string, { groupIds?: string[]; subgroupIds?: string[] }>;
   preferences: Preferences;
   maxResults?: number;
 }

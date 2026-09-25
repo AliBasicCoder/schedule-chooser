@@ -58,10 +58,10 @@ export function validateScheduleJSON(raw: any): ValidationResult & { data?: Sche
 
   if (errors.length > 0) return { valid: false, errors, warnings };
 
-  // Build group & subgroup maps
+  // Build group ID set and parent→children map
   const groupIds = new Set<string>();
-  const subgroupIds = new Set<string>();
-  const groupSubgroupMap = new Map<string, Set<string>>();
+  const groupById = new Map<string, (typeof data.groups)[0]>();
+  const childrenOf = new Map<string, string[]>(); // parentId → child IDs
 
   for (const g of data.groups) {
     if (!g.id) {
@@ -72,31 +72,48 @@ export function validateScheduleJSON(raw: any): ValidationResult & { data?: Sche
       errors.push(`Duplicate group ID: "${g.id}".`);
     }
     groupIds.add(g.id);
-    groupSubgroupMap.set(g.id, new Set());
+    groupById.set(g.id, g);
+  }
 
-    if (g.subgroups && Array.isArray(g.subgroups)) {
-      for (const sg of g.subgroups) {
-        if (!sg.id) {
-          errors.push(`Subgroup in group "${g.id}" is missing an "id".`);
-          continue;
-        }
-        if (subgroupIds.has(sg.id)) {
-          errors.push(`Duplicate subgroup ID: "${sg.id}".`);
-        }
-        subgroupIds.add(sg.id);
-        groupSubgroupMap.get(g.id)?.add(sg.id);
+  // Validate parentId references and build parent→children map
+  for (const g of data.groups) {
+    if (!g.id) continue;
+    const pid = g.parentId ?? null;
+    if (pid !== null) {
+      if (!groupIds.has(pid)) {
+        errors.push(`Group "${g.id}" references unknown parentId "${pid}".`);
+      } else {
+        if (!childrenOf.has(pid)) childrenOf.set(pid, []);
+        childrenOf.get(pid)!.push(g.id);
       }
+    }
+  }
+
+  // Cycle detection: ensure no group is its own ancestor
+  for (const g of data.groups) {
+    if (!g.id) continue;
+    const visited = new Set<string>();
+    let current: string | null = g.id;
+    while (current !== null) {
+      if (visited.has(current)) {
+        errors.push(`Cycle detected in group parentId chain involving "${g.id}".`);
+        break;
+      }
+      visited.add(current);
+      const parentGroup = groupById.get(current);
+      current = parentGroup?.parentId ?? null;
     }
   }
 
   // Validate group conflictsWith references & ensure symmetry
   for (const g of data.groups) {
+    if (!g.id) continue;
     if (g.conflictsWith && Array.isArray(g.conflictsWith)) {
       for (const ref of g.conflictsWith) {
         if (!groupIds.has(ref)) {
           errors.push(`Group "${g.id}" conflictsWith unknown group "${ref}".`);
         } else {
-          const other = data.groups.find((og) => og.id === ref);
+          const other = groupById.get(ref);
           if (other && !(other.conflictsWith || []).includes(g.id)) {
             warnings.push(`conflictsWith not symmetric: "${g.id}" → "${ref}". Auto-fixing.`);
             if (!other.conflictsWith) other.conflictsWith = [];
@@ -106,16 +123,10 @@ export function validateScheduleJSON(raw: any): ValidationResult & { data?: Sche
       }
     }
 
-    if (g.subgroups && Array.isArray(g.subgroups)) {
-      for (const sg of g.subgroups) {
-        if (sg.conflictsWith && Array.isArray(sg.conflictsWith)) {
-          for (const ref of sg.conflictsWith) {
-            if (!subgroupIds.has(ref)) {
-              errors.push(`Subgroup "${sg.id}" conflictsWith unknown subgroup "${ref}".`);
-            }
-          }
-        }
-      }
+    // Validate childrenConflict is boolean if present
+    if (g.childrenConflict !== undefined && typeof g.childrenConflict !== 'boolean') {
+      warnings.push(`Group "${g.id}" has non-boolean childrenConflict; treating as false.`);
+      g.childrenConflict = false;
     }
   }
 
@@ -138,13 +149,6 @@ export function validateScheduleJSON(raw: any): ValidationResult & { data?: Sche
     if (c.groupId !== null && c.groupId !== undefined) {
       if (!groupIds.has(c.groupId)) {
         errors.push(`Class "${c.id}" references unknown groupId "${c.groupId}".`);
-      }
-      if (c.subgroupId !== null && c.subgroupId !== undefined) {
-        if (!subgroupIds.has(c.subgroupId)) {
-          errors.push(`Class "${c.id}" references unknown subgroupId "${c.subgroupId}".`);
-        } else if (c.groupId && groupSubgroupMap.has(c.groupId) && !groupSubgroupMap.get(c.groupId)!.has(c.subgroupId)) {
-          errors.push(`Class "${c.id}": subgroup "${c.subgroupId}" does not belong to group "${c.groupId}".`);
-        }
       }
     }
 

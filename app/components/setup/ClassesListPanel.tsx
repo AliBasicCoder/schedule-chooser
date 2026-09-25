@@ -47,10 +47,18 @@ export function ClassesListPanel() {
           const group = cls.groupId
             ? scheduleData.groups.find((g) => g.id === cls.groupId)
             : null;
-          const subgroup =
-            group && cls.subgroupId
-              ? group.subgroups?.find((s) => s.id === cls.subgroupId)
-              : null;
+
+          // Build group ancestry chain for display
+          const groupAncestry: string[] = [];
+          if (group) {
+            let current: typeof group | undefined = group;
+            while (current) {
+              groupAncestry.unshift(current.name);
+              current = current.parentId
+                ? scheduleData.groups.find((g) => g.id === current!.parentId)
+                : undefined;
+            }
+          }
 
           // Compute availability metadata
           let metaInfo = `${cls.credits || 0} cr`;
@@ -96,19 +104,21 @@ export function ClassesListPanel() {
                   </span>
                 </div>
 
-                {/* Group / Subgroup tags */}
-                {(group || subgroup) && (
+                {/* Group ancestry tags */}
+                {groupAncestry.length > 0 && (
                   <div className="mt-1 flex flex-wrap gap-1">
-                    {group && (
-                      <span className="rounded bg-[#6C63FF]/15 px-1.5 py-0.5 text-[9px] font-semibold text-[#8B85FF] border border-[#6C63FF]/20">
-                        {group.name}
+                    {groupAncestry.map((name, idx) => (
+                      <span
+                        key={idx}
+                        className={`rounded px-1.5 py-0.5 text-[9px] font-semibold border ${
+                          idx === groupAncestry.length - 1
+                            ? 'bg-[#00D4AA]/15 text-[#00D4AA] border-[#00D4AA]/20'
+                            : 'bg-[#6C63FF]/15 text-[#8B85FF] border-[#6C63FF]/20'
+                        }`}
+                      >
+                        {name}
                       </span>
-                    )}
-                    {subgroup && (
-                      <span className="rounded bg-[#00D4AA]/15 px-1.5 py-0.5 text-[9px] font-semibold text-[#00D4AA] border border-[#00D4AA]/20">
-                        {subgroup.name}
-                      </span>
-                    )}
+                    ))}
                   </div>
                 )}
               </div>

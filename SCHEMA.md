@@ -2,7 +2,7 @@
 
 This document provides a detailed specification of the JSON schema accepted by the **Student Schedule Optimizer**.
 
-The JSON file describes the schedule metadata, requirement groups, subgroups, courses, and time sessions.
+The JSON file describes the schedule metadata, hierarchical requirement groups, courses, and time sessions.
 
 ---
 
@@ -21,7 +21,7 @@ The root JSON object must contain exactly three top-level keys:
 | Field | Type | Required | Description |
 | :--- | :--- | :--- | :--- |
 | `meta` | `Object` | **Yes** | Schedule boundaries, term name, and active days. |
-| `groups` | `Array<Group>` | **Yes** | Course requirement groups and section clusters (can be empty `[]`). |
+| `groups` | `Array<Group>` | **Yes** | Hierarchical requirement groups and section clusters (can be empty `[]`). |
 | `classes` | `Array<Class>` | **Yes** | Course offerings, lectures, labs, and tutorials. |
 
 ---
@@ -52,72 +52,79 @@ The `meta` object defines the grid boundaries and day sequence for the weekly sc
 
 ## 3. The `groups` Array
 
-Groups model structural course choices, such as lab/tutorial section bundles, corequisites, or electives.
+Groups model structural course choices, including tracks, majors, lab/tutorial section bundles, corequisites, and electives.
+
+### Arbitrary Tree Nesting via `parentId`
+Groups are stored as a **flat array** where each group references its parent via `parentId`:
+- Root groups have `"parentId": null` (or omitted).
+- Child groups specify the `id` of their parent group in `parentId`.
+- Groups can nest to **any depth** (e.g., Major Group &rarr; Lab Section &rarr; Sub-team).
+
+### Sibling Mutual Exclusion via `childrenConflict`
+Instead of requiring every subgroup or section to exhaustively list all of its siblings in `conflictsWith`, a parent group can set:
+```json
+"childrenConflict": true
+```
+When `childrenConflict: true` is set on a parent group, all of its direct child groups are automatically treated as **mutually exclusive** &mdash; the optimizer will pick **at most one** child branch in any generated schedule.
 
 ```json
-{
-  "id": "grp-cs101-section",
-  "name": "CS 101 Lab/Tutorial Section",
-  "required": true,
-  "conflictsWith": [],
-  "subgroups": [
-    {
-      "id": "sub-cs-a",
-      "name": "Section A (Morning)",
-      "conflictMode": "conflicting",
-      "conflictsWith": ["sub-cs-b"]
-    },
-    {
-      "id": "sub-cs-b",
-      "name": "Section B (Afternoon)",
-      "conflictMode": "conflicting",
-      "conflictsWith": ["sub-cs-a"]
-    }
-  ]
-}
+[
+  {
+    "id": "grp-cs101-section",
+    "name": "CS 101 Lab/Tutorial Section",
+    "parentId": null,
+    "required": true,
+    "childrenConflict": true,
+    "conflictsWith": []
+  },
+  {
+    "id": "sub-cs-a",
+    "name": "Section A (Morning)",
+    "parentId": "grp-cs101-section",
+    "required": true,
+    "childrenConflict": false,
+    "conflictsWith": []
+  },
+  {
+    "id": "sub-cs-b",
+    "name": "Section B (Afternoon)",
+    "parentId": "grp-cs101-section",
+    "required": true,
+    "childrenConflict": false,
+    "conflictsWith": []
+  }
+]
 ```
 
 ### Group Object Fields
 
 | Field | Type | Required | Description |
 | :--- | :--- | :--- | :--- |
-| `id` | `string` | **Yes** | Unique identifier for the group (e.g. `"grp-cs101-section"`). |
+| `id` | `string` | **Yes** | Unique identifier for the group (e.g. `"grp-cs101-section"`, `"sub-cs-a"`). |
 | `name` | `string` | **Yes** | Human-readable name of the group. |
-| `required` | `boolean` | **Yes** | If `true`, the solver **must** include this group in every valid schedule. If `false`, the group is optional (e.g., electives). |
-| `conflictsWith` | `Array<string>` | No (default `[]`) | Array of group IDs that cannot be taken simultaneously with this group. Conflicts are symmetric. |
-| `subgroups` | `Array<Subgroup>` | No (default `[]`) | List of mutually exclusive or complementary section clusters. |
-
-### Subgroup Object Fields
-
-Each element in `subgroups` defines a specific cluster of classes (e.g., "Section A Lab + Section A Tutorial"):
-
-| Field | Type | Allowed Values | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| `id` | `string` | Unique identifier string | **Yes** | Unique ID for the subgroup (e.g. `"sub-cs-a"`). |
-| `name` | `string` | Free text | **Yes** | Display name (e.g. `"Section A (Morning)"`). |
-| `conflictMode` | `string` | `"conflicting"` \| `"non-conflicting"` | No (default `"conflicting"`) | If `"conflicting"`, selecting this subgroup precludes selecting other conflicting subgroups in the same group. |
-| `conflictsWith` | `Array<string>` | Array of subgroup IDs | No (default `[]`) | Explicit list of other subgroup IDs that cannot co-exist with this subgroup. |
+| `parentId` | `string` \| `null` | No (default `null`) | ID of the parent group in the hierarchy. Set to `null` or omit for top-level groups. |
+| `required` | `boolean` | **Yes** | If `true`, the solver **must** satisfy this group requirement in every valid schedule. If `false`, the group is optional (e.g., electives). |
+| `childrenConflict` | `boolean` | No (default `false`) | If `true`, all direct children of this group are mutually exclusive (pick at most one). |
+| `conflictsWith` | `Array<string>` | No (default `[]`) | Array of other group IDs that cannot be taken simultaneously with this group. Used for cross-tree conflicts. Conflicts are symmetric. |
 
 ---
 
 ## 4. The `classes` Array
 
-Classes represent course offerings, lecture meetings, lab sessions, or tutorials.
+Classes represent course offerings, lecture meetings, lab sessions, or tutorials. Each class belongs to at most one group via `groupId` (or `null` if standalone).
 
 ```json
 {
-  "id": "cs101-lec",
-  "name": "CS 101 Lecture",
-  "type": "lecture",
-  "groupId": null,
-  "subgroupId": null,
-  "instructor": "Dr. Sarah Chen",
-  "location": "Engineering Hall 101",
-  "credits": 3,
-  "attendAllSessions": true,
+  "id": "cs101-lab-a",
+  "name": "CS 101 Lab (Sec A)",
+  "type": "lab",
+  "groupId": "sub-cs-a",
+  "instructor": "TA Rivera",
+  "location": "CS Lab 204",
+  "credits": 0,
+  "attendAllSessions": false,
   "sessions": [
-    { "day": "Sun", "start": "10:00", "end": "11:30" },
-    { "day": "Wed", "start": "10:00", "end": "11:30" }
+    { "day": "Mon", "start": "09:00", "end": "11:00" }
   ]
 }
 ```
@@ -129,8 +136,7 @@ Classes represent course offerings, lecture meetings, lab sessions, or tutorials
 | `id` | `string` | Unique identifier string | **Yes** | Unique ID for this class (e.g. `"cs101-lec"`, `"math201"`). |
 | `name` | `string` | Free text | **Yes** | Course title (e.g. `"Calculus II"`). |
 | `type` | `string` | `"lecture"` \| `"lab"` \| `"tutorial"` \| `"other"` | No (default `"other"`) | Determines color theme and badge type in the user interface. |
-| `groupId` | `string` \| `null` | Group `id` or `null` | No (default `null`) | Links this class to a parent group. Set to `null` for standalone classes. |
-| `subgroupId` | `string` \| `null` | Subgroup `id` or `null` | No (default `null`) | Links this class to a subgroup within `groupId`. |
+| `groupId` | `string` \| `null` | Group `id` or `null` | No (default `null`) | Links this class to its group in the hierarchy. Standalone classes use `null`. |
 | `instructor` | `string` | Free text | No | Name of professor or TA. Displayed on chips and tooltips. |
 | `location` | `string` | Free text | No | Building/Room location. Displayed on chip tooltips. |
 | `credits` | `number` | Numeric (e.g. `3`, `4`) | No (default `0`) | Academic credits. |
@@ -143,7 +149,7 @@ Classes represent course offerings, lecture meetings, lab sessions, or tutorials
 
 The `attendAllSessions` boolean controls how the optimizer handles multiple sessions in `sessions`:
 
-### `attendAllSessions: false` (Default — "Pick-One" Alternative Instances)
+### `attendAllSessions: false` (Default &mdash; "Pick-One" Alternative Instances)
 - Each item in `sessions` represents an **alternative offering/section** of the class (e.g. choice between Sunday morning OR Monday afternoon).
 - The solver selects **exactly one** valid session.
 - **Pinning & Crossing off behavior**:
@@ -202,29 +208,34 @@ Below is a complete, valid JSON file demonstrating all features:
     {
       "id": "grp-cs101-section",
       "name": "CS 101 Lab/Tutorial Section",
+      "parentId": null,
       "required": true,
-      "conflictsWith": [],
-      "subgroups": [
-        {
-          "id": "sub-cs-a",
-          "name": "Section A (Morning)",
-          "conflictMode": "conflicting",
-          "conflictsWith": ["sub-cs-b"]
-        },
-        {
-          "id": "sub-cs-b",
-          "name": "Section B (Afternoon)",
-          "conflictMode": "conflicting",
-          "conflictsWith": ["sub-cs-a"]
-        }
-      ]
+      "childrenConflict": true,
+      "conflictsWith": []
+    },
+    {
+      "id": "sub-cs-a",
+      "name": "Section A (Morning)",
+      "parentId": "grp-cs101-section",
+      "required": true,
+      "childrenConflict": false,
+      "conflictsWith": []
+    },
+    {
+      "id": "sub-cs-b",
+      "name": "Section B (Afternoon)",
+      "parentId": "grp-cs101-section",
+      "required": true,
+      "childrenConflict": false,
+      "conflictsWith": []
     },
     {
       "id": "grp-elective",
       "name": "Humanities Elective",
+      "parentId": null,
       "required": false,
-      "conflictsWith": [],
-      "subgroups": []
+      "childrenConflict": false,
+      "conflictsWith": []
     }
   ],
   "classes": [
@@ -233,7 +244,6 @@ Below is a complete, valid JSON file demonstrating all features:
       "name": "CS 101 Lecture",
       "type": "lecture",
       "groupId": null,
-      "subgroupId": null,
       "instructor": "Dr. Sarah Chen",
       "location": "Engineering Hall 101",
       "credits": 3,
@@ -247,8 +257,7 @@ Below is a complete, valid JSON file demonstrating all features:
       "id": "cs101-lab-a",
       "name": "CS 101 Lab (Sec A)",
       "type": "lab",
-      "groupId": "grp-cs101-section",
-      "subgroupId": "sub-cs-a",
+      "groupId": "sub-cs-a",
       "instructor": "TA Rivera",
       "location": "CS Lab 204",
       "credits": 0,
@@ -261,8 +270,7 @@ Below is a complete, valid JSON file demonstrating all features:
       "id": "cs101-lab-b",
       "name": "CS 101 Lab (Sec B)",
       "type": "lab",
-      "groupId": "grp-cs101-section",
-      "subgroupId": "sub-cs-b",
+      "groupId": "sub-cs-b",
       "instructor": "TA Patel",
       "location": "CS Lab 205",
       "credits": 0,
@@ -276,7 +284,6 @@ Below is a complete, valid JSON file demonstrating all features:
       "name": "Calculus II",
       "type": "lecture",
       "groupId": null,
-      "subgroupId": null,
       "instructor": "Prof. Williams",
       "location": "Math Building 301",
       "credits": 4,
@@ -291,7 +298,6 @@ Below is a complete, valid JSON file demonstrating all features:
       "name": "Intro to Philosophy",
       "type": "lecture",
       "groupId": "grp-elective",
-      "subgroupId": null,
       "instructor": "Dr. Davis",
       "location": "Humanities 202",
       "credits": 3,
@@ -313,9 +319,10 @@ When authoring or exporting JSON schedules for the application, verify that:
 - [x] `meta.dayStart` is strictly earlier than `meta.dayEnd`.
 - [x] All session start and end times fall within `dayStart` and `dayEnd`.
 - [x] All session times use 24-hour `"HH:MM"` format with 15-minute alignment (`:00`, `:15`, `:30`, `:45`).
-- [x] All group, subgroup, and class IDs are unique strings.
+- [x] All group and class IDs are unique strings across the file.
+- [x] If `parentId` is specified on a group, it references an existing group ID in `groups`.
+- [x] No cycles exist in group parent references (`A` cannot be an ancestor of `A`).
 - [x] If `groupId` is provided on a class, it references an existing group ID in `groups`.
-- [x] If `subgroupId` is provided on a class, it references a subgroup defined inside that specific `groupId`.
 - [x] `day` in every session matches an entry in `meta.dayOrder`.
 - [x] Classes requiring attendance at every session have `"attendAllSessions": true`.
 - [x] Multi-session classes offering a choice between alternative time slots omit `attendAllSessions` or set it to `false`.

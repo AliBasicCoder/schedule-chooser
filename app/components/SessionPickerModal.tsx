@@ -11,10 +11,18 @@ export function SessionPickerModal() {
   const group = activePickerClass.groupId
     ? scheduleData?.groups.find((g) => g.id === activePickerClass.groupId)
     : null;
-  const subgroup =
-    group && activePickerClass.subgroupId
-      ? group.subgroups?.find((sg) => sg.id === activePickerClass.subgroupId)
-      : null;
+
+  // Build group ancestry chain for display
+  const groupAncestry: string[] = [];
+  if (group && scheduleData) {
+    let curr: typeof group | undefined = group;
+    while (curr) {
+      groupAncestry.unshift(curr.name);
+      curr = curr.parentId
+        ? scheduleData.groups.find((g) => g.id === curr!.parentId)
+        : undefined;
+    }
+  }
 
   const handleConfirm = () => {
     pinSession(activePickerClass.id, selectedIdx);
@@ -41,8 +49,8 @@ export function SessionPickerModal() {
             <h3 className="text-base font-bold text-white">Choose Session to Pin</h3>
             <p className="mt-0.5 text-xs text-slate-400">
               <span className="font-semibold text-slate-200">{activePickerClass.name}</span>
-              {(group || subgroup) && (
-                <span> ({[group?.name, subgroup?.name].filter(Boolean).join(' • ')})</span>
+              {groupAncestry.length > 0 && (
+                <span> ({groupAncestry.join(' • ')})</span>
               )}
             </p>
           </div>

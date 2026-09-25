@@ -129,7 +129,8 @@ export function ScheduleGrid({ data, interactive = true, selections }: ScheduleG
           const dayChips = chipsByDay[day] || [];
           const maxTrack = dayChips.reduce((max, c) => Math.max(max, c.track), 0);
           const trackCount = dayChips.length > 0 ? maxTrack + 1 : 1;
-          const rowHeight = Math.max(54, trackCount * 38 + 10);
+          const TRACK_HEIGHT = 56;
+          const rowHeight = Math.max(64, trackCount * TRACK_HEIGHT + 14);
           const dayAllBlocked = interactive && isEntireDayBlocked(day);
 
           return (

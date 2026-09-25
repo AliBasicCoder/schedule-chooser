@@ -87,9 +87,11 @@ export function ClassesListPanel() {
 
               {/* Main Info */}
               <div className="flex-1 min-w-0">
-                <div className="flex items-center justify-between gap-1.5">
-                  <span className="truncate text-xs font-semibold text-white">{cls.name}</span>
-                  <span className="text-[10px] font-medium text-slate-400 shrink-0 font-mono">
+                <div className="flex items-start justify-between gap-2">
+                  <span className="text-xs font-semibold text-white break-words leading-snug">
+                    {cls.name}
+                  </span>
+                  <span className="text-[10px] font-medium text-slate-400 shrink-0 font-mono mt-0.5">
                     {metaInfo}
                   </span>
                 </div>
@@ -98,12 +100,12 @@ export function ClassesListPanel() {
                 {(group || subgroup) && (
                   <div className="mt-1 flex flex-wrap gap-1">
                     {group && (
-                      <span className="rounded bg-[#6C63FF]/15 px-1.5 py-0.5 text-[9px] font-semibold text-[#8B85FF] border border-[#6C63FF]/20 truncate max-w-[150px]">
+                      <span className="rounded bg-[#6C63FF]/15 px-1.5 py-0.5 text-[9px] font-semibold text-[#8B85FF] border border-[#6C63FF]/20">
                         {group.name}
                       </span>
                     )}
                     {subgroup && (
-                      <span className="rounded bg-[#00D4AA]/15 px-1.5 py-0.5 text-[9px] font-semibold text-[#00D4AA] border border-[#00D4AA]/20 truncate max-w-[130px]">
+                      <span className="rounded bg-[#00D4AA]/15 px-1.5 py-0.5 text-[9px] font-semibold text-[#00D4AA] border border-[#00D4AA]/20">
                         {subgroup.name}
                       </span>
                     )}

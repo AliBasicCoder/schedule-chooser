@@ -9,7 +9,7 @@ import type {
   SolverResult,
   Subgroup,
 } from '../types/schedule';
-import { hasBlocked, hasOverlap, minToTime, sessionToSlotKeys, timeToMin } from './time';
+import { hasBlocked, hasOverlap, sessionToSlotKeys, timeToMin } from './time';
 
 /**
  * Score a candidate schedule based on:
@@ -54,8 +54,8 @@ export function scoreSchedule(
   let timeFit = 0;
   for (const daySessions of Object.values(byDay)) {
     if (daySessions.length === 0) continue;
-    const earliestStart = Math.min(...daySessions.map((s) => s.startMin));
-    const latestEnd = Math.max(...daySessions.map((s) => s.endMin));
+    const earliestStart = daySessions.reduce((min, s) => Math.min(min, s.startMin), Infinity);
+    const latestEnd = daySessions.reduce((max, s) => Math.max(max, s.endMin), -Infinity);
 
     if (earliestStart < prefStart) {
       timeFit += prefStart - earliestStart;
@@ -82,12 +82,11 @@ export function scoreSchedule(
 }
 
 /** Check whether a subset of subgroups is mutually conflict-free */
-function isConflictFree(subgroups: Subgroup[]): boolean {
+function isConflictFree(subgroups: Subgroup[], conflictMap: Map<string, Set<string>>): boolean {
   for (let i = 0; i < subgroups.length; i++) {
     for (let j = i + 1; j < subgroups.length; j++) {
-      const cwI = subgroups[i].conflictsWith || [];
-      const cwJ = subgroups[j].conflictsWith || [];
-      if (cwI.includes(subgroups[j].id) || cwJ.includes(subgroups[i].id)) {
+      if (conflictMap.get(subgroups[i].id)?.has(subgroups[j].id) ||
+          conflictMap.get(subgroups[j].id)?.has(subgroups[i].id)) {
         return false;
       }
     }
@@ -107,18 +106,27 @@ function powerSet<T>(arr: T[]): T[][] {
   return result;
 }
 
-/** Enumerate all maximal independent sets for conflicting subgroups */
+/** Enumerate all valid independent sets for conflicting subgroups */
 function enumerateIndependentSets(subgroups: Subgroup[]): string[][] {
   if (subgroups.length === 0) return [];
-  const results: string[][] = [];
   const n = subgroups.length;
+  if (n > 20) {
+    throw new Error(`Too many conflicting subgroups (${n}) to enumerate; max supported is 20.`);
+  }
 
+  // Pre-build conflict map for O(1) lookups instead of Array.includes
+  const conflictMap = new Map<string, Set<string>>();
+  for (const sg of subgroups) {
+    conflictMap.set(sg.id, new Set(sg.conflictsWith || []));
+  }
+
+  const results: string[][] = [];
   for (let mask = 1; mask < (1 << n); mask++) {
     const subset: Subgroup[] = [];
     for (let i = 0; i < n; i++) {
       if (mask & (1 << i)) subset.push(subgroups[i]);
     }
-    if (isConflictFree(subset)) {
+    if (isConflictFree(subset, conflictMap)) {
       results.push(subset.map((s) => s.id));
     }
   }
@@ -181,6 +189,28 @@ export function generateSchedules(
   const pinnedSet = new Set(Object.keys(pinnedClasses || {}));
   const crossedSet = new Set(crossedOff);
 
+  // Use a higher internal generation limit so the post-sort has a diverse pool.
+  // Without this, DFS fills up maxResults from the first branches explored,
+  // never reaching alternative sessions that may score better.
+  const generationLimit = Math.min(maxResults * 20, 10000);
+
+  // Pre-sort each class's sessions by time-fit penalty so the solver
+  // explores best-fitting sessions first (closest to the preferred window).
+  const prefStartMin = timeToMin(preferences.timeWindow.start);
+  const prefEndMin = timeToMin(preferences.timeWindow.end);
+  const sortedSessionOrder: Record<string, number[]> = {};
+  for (const cls of classes) {
+    const ranked = cls.sessions
+      .map((s, i) => {
+        const sStart = timeToMin(s.start);
+        const sEnd = timeToMin(s.end);
+        const penalty = Math.max(0, prefStartMin - sStart) + Math.max(0, sEnd - prefEndMin);
+        return { idx: i, penalty };
+      })
+      .sort((a, b) => a.penalty - b.penalty);
+    sortedSessionOrder[cls.id] = ranked.map((r) => r.idx);
+  }
+
   // Pre-validate pinned classes
   for (const [classId] of Object.entries(pinnedClasses || {})) {
     if (!classMap[classId]) {
@@ -231,7 +261,7 @@ export function generateSchedules(
     if (crossedSet.has(cls.id)) return;
 
     const isPinned = pinnedSet.has(cls.id);
-    const pinnedSessionIdx = pinnedClasses[cls.id];
+    const pinnedSessionIdx = pinnedClasses?.[cls.id];
 
     if (cls.attendAllSessions) {
       for (let i = 0; i < cls.sessions.length; i++) {
@@ -249,7 +279,8 @@ export function generateSchedules(
       currentSchedule.pop();
       for (const k of allSlots) occupied.delete(k);
     } else {
-      for (let i = 0; i < cls.sessions.length; i++) {
+      const sessionOrder = sortedSessionOrder[cls.id] || cls.sessions.map((_, idx) => idx);
+      for (const i of sessionOrder) {
         if (crossedSet.has(`${cls.id}#${i}`)) continue;
         if (isPinned && pinnedSessionIdx !== null && pinnedSessionIdx !== undefined && pinnedSessionIdx !== i) {
           continue;
@@ -273,7 +304,7 @@ export function generateSchedules(
       afterDone();
       return;
     }
-    if (results.length >= maxResults) return;
+    if (results.length >= generationLimit) return;
 
     tryAddClass(clsList[idx], () => {
       processGroupClasses(clsList, idx + 1, afterDone);
@@ -281,7 +312,7 @@ export function generateSchedules(
   }
 
   function backtrack(decIdx: number): void {
-    if (results.length >= maxResults) return;
+    if (results.length >= generationLimit) return;
 
     checked++;
     const now = Date.now();
@@ -302,6 +333,8 @@ export function generateSchedules(
     const dec = decisions[decIdx];
 
     if (dec.type === 'standalone') {
+      // Standalone classes are always required — the user explicitly added them.
+      // If tryAddClass can't place any session, the branch correctly prunes.
       tryAddClass(dec.classObj, () => backtrack(decIdx + 1));
     } else if (dec.type === 'group') {
       const group = dec.group;
@@ -319,7 +352,8 @@ export function generateSchedules(
         return;
       }
 
-      // If optional, we can consider skipping if no class in this group is pinned
+      // If optional and no class in this group is pinned, explore the "skip group" branch first.
+      // Intentional fall-through: we then also explore "include group" branches below.
       if (!group.required) {
         const hasPinnedInGroup = allGroupClasses.some((c) => pinnedSet.has(c.id));
         if (!hasPinnedInGroup) {
@@ -339,7 +373,7 @@ export function generateSchedules(
       for (const gid of newExclusions) excludedGroups.add(gid);
 
       for (const combo of subCombos) {
-        if (results.length >= maxResults) break;
+        if (results.length >= generationLimit) break;
 
         const selectedClasses: ClassItem[] = [];
         const directKey = `${group.id}|`;
@@ -388,6 +422,6 @@ export function generateSchedules(
   return {
     schedules: results.slice(0, maxResults),
     totalFound: results.length,
-    capped: results.length >= maxResults,
+    capped: results.length >= generationLimit,
   };
 }

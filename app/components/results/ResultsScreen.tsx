@@ -86,7 +86,7 @@ export function ResultsScreen() {
       case 'timeFit':
         return {
           icon: <Clock className="h-5 w-5 text-[#8B85FF]" />,
-          label: 'Outside Preferred Time',
+          label: 'Outside Preferred Hours',
           unit: 'min',
         };
       case 'days':

@@ -22,7 +22,7 @@ export function PreferencesPanel() {
       case 'timeFit':
         return {
           label: 'Preferred Time',
-          desc: 'Minimize classes outside your preferred hours',
+          desc: 'Avoid arriving before your arrival time or staying past your departure time',
           icon: <Clock className="h-4 w-4 text-[#8B85FF]" />,
         };
       case 'days':
@@ -64,14 +64,14 @@ export function PreferencesPanel() {
           <div>
             <label className="block text-xs font-bold text-white">Preferred Daily Time Window</label>
             <p className="mt-0.5 text-[11px] text-slate-400">
-              The solver penalizes classes that start earlier or end later than these bounds.
+              Penalizes days when your first class starts before your preferred arrival, or your last class ends after your preferred departure.
             </p>
           </div>
 
           <div className="flex items-center gap-2.5 pt-1">
             <div className="flex-1">
               <span className="mb-1 block text-[10px] font-semibold uppercase tracking-wider text-slate-400">
-                Earliest Start
+                Earliest Arrival
               </span>
               <input
                 type="time"
@@ -84,7 +84,7 @@ export function PreferencesPanel() {
             <span className="text-xs text-slate-500 font-bold self-end pb-3">→</span>
             <div className="flex-1">
               <span className="mb-1 block text-[10px] font-semibold uppercase tracking-wider text-slate-400">
-                Latest End
+                Latest Departure
               </span>
               <input
                 type="time"

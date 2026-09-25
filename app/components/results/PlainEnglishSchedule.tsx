@@ -118,7 +118,7 @@ export function PlainEnglishSchedule({
       lines.push(`• Free Days: ${freeDays.join(', ')}`);
     }
     lines.push(`• Hours: ${minToTime(earliestStartMin)} to ${minToTime(latestEndMin)}`);
-    lines.push(`• Outside Preferred Window: ${schedule.scores.timeFit} min`);
+    lines.push(`• Outside Preferred Hours: ${schedule.scores.timeFit} min`);
     lines.push(`• Total Idle Gap Time: ${schedule.scores.gaps} min`);
     lines.push('');
     lines.push('DAY-BY-DAY ITINERARY:');
@@ -234,7 +234,7 @@ export function PlainEnglishSchedule({
           <strong className="text-white font-semibold">
             {schedule.scores.gaps === 0 ? 'zero idle gaps' : `${schedule.scores.gaps} minutes of break time`}
           </strong>{' '}
-          between classes, and <strong className="text-white font-semibold">{schedule.scores.timeFit} minutes</strong> scheduled outside your preferred window.
+          between classes, and <strong className="text-white font-semibold">{schedule.scores.timeFit} minutes</strong> scheduled before your preferred arrival or after your preferred departure.
         </p>
       </div>
 

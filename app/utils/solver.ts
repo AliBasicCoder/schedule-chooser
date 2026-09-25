@@ -42,28 +42,33 @@ export function scoreSchedule(
     }
   }
 
-  // 1. Time fit score
-  let timeFit = 0;
-  for (const s of concreteSessions) {
-    if (s.startMin < prefStart) {
-      timeFit += Math.min(s.endMin, prefStart) - s.startMin;
-    }
-    if (s.endMin > prefEnd) {
-      timeFit += s.endMin - Math.max(s.startMin, prefEnd);
-    }
-  }
-
-  // 2. Days score
-  const activeDays = new Set(concreteSessions.map((s) => s.day));
-  const days = activeDays.size;
-
-  // 3. Gaps score
+  // Group concrete sessions by active day
   const byDay: Record<string, { startMin: number; endMin: number }[]> = {};
   for (const s of concreteSessions) {
     if (!byDay[s.day]) byDay[s.day] = [];
     byDay[s.day].push(s);
   }
 
+  // 1. Time fit score: penalize arriving before preferred arrival time (prefStart)
+  // or staying past preferred departure time (prefEnd) on each active day.
+  let timeFit = 0;
+  for (const daySessions of Object.values(byDay)) {
+    if (daySessions.length === 0) continue;
+    const earliestStart = Math.min(...daySessions.map((s) => s.startMin));
+    const latestEnd = Math.max(...daySessions.map((s) => s.endMin));
+
+    if (earliestStart < prefStart) {
+      timeFit += prefStart - earliestStart;
+    }
+    if (latestEnd > prefEnd) {
+      timeFit += latestEnd - prefEnd;
+    }
+  }
+
+  // 2. Days score
+  const days = Object.keys(byDay).length;
+
+  // 3. Gaps score
   let gaps = 0;
   for (const daySessions of Object.values(byDay)) {
     daySessions.sort((a, b) => a.startMin - b.startMin);

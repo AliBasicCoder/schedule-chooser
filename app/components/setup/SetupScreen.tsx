@@ -82,18 +82,21 @@ export function SetupScreen() {
         </div>
       </div>
 
-      {/* Main Grid + Sidebar Layout */}
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 items-start pb-28">
-        {/* Main Grid Area (8 cols on large screens) */}
-        <div className="lg:col-span-8 space-y-4">
+      {/* Full Width Schedule and Configuration Sections */}
+      <div className="space-y-6 pb-28">
+        {/* Schedule Grid takes full width */}
+        <div className="w-full">
           <ScheduleGrid data={scheduleData} interactive={true} />
         </div>
 
-        {/* Side Panel (4 cols on large screens) */}
-        <div className="lg:col-span-4 space-y-5">
+        {/* Sections Under Schedule */}
+        <div className="space-y-6">
           <PreferencesPanel />
-          <GroupsPanel />
-          <ClassesListPanel />
+
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 items-start">
+            <GroupsPanel />
+            <ClassesListPanel />
+          </div>
         </div>
       </div>
 

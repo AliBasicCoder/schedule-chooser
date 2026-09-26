@@ -3,10 +3,12 @@ import { Pin, X, Clock, MapPin, User } from 'lucide-react';
 import { useSchedule } from '../context/ScheduleContext';
 
 export function SessionPickerModal() {
-  const { activePickerClass, closeSessionPicker, pinSession, scheduleData } = useSchedule();
+  const { activePickerClass, closeSessionPicker, pinSession, scheduleData, courseById } = useSchedule();
   const [selectedIdx, setSelectedIdx] = useState<number>(0);
 
   if (!activePickerClass) return null;
+
+  const course = activePickerClass.courseId ? courseById.get(activePickerClass.courseId) : null;
 
   const group = activePickerClass.groupId
     ? scheduleData?.groups.find((g) => g.id === activePickerClass.groupId)
@@ -47,12 +49,18 @@ export function SessionPickerModal() {
           </div>
           <div>
             <h3 className="text-base font-bold text-white">Choose Session to Pin</h3>
-            <p className="mt-0.5 text-xs text-slate-400">
-              <span className="font-semibold text-slate-200">{activePickerClass.name}</span>
-              {groupAncestry.length > 0 && (
-                <span> ({groupAncestry.join(' • ')})</span>
+            <div className="mt-0.5 text-xs text-slate-400">
+              {course && (
+                <div className="font-semibold text-white">
+                  {course.name}
+                  {course.code && <span className="ml-1.5 text-[#00D4AA] font-mono">({course.code})</span>}
+                </div>
               )}
-            </p>
+              <span className="text-slate-300 font-medium">{activePickerClass.name}</span>
+              {groupAncestry.length > 0 && (
+                <span className="text-slate-400"> ({groupAncestry.join(' • ')})</span>
+              )}
+            </div>
           </div>
         </div>
 

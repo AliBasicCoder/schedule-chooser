@@ -14,7 +14,7 @@ The root JSON object must contain exactly three top-level keys:
 {
   "meta": { ... },
   "groups": [ ... ],
-  "classes": [ ... ]
+  "courses": [ ... ]
 }
 ```
 
@@ -22,7 +22,7 @@ The root JSON object must contain exactly three top-level keys:
 | :--- | :--- | :--- | :--- |
 | `meta` | `Object` | **Yes** | Schedule boundaries, term name, and active days. |
 | `groups` | `Array<Group>` | **Yes** | Hierarchical requirement groups and section clusters (can be empty `[]`). |
-| `classes` | `Array<Class>` | **Yes** | Course offerings, lectures, labs, and tutorials. |
+| `courses` | `Array<Course>` | **Yes** | Academic course offerings, each containing its collection of classes. |
 
 ---
 
@@ -109,19 +109,47 @@ When `childrenConflict: true` is set on a parent group, all of its direct child 
 
 ---
 
-## 4. The `classes` Array
+## 4. The `courses` Array
 
-Classes represent course offerings, lecture meetings, lab sessions, or tutorials. Each class belongs to at most one group via `groupId` (or `null` if standalone).
+A **Course** represents an academic course or subject (e.g., `"Introduction to Computer Science"` or `"Calculus II"`). Courses are a **collection of classes** that constitute the instructional components of that course (e.g., lecture offerings, lab sections, tutorial meetings).
+
+```json
+{
+  "id": "cs101",
+  "name": "Introduction to Computer Science",
+  "code": "CS 101",
+  "credits": 4,
+  "description": "Foundational programming principles and data structures",
+  "classes": [ ... ]
+}
+```
+
+### Course Object Fields
+
+| Field | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `id` | `string` | **Yes** | Unique identifier for the course (e.g. `"cs101"`, `"course-math201"`). |
+| `name` | `string` | **Yes** | Human-readable title of the course (e.g. `"Introduction to Computer Science"`). |
+| `code` | `string` | No | Catalog course code (e.g. `"CS 101"`, `"MATH 201"`). Displayed on chips and badges. |
+| `credits` | `number` | No | Total academic credit hours. If omitted, defaults to the sum of its classes' credits. |
+| `description` | `string` | No | Short course description or syllabus notes. |
+| `classes` | `Array<Class>` | **Yes** | Non-empty array of instructional class components (lectures, labs, tutorials). |
+
+---
+
+## 5. The `classes` Collection (Inside Each Course)
+
+Each course contains an array of `classes`. Classes represent specific instructional meetings (lectures, labs, tutorials). Each class belongs to at most one group via `groupId` (or `null` if standalone).
 
 ```json
 {
   "id": "cs101-lab-a",
-  "name": "CS 101 Lab (Sec A)",
+  "name": "Lab (Sec A)",
   "type": "lab",
   "groupId": "sub-cs-a",
   "instructor": "TA Rivera",
   "location": "CS Lab 204",
-  "credits": 0,
+  "credits": 1,
   "attendAllSessions": false,
   "sessions": [
     { "day": "Mon", "start": "09:00", "end": "11:00" }
@@ -133,19 +161,19 @@ Classes represent course offerings, lecture meetings, lab sessions, or tutorials
 
 | Field | Type | Allowed Values | Required | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| `id` | `string` | Unique identifier string | **Yes** | Unique ID for this class (e.g. `"cs101-lec"`, `"math201"`). |
-| `name` | `string` | Free text | **Yes** | Course title (e.g. `"Calculus II"`). |
+| `id` | `string` | Unique identifier string | **Yes** | Unique ID for this class across the entire schedule. |
+| `name` | `string` | Free text | **Yes** | Class component name (e.g. `"Lecture"`, `"Lab (Sec A)"`, or full title). |
 | `type` | `string` | `"lecture"` \| `"lab"` \| `"tutorial"` \| `"other"` | No (default `"other"`) | Determines color theme and badge type in the user interface. |
-| `groupId` | `string` \| `null` | Group `id` or `null` | No (default `null`) | Links this class to its group in the hierarchy. Standalone classes use `null`. |
+| `groupId` | `string` \| `null` | Group `id` or `null` | No (default `null`) | Links this class to a requirement group. Standalone classes use `null`. |
 | `instructor` | `string` | Free text | No | Name of professor or TA. Displayed on chips and tooltips. |
 | `location` | `string` | Free text | No | Building/Room location. Displayed on chip tooltips. |
-| `credits` | `number` | Numeric (e.g. `3`, `4`) | No (default `0`) | Academic credits. |
+| `credits` | `number` | Numeric (e.g. `3`, `0`) | No (default `0`) | Academic credits contributed by this specific class component. |
 | `attendAllSessions` | `boolean` | `true` \| `false` | No (default `false`) | **Session selection mode** (see detailed explanation below). |
 | `sessions` | `Array<Session>` | Array of Session objects | **Yes** | List of time slots for this class. Must have at least 1 session. |
 
 ---
 
-## 5. Session Behavior: `attendAllSessions`
+## 6. Session Behavior: `attendAllSessions`
 
 The `attendAllSessions` boolean controls how the optimizer handles multiple sessions in `sessions`:
 
@@ -165,7 +193,7 @@ The `attendAllSessions` boolean controls how the optimizer handles multiple sess
 
 ---
 
-## 6. The `sessions` Array and Time Rules
+## 7. The `sessions` Array and Time Rules
 
 Each session object specifies when a class meets:
 
@@ -192,9 +220,9 @@ All times are computed based on 15-minute increments (`SLOT_MINUTES = 15`):
 
 ---
 
-## 7. Complete Reference Example
+## 8. Complete Reference Example
 
-Below is a complete, valid JSON file demonstrating all features:
+Below is a complete, valid JSON file demonstrating all features including `courses`:
 
 ```json
 {
@@ -238,72 +266,96 @@ Below is a complete, valid JSON file demonstrating all features:
       "conflictsWith": []
     }
   ],
-  "classes": [
+  "courses": [
     {
-      "id": "cs101-lec",
-      "name": "CS 101 Lecture",
-      "type": "lecture",
-      "groupId": null,
-      "instructor": "Dr. Sarah Chen",
-      "location": "Engineering Hall 101",
-      "credits": 3,
-      "attendAllSessions": true,
-      "sessions": [
-        { "day": "Sun", "start": "10:00", "end": "11:30" },
-        { "day": "Wed", "start": "10:00", "end": "11:30" }
-      ]
-    },
-    {
-      "id": "cs101-lab-a",
-      "name": "CS 101 Lab (Sec A)",
-      "type": "lab",
-      "groupId": "sub-cs-a",
-      "instructor": "TA Rivera",
-      "location": "CS Lab 204",
-      "credits": 0,
-      "attendAllSessions": false,
-      "sessions": [
-        { "day": "Mon", "start": "09:00", "end": "11:00" }
-      ]
-    },
-    {
-      "id": "cs101-lab-b",
-      "name": "CS 101 Lab (Sec B)",
-      "type": "lab",
-      "groupId": "sub-cs-b",
-      "instructor": "TA Patel",
-      "location": "CS Lab 205",
-      "credits": 0,
-      "attendAllSessions": false,
-      "sessions": [
-        { "day": "Tue", "start": "14:00", "end": "16:00" }
+      "id": "cs101",
+      "name": "Introduction to Computer Science",
+      "code": "CS 101",
+      "credits": 4,
+      "classes": [
+        {
+          "id": "cs101-lec",
+          "name": "Lecture",
+          "type": "lecture",
+          "groupId": null,
+          "instructor": "Dr. Sarah Chen",
+          "location": "Engineering Hall 101",
+          "credits": 3,
+          "attendAllSessions": true,
+          "sessions": [
+            { "day": "Sun", "start": "10:00", "end": "11:30" },
+            { "day": "Wed", "start": "10:00", "end": "11:30" }
+          ]
+        },
+        {
+          "id": "cs101-lab-a",
+          "name": "Lab (Sec A)",
+          "type": "lab",
+          "groupId": "sub-cs-a",
+          "instructor": "TA Rivera",
+          "location": "CS Lab 204",
+          "credits": 1,
+          "attendAllSessions": false,
+          "sessions": [
+            { "day": "Mon", "start": "09:00", "end": "11:00" }
+          ]
+        },
+        {
+          "id": "cs101-lab-b",
+          "name": "Lab (Sec B)",
+          "type": "lab",
+          "groupId": "sub-cs-b",
+          "instructor": "TA Patel",
+          "location": "CS Lab 205",
+          "credits": 1,
+          "attendAllSessions": false,
+          "sessions": [
+            { "day": "Tue", "start": "14:00", "end": "16:00" }
+          ]
+        }
       ]
     },
     {
       "id": "math201",
       "name": "Calculus II",
-      "type": "lecture",
-      "groupId": null,
-      "instructor": "Prof. Williams",
-      "location": "Math Building 301",
+      "code": "MATH 201",
       "credits": 4,
-      "attendAllSessions": false,
-      "sessions": [
-        { "day": "Sun", "start": "08:00", "end": "09:30" },
-        { "day": "Mon", "start": "12:00", "end": "13:30" }
+      "classes": [
+        {
+          "id": "math201-lec",
+          "name": "Lecture",
+          "type": "lecture",
+          "groupId": null,
+          "instructor": "Prof. Williams",
+          "location": "Math Building 301",
+          "credits": 4,
+          "attendAllSessions": false,
+          "sessions": [
+            { "day": "Sun", "start": "08:00", "end": "09:30" },
+            { "day": "Mon", "start": "12:00", "end": "13:30" }
+          ]
+        }
       ]
     },
     {
       "id": "phil101",
       "name": "Intro to Philosophy",
-      "type": "lecture",
-      "groupId": "grp-elective",
-      "instructor": "Dr. Davis",
-      "location": "Humanities 202",
+      "code": "PHIL 101",
       "credits": 3,
-      "attendAllSessions": false,
-      "sessions": [
-        { "day": "Thu", "start": "11:00", "end": "13:00" }
+      "classes": [
+        {
+          "id": "phil101-lec",
+          "name": "Lecture",
+          "type": "lecture",
+          "groupId": "grp-elective",
+          "instructor": "Dr. Davis",
+          "location": "Humanities 202",
+          "credits": 3,
+          "attendAllSessions": false,
+          "sessions": [
+            { "day": "Thu", "start": "11:00", "end": "13:00" }
+          ]
+        }
       ]
     }
   ]
@@ -312,14 +364,16 @@ Below is a complete, valid JSON file demonstrating all features:
 
 ---
 
-## 8. Validation Checklist
+## 9. Validation Checklist
 
 When authoring or exporting JSON schedules for the application, verify that:
 
 - [x] `meta.dayStart` is strictly earlier than `meta.dayEnd`.
 - [x] All session start and end times fall within `dayStart` and `dayEnd`.
 - [x] All session times use 24-hour `"HH:MM"` format with 15-minute alignment (`:00`, `:15`, `:30`, `:45`).
-- [x] All group and class IDs are unique strings across the file.
+- [x] All course IDs are unique strings across the file.
+- [x] Every course contains a non-empty `classes` array.
+- [x] All group and class IDs are unique strings across the entire file.
 - [x] If `parentId` is specified on a group, it references an existing group ID in `groups`.
 - [x] No cycles exist in group parent references (`A` cannot be an ancestor of `A`).
 - [x] If `groupId` is provided on a class, it references an existing group ID in `groups`.

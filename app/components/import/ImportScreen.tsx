@@ -219,7 +219,13 @@ export function ImportScreen() {
 
           {/* Stats grid */}
           {validationResult.stats && (
-            <div className="mb-4 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            <div className="mb-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
+              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3 text-center">
+                <div className="text-xl font-black bg-gradient-to-r from-[#6C63FF] to-[#00D4AA] bg-clip-text text-transparent">
+                  {validationResult.stats.courses}
+                </div>
+                <div className="text-[11px] font-medium text-slate-400">Courses</div>
+              </div>
               <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3 text-center">
                 <div className="text-xl font-black bg-gradient-to-r from-[#6C63FF] to-[#00D4AA] bg-clip-text text-transparent">
                   {validationResult.stats.classes}
@@ -238,7 +244,7 @@ export function ImportScreen() {
                 </div>
                 <div className="text-[11px] font-medium text-slate-400">Required Groups</div>
               </div>
-              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3 text-center">
+              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3 text-center col-span-2 sm:col-span-1">
                 <div className="text-xl font-black bg-gradient-to-r from-[#6C63FF] to-[#00D4AA] bg-clip-text text-transparent">
                   {validationResult.stats.totalSessions}
                 </div>

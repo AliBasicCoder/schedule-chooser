@@ -24,6 +24,9 @@ interface PlainEnglishScheduleProps {
 interface ConcreteMeeting {
   classId: string;
   className: string;
+  courseId?: string;
+  courseName?: string;
+  courseCode?: string;
   type?: string;
   day: string;
   start: string;
@@ -56,6 +59,7 @@ export function PlainEnglishSchedule({
 
   const classMap = new Map(scheduleData.classes.map((c) => [c.id, c]));
   const groupMap = new Map(scheduleData.groups.map((g) => [g.id, g]));
+  const courseMap = new Map((scheduleData.courses || []).map((c) => [c.id, c]));
 
   // Build concrete meetings list
   const meetings: ConcreteMeeting[] = [];
@@ -68,6 +72,7 @@ export function PlainEnglishSchedule({
 
     const groupAncestry = getGroupAncestry(cls.groupId, groupMap);
     const groupName = groupAncestry.length > 0 ? groupAncestry.join(' • ') : null;
+    const course = cls.courseId ? courseMap.get(cls.courseId) : null;
 
     for (const sIdx of sel.sessionIndices) {
       const s = cls.sessions[sIdx];
@@ -76,6 +81,9 @@ export function PlainEnglishSchedule({
       meetings.push({
         classId: cls.id,
         className: cls.name,
+        courseId: course?.id,
+        courseName: course?.name,
+        courseCode: course?.code,
         type: cls.type,
         day: s.day,
         start: s.start,
@@ -116,7 +124,10 @@ export function PlainEnglishSchedule({
     const lines: string[] = [];
     lines.push(`Schedule Option #${optionIndex + 1} (${scheduleData.meta.termName || 'Term Schedule'})`);
     lines.push('----------------------------------------------------');
-    lines.push(`• Total Courses: ${enrolledClasses.size}`);
+    const enrolledCoursesCount = scheduleData.courses
+      ? scheduleData.courses.filter((course) => course.classes.some((c) => enrolledClasses.has(c.id))).length
+      : enrolledClasses.size;
+    lines.push(`• Total Courses: ${enrolledCoursesCount} (${enrolledClasses.size} scheduled classes)`);
     lines.push(`• Total Credits: ${totalCredits} cr`);
     lines.push(`• Active Days: ${activeDaysOrdered.join(', ')} (${activeDaysOrdered.length} days)`);
     if (freeDays.length > 0) {
@@ -134,7 +145,7 @@ export function PlainEnglishSchedule({
       const dayList = meetingsByDay[day] || [];
       for (let i = 0; i < dayList.length; i++) {
         const m = dayList[i];
-        let line = `  ${m.start} - ${m.end}: ${m.className}`;
+        let line = `  ${m.start} - ${m.end}: ${m.courseCode ? `[${m.courseCode}] ` : ''}${m.className}`;
         if (m.type) line += ` (${m.type.toUpperCase()})`;
         if (m.groupName) line += ` [${m.groupName}]`;
         if (m.location) line += ` at ${m.location}`;
@@ -154,13 +165,31 @@ export function PlainEnglishSchedule({
 
     lines.push('');
     lines.push('ENROLLED COURSES & SECTIONS:');
-    for (const cId of enrolledClasses) {
-      const cls = classMap.get(cId);
-      if (!cls) continue;
-      const groupAncestry = getGroupAncestry(cls.groupId, groupMap);
-      let desc = `• ${cls.name} (${cls.credits || 0} credits)`;
-      if (groupAncestry.length > 0) desc += ` - ${groupAncestry.join(' • ')}`;
-      lines.push(desc);
+    if (scheduleData.courses && scheduleData.courses.length > 0) {
+      for (const course of scheduleData.courses) {
+        const courseClasses = course.classes.filter((c) => enrolledClasses.has(c.id));
+        if (courseClasses.length === 0) continue;
+        const cr =
+          course.credits !== undefined
+            ? course.credits
+            : courseClasses.reduce((sum, c) => sum + (c.credits || 0), 0);
+        lines.push(`• ${course.name}${course.code ? ` [${course.code}]` : ''} (${cr} cr):`);
+        for (const cls of courseClasses) {
+          const groupAncestry = getGroupAncestry(cls.groupId, groupMap);
+          let desc = `    - ${cls.name}${cls.type ? ` (${cls.type})` : ''}`;
+          if (groupAncestry.length > 0) desc += ` [${groupAncestry.join(' • ')}]`;
+          lines.push(desc);
+        }
+      }
+    } else {
+      for (const cId of enrolledClasses) {
+        const cls = classMap.get(cId);
+        if (!cls) continue;
+        const groupAncestry = getGroupAncestry(cls.groupId, groupMap);
+        let desc = `• ${cls.name} (${cls.credits || 0} credits)`;
+        if (groupAncestry.length > 0) desc += ` - ${groupAncestry.join(' • ')}`;
+        lines.push(desc);
+      }
     }
 
     return lines.join('\n');
@@ -281,9 +310,18 @@ export function PlainEnglishSchedule({
                       <div key={idx} className="space-y-2">
                         <div className="rounded-lg border border-white/5 bg-white/[0.02] p-3 text-xs">
                           <div className="flex items-start justify-between gap-2">
-                            <span className="font-bold text-white text-xs sm:text-sm">
-                              {m.className}
-                            </span>
+                            <div className="min-w-0 flex-1">
+                              {m.courseCode && (
+                                <span className="text-[10px] font-bold text-[#8B85FF] font-mono mr-1.5">
+                                  [{m.courseCode}]
+                                </span>
+                              )}
+                              <span className="font-bold text-white text-xs sm:text-sm">
+                                {m.courseName && m.courseName !== m.className
+                                  ? `${m.courseName} - ${m.className}`
+                                  : m.className}
+                              </span>
+                            </div>
                             <span className="shrink-0 rounded bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-slate-200">
                               {m.start} – {m.end}
                             </span>
@@ -332,35 +370,91 @@ export function PlainEnglishSchedule({
         </div>
       </div>
 
-      {/* Selected Classes & Sections Summary */}
+      {/* Selected Courses & Sections Summary */}
       <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4 sm:p-5">
         <h4 className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-300">
           Enrolled Courses &amp; Section Choices
         </h4>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
-          {Array.from(enrolledClasses).map((cId) => {
-            const cls = classMap.get(cId);
-            if (!cls) return null;
-            const groupAncestry = getGroupAncestry(cls.groupId, groupMap);
+          {scheduleData.courses && scheduleData.courses.length > 0 ? (
+            scheduleData.courses
+              .filter((course) => course.classes.some((c) => enrolledClasses.has(c.id)))
+              .map((course) => {
+                const courseClasses = course.classes.filter((c) => enrolledClasses.has(c.id));
+                const courseCredits =
+                  course.credits !== undefined
+                    ? course.credits
+                    : courseClasses.reduce((sum, c) => sum + (c.credits || 0), 0);
 
-            return (
-              <div
-                key={cId}
-                className="flex items-start gap-2 rounded-lg border border-white/5 bg-black/20 p-2.5 text-xs"
-              >
-                <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-[#00D4AA] mt-0.5" />
-                <div className="min-w-0 flex-1">
-                  <div className="font-semibold text-white truncate">{cls.name}</div>
-                  <div className="text-[11px] text-slate-400">
-                    {cls.credits ? `${cls.credits} credits` : '0 credits'}
-                    {groupAncestry.length > 0 && (
-                      <span className="text-[#00D4AA] font-medium"> • {groupAncestry.join(' • ')}</span>
-                    )}
+                return (
+                  <div
+                    key={course.id}
+                    className="flex flex-col rounded-lg border border-white/10 bg-black/25 p-3 text-xs space-y-2"
+                  >
+                    <div className="flex items-start justify-between gap-1.5">
+                      <div className="min-w-0 flex-1">
+                        {course.code && (
+                          <span className="text-[10px] font-bold text-[#8B85FF] font-mono block">
+                            {course.code}
+                          </span>
+                        )}
+                        <div className="font-bold text-white leading-tight">{course.name}</div>
+                      </div>
+                      <span className="text-[10px] font-mono text-slate-400 shrink-0">
+                        {courseCredits} cr
+                      </span>
+                    </div>
+
+                    <div className="space-y-1.5 border-t border-white/5 pt-2">
+                      {courseClasses.map((cls) => {
+                        const groupAncestry = getGroupAncestry(cls.groupId, groupMap);
+                        return (
+                          <div
+                            key={cls.id}
+                            className="flex items-start gap-1.5 text-[11px] text-slate-300"
+                          >
+                            <CheckCircle2 className="h-3 w-3 shrink-0 text-[#00D4AA] mt-0.5" />
+                            <div className="min-w-0 flex-1">
+                              <span className="font-medium text-white">{cls.name}</span>
+                              {cls.type && <span className="text-slate-400"> ({cls.type})</span>}
+                              {groupAncestry.length > 0 && (
+                                <div className="text-[10px] text-[#00D4AA] truncate">
+                                  {groupAncestry.join(' • ')}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })
+          ) : (
+            Array.from(enrolledClasses).map((cId) => {
+              const cls = classMap.get(cId);
+              if (!cls) return null;
+              const groupAncestry = getGroupAncestry(cls.groupId, groupMap);
+
+              return (
+                <div
+                  key={cId}
+                  className="flex items-start gap-2 rounded-lg border border-white/5 bg-black/20 p-2.5 text-xs"
+                >
+                  <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-[#00D4AA] mt-0.5" />
+                  <div className="min-w-0 flex-1">
+                    <div className="font-semibold text-white truncate">{cls.name}</div>
+                    <div className="text-[11px] text-slate-400">
+                      {cls.credits ? `${cls.credits} credits` : '0 credits'}
+                      {groupAncestry.length > 0 && (
+                        <span className="text-[#00D4AA] font-medium"> • {groupAncestry.join(' • ')}</span>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+          )}
         </div>
       </div>
     </div>

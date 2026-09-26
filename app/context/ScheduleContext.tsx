@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState, useCallback, useMemo } from 'react';
 import type {
   ClassItem,
+  Course,
   GeneratedSchedule,
   Preferences,
   PriorityCriterion,
@@ -19,6 +20,8 @@ export interface ScheduleContextType {
   currentScreen: 'import' | 'setup' | 'results';
   setScreen: (screen: 'import' | 'setup' | 'results') => void;
   scheduleData: ScheduleData | null;
+  courses: Course[];
+  courseById: Map<string, Course>;
   loadScheduleData: (data: ScheduleData) => void;
   clearScheduleData: () => void;
   crossedOff: Set<string>;
@@ -43,6 +46,9 @@ export interface ScheduleContextType {
   isEntireDayBlocked: (day: string) => boolean;
   toggleSessionCrossOff: (classId: string, sessionIndex: number) => void;
   toggleClassCrossOff: (classId: string) => void;
+  toggleCourseCrossOff: (courseId: string) => void;
+  isCourseCrossed: (courseId: string) => boolean;
+  isCoursePartiallyCrossed: (courseId: string) => boolean;
   handlePinClick: (classId: string, sessionIndex?: number) => void;
   pinSession: (classId: string, sessionIndex: number) => void;
   unpinClass: (classId: string) => void;
@@ -406,6 +412,81 @@ export function ScheduleProvider({ children }: { children: React.ReactNode }) {
     [scheduleData, pinnedClasses, isClassEntirelyCrossed, showToast]
   );
 
+  const courses = useMemo(() => scheduleData?.courses || [], [scheduleData]);
+
+  const courseById = useMemo(() => {
+    const map = new Map<string, Course>();
+    if (scheduleData?.courses) {
+      for (const c of scheduleData.courses) map.set(c.id, c);
+    }
+    return map;
+  }, [scheduleData]);
+
+  const isCourseCrossed = useCallback(
+    (courseId: string) => {
+      const course = courseById.get(courseId);
+      if (!course || course.classes.length === 0) return false;
+      return course.classes.every((c) => isClassEntirelyCrossed(c));
+    },
+    [courseById, isClassEntirelyCrossed]
+  );
+
+  const isCoursePartiallyCrossed = useCallback(
+    (courseId: string) => {
+      const course = courseById.get(courseId);
+      if (!course || course.classes.length === 0) return false;
+      const crossedCount = course.classes.filter((c) => isClassEntirelyCrossed(c)).length;
+      return crossedCount > 0 && crossedCount < course.classes.length;
+    },
+    [courseById, isClassEntirelyCrossed]
+  );
+
+  const toggleCourseCrossOff = useCallback(
+    (courseId: string) => {
+      const course = courseById.get(courseId);
+      if (!course) return;
+
+      // Check if any class in the course is pinned
+      for (const c of course.classes) {
+        if (pinnedClasses[c.id] !== undefined) {
+          showToast(`"${course.name}" has a pinned class. Unpin it first.`, 'warning', 3200);
+          return;
+        }
+      }
+
+      const allCrossed = isCourseCrossed(courseId);
+
+      setCrossedOff((prev) => {
+        const next = new Set(prev);
+        if (allCrossed) {
+          // Restore all classes in course
+          for (const c of course.classes) {
+            next.delete(c.id);
+            if (c.sessions) {
+              for (let i = 0; i < c.sessions.length; i++) {
+                next.delete(`${c.id}#${i}`);
+              }
+            }
+          }
+          showToast(`Course "${course.name}" restored.`, 'info', 1800);
+        } else {
+          // Cross off all classes in course
+          for (const c of course.classes) {
+            next.add(c.id);
+            if (c.sessions) {
+              for (let i = 0; i < c.sessions.length; i++) {
+                next.add(`${c.id}#${i}`);
+              }
+            }
+          }
+          showToast(`Course "${course.name}" crossed off.`, 'info', 1800);
+        }
+        return next;
+      });
+    },
+    [courseById, pinnedClasses, isCourseCrossed, showToast]
+  );
+
   const openSessionPicker = useCallback((cls: ClassItem) => {
     setActivePickerClass(cls);
   }, []);
@@ -711,6 +792,8 @@ export function ScheduleProvider({ children }: { children: React.ReactNode }) {
         currentScreen,
         setScreen: setCurrentScreen,
         scheduleData,
+        courses,
+        courseById,
         loadScheduleData,
         clearScheduleData,
         crossedOff,
@@ -735,6 +818,9 @@ export function ScheduleProvider({ children }: { children: React.ReactNode }) {
         isEntireDayBlocked,
         toggleSessionCrossOff,
         toggleClassCrossOff,
+        toggleCourseCrossOff,
+        isCourseCrossed,
+        isCoursePartiallyCrossed,
         handlePinClick,
         pinSession,
         unpinClass,

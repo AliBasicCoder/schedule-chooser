@@ -2,6 +2,7 @@ import React from 'react';
 import { Pin, X } from 'lucide-react';
 import { useSchedule } from '../../context/ScheduleContext';
 import type { ChipLayoutItem } from '../../types/schedule';
+import { TRACK_HEIGHT } from '../../utils/time';
 
 interface SessionChipProps {
   chip: ChipLayoutItem;
@@ -11,6 +12,7 @@ interface SessionChipProps {
 export function SessionChip({ chip, interactive = true }: SessionChipProps) {
   const {
     scheduleData,
+    courseById,
     isSessionPinned,
     isSessionCrossedDueToPin,
     isSessionCrossed,
@@ -22,6 +24,8 @@ export function SessionChip({ chip, interactive = true }: SessionChipProps) {
   const isPinned = isSessionPinned(classObj.id, sessionIndex);
   const isCrossedDueToPin = isSessionCrossedDueToPin(classObj.id, sessionIndex);
   const isCrossed = isSessionCrossed(classObj.id, sessionIndex);
+
+  const course = classObj.courseId ? courseById.get(classObj.courseId) : null;
 
   // Group name (from flat groups list)
   const group = classObj.groupId ? scheduleData?.groups.find((g) => g.id === classObj.groupId) : null;
@@ -40,12 +44,13 @@ export function SessionChip({ chip, interactive = true }: SessionChipProps) {
     }
   };
 
-  const TRACK_HEIGHT = 56;
-  const top = track * TRACK_HEIGHT + 4;
+  const top = track * TRACK_HEIGHT + 3;
+  const chipHeight = TRACK_HEIGHT - 6;
 
   // Tooltip content
   const tooltipLines = [
-    classObj.name,
+    course ? `Course: ${course.name}${course.code ? ` (${course.code})` : ''}` : '',
+    `Class: ${classObj.name}${classObj.type ? ` [${classObj.type}]` : ''}`,
     group ? `Group: ${group.name}` : '',
     classObj.instructor ? `Instructor: ${classObj.instructor}` : '',
     classObj.location ? `Location: ${classObj.location}` : '',
@@ -71,8 +76,9 @@ export function SessionChip({ chip, interactive = true }: SessionChipProps) {
         left: `${left}px`,
         width: `${width}px`,
         top: `${top}px`,
+        height: `${chipHeight}px`,
       }}
-      className={`group absolute z-10 pointer-events-auto flex flex-col justify-between h-auto min-h-[38px] overflow-hidden rounded-lg p-1.5 text-xs font-semibold shadow-md transition-all select-none border ${
+      className={`group absolute z-10 pointer-events-auto flex flex-col justify-between overflow-hidden rounded-lg p-1.5 text-xs font-semibold shadow-md transition-all select-none border ${
         interactive ? 'cursor-pointer hover:z-20 hover:scale-[1.01]' : 'cursor-default'
       } ${
         isCrossed
@@ -88,9 +94,26 @@ export function SessionChip({ chip, interactive = true }: SessionChipProps) {
       <div className="flex items-start justify-between gap-1 min-w-0">
         <div className="flex items-start gap-1 min-w-0 flex-1">
           {isPinned && <span className="text-[10px] shrink-0 mt-0.5">📌</span>}
-          <span className="text-[10.5px] font-bold leading-[13px] break-words text-left">
-            {classObj.name}
-          </span>
+          <div className="min-w-0 flex-1 text-left">
+            {course ? (
+              <>
+                <span className="text-[11px] font-bold leading-[13px] line-clamp-2 break-words block">
+                  {course.name}
+                </span>
+                <span className="text-[9px] font-medium opacity-85 leading-[11px] truncate block mt-0.5">
+                  {classObj.name !== course.name
+                    ? classObj.name
+                    : classObj.type
+                    ? classObj.type.charAt(0).toUpperCase() + classObj.type.slice(1)
+                    : 'Class'}
+                </span>
+              </>
+            ) : (
+              <span className="text-[11px] font-bold leading-[13px] line-clamp-2 break-words block">
+                {classObj.name}
+              </span>
+            )}
+          </div>
         </div>
 
         {/* Action Buttons (Pin & Cross) */}
@@ -142,17 +165,17 @@ export function SessionChip({ chip, interactive = true }: SessionChipProps) {
       </div>
 
       {/* Badges / Group & Info Row */}
-      <div className="flex items-center gap-1 overflow-hidden leading-none">
+      <div className="flex items-center gap-1 overflow-hidden leading-none mt-auto pt-0.5 shrink-0">
         {/* Group Badge */}
         {group && width > 60 && (
-          <span className="shrink-0 rounded bg-black/40 px-1 py-0.5 text-[8.5px] font-bold text-white border border-white/20">
+          <span className="shrink-0 rounded bg-black/40 px-1 py-0.5 text-[8.5px] font-bold text-white border border-white/20 truncate max-w-[85%]">
             {group.name}
           </span>
         )}
 
         {/* Multi-session fraction badge (e.g., "1/2") */}
         {!classObj.attendAllSessions && classObj.sessions.length > 1 && width > 50 && (
-          <span className="shrink-0 rounded bg-black/35 px-1 py-0.5 text-[8.5px] font-bold text-white">
+          <span className="shrink-0 rounded bg-black/35 px-1 py-0.5 text-[8.5px] font-bold text-white shrink-0">
             {sessionIndex + 1}/{classObj.sessions.length}
           </span>
         )}

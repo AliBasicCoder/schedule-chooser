@@ -7,6 +7,7 @@ import {
   timeToMin,
   SLOT_MINUTES,
   SLOT_WIDTH_PX,
+  TRACK_HEIGHT,
 } from '../../utils/time';
 import { SessionChip } from './SessionChip';
 
@@ -129,8 +130,7 @@ export function ScheduleGrid({ data, interactive = true, selections }: ScheduleG
           const dayChips = chipsByDay[day] || [];
           const maxTrack = dayChips.reduce((max, c) => Math.max(max, c.track), 0);
           const trackCount = dayChips.length > 0 ? maxTrack + 1 : 1;
-          const TRACK_HEIGHT = 56;
-          const rowHeight = Math.max(64, trackCount * TRACK_HEIGHT + 14);
+          const rowHeight = Math.max(76, trackCount * TRACK_HEIGHT + 8);
           const dayAllBlocked = interactive && isEntireDayBlocked(day);
 
           return (

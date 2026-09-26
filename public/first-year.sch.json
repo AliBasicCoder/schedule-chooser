@@ -646,1485 +646,1648 @@
             "conflictsWith": []
         }
     ],
-    "classes": [
+    "courses": [
         {
-            "id": "lec-creative-thinking-communication-skills-a",
+            "id": "course-ctcs",
             "name": "Creative Thinking & Communication Skills",
-            "type": "lecture",
-            "groupId": "sub-group-a",
-            "instructor": "Dr. Omima Saeid",
-            "location": "I. Farag Hall",
+            "code": "HU 111",
             "credits": 3,
-            "attendAllSessions": false,
-            "sessions": [
+            "classes": [
                 {
-                    "day": "Sat",
-                    "start": "08:00",
-                    "end": "09:30"
+                    "id": "lec-creative-thinking-communication-skills-a",
+                    "name": "Lecture (Group A)",
+                    "type": "lecture",
+                    "groupId": "sub-group-a",
+                    "instructor": "Dr. Omima Saeid",
+                    "location": "I. Farag Hall",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sat",
+                            "start": "08:00",
+                            "end": "09:30"
+                        }
+                    ],
+                    "courseId": "course-ctcs"
+                },
+                {
+                    "id": "lec-creative-thinking-communication-skills-b",
+                    "name": "Lecture (Group B)",
+                    "type": "lecture",
+                    "groupId": "sub-group-b",
+                    "instructor": "Dr. Omima Saeid",
+                    "location": "Al-Shafei Hall",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sat",
+                            "start": "08:00",
+                            "end": "09:30"
+                        }
+                    ],
+                    "courseId": "course-ctcs"
                 }
             ]
         },
         {
-            "id": "lec-technical-report-writing-a",
+            "id": "course-trw",
             "name": "Technical Report Writing",
-            "type": "lecture",
-            "groupId": "sub-group-a",
-            "instructor": "Prof. Ehab El-Khodary",
-            "location": "I. Farag Hall",
+            "code": "HU 112",
             "credits": 3,
-            "attendAllSessions": false,
-            "sessions": [
+            "classes": [
                 {
-                    "day": "Sun",
-                    "start": "08:00",
-                    "end": "09:30"
-                }
-            ]
-        },
-        {
-            "id": "lec-fundamentals-of-computer-sciences-a",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lecture",
-            "groupId": "sub-group-a",
-            "instructor": "Dr. Manar El-Kady & Dr. Laila Safoury",
-            "location": "I. Farag Hall",
-            "credits": 3,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Sun",
-                    "start": "09:30",
-                    "end": "11:00"
+                    "id": "lec-technical-report-writing-a",
+                    "name": "Lecture (Group A)",
+                    "type": "lecture",
+                    "groupId": "sub-group-a",
+                    "instructor": "Prof. Ehab El-Khodary",
+                    "location": "I. Farag Hall",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "08:00",
+                            "end": "09:30"
+                        }
+                    ],
+                    "courseId": "course-trw"
                 },
                 {
-                    "day": "Thu",
-                    "start": "08:00",
-                    "end": "09:30"
+                    "id": "lec-technical-report-writing-b",
+                    "name": "Lecture (Group B)",
+                    "type": "lecture",
+                    "groupId": "sub-group-b",
+                    "instructor": "Prof. Ehab El-Khodary",
+                    "location": "Al-Shafei Hall",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "08:00",
+                            "end": "09:30"
+                        }
+                    ],
+                    "courseId": "course-trw"
                 }
             ]
         },
         {
-            "id": "lec-math-0-a",
+            "id": "course-fcs",
+            "name": "Fundamentals of Computer Sciences",
+            "code": "CS 111",
+            "credits": 3,
+            "classes": [
+                {
+                    "id": "lec-fundamentals-of-computer-sciences-a",
+                    "name": "Lecture (Group A)",
+                    "type": "lecture",
+                    "groupId": "sub-group-a",
+                    "instructor": "Dr. Manar El-Kady & Dr. Laila Safoury",
+                    "location": "I. Farag Hall",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "09:30",
+                            "end": "11:00"
+                        },
+                        {
+                            "day": "Thu",
+                            "start": "08:00",
+                            "end": "09:30"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "lec-fundamentals-of-computer-sciences-b",
+                    "name": "Lecture (Group B)",
+                    "type": "lecture",
+                    "groupId": "sub-group-b",
+                    "instructor": "Dr. Manar El-Kady & Dr. Laila Safoury",
+                    "location": "Al-Shafei Hall",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "09:30",
+                            "end": "11:00"
+                        },
+                        {
+                            "day": "Thu",
+                            "start": "08:00",
+                            "end": "09:30"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
+                    "instructor": "",
+                    "location": "Lab 8",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sat",
+                            "start": "09:30",
+                            "end": "11:00"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-2",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
+                    "instructor": "",
+                    "location": "Library Lab",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "11:15",
+                            "end": "12:45"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-3",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
+                    "instructor": "",
+                    "location": "Lab 7",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-4",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
+                    "instructor": "",
+                    "location": "Lab 7",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "08:00",
+                            "end": "09:30"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-5",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
+                    "instructor": "",
+                    "location": "Lab 3",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-6",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
+                    "instructor": "",
+                    "location": "Lab 6",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "14:30",
+                            "end": "16:00"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-7",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
+                    "instructor": "",
+                    "location": "Lab 7",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "16:15",
+                            "end": "17:45"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-8",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
+                    "instructor": "",
+                    "location": "Lab 6",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "18:00",
+                            "end": "19:30"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-9",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
+                    "instructor": "",
+                    "location": "Lab 6 / Lab 3",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Tue",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-10",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
+                    "instructor": "",
+                    "location": "Lab 6",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Tue",
+                            "start": "14:30",
+                            "end": "16:00"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-11",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
+                    "instructor": "",
+                    "location": "Lab 6 / Lab 7",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-12",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
+                    "instructor": "",
+                    "location": "Library Lab",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "14:30",
+                            "end": "16:00"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-13",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
+                    "instructor": "",
+                    "location": "Library Lab",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Thu",
+                            "start": "14:30",
+                            "end": "16:00"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-14",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
+                    "instructor": "",
+                    "location": "Library Lab",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Thu",
+                            "start": "16:15",
+                            "end": "17:45"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-15",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
+                    "instructor": "",
+                    "location": "Lab 6",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sat",
+                            "start": "09:30",
+                            "end": "11:00"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-16",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
+                    "instructor": "",
+                    "location": "Lab 7",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "11:15",
+                            "end": "12:45"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-17",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
+                    "instructor": "",
+                    "location": "Lab 8",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-18",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
+                    "instructor": "",
+                    "location": "Lab 7",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "11:15",
+                            "end": "12:45"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-19",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
+                    "instructor": "",
+                    "location": "Lab 8",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "14:30",
+                            "end": "16:00"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-20",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
+                    "instructor": "",
+                    "location": "Lab 8",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Tue",
+                            "start": "09:30",
+                            "end": "11:00"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-21",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
+                    "instructor": "",
+                    "location": "Library Lab",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Tue",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-22",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
+                    "instructor": "",
+                    "location": "Lab 7",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Tue",
+                            "start": "14:30",
+                            "end": "16:00"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-23",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
+                    "instructor": "",
+                    "location": "Lab 3",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "11:15",
+                            "end": "12:45"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-24",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
+                    "instructor": "",
+                    "location": "Lab 5",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "14:30",
+                            "end": "16:00"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-25",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
+                    "instructor": "",
+                    "location": "Lab 5 / Lab 7",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "16:15",
+                            "end": "17:45"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-26",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
+                    "instructor": "",
+                    "location": "Lab 5",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Thu",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                },
+                {
+                    "id": "class-fundamentals-of-computer-sciences-lab-27",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5",
+                    "instructor": "",
+                    "location": "Lab 7",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Thu",
+                            "start": "14:30",
+                            "end": "16:00"
+                        }
+                    ],
+                    "courseId": "course-fcs"
+                }
+            ]
+        },
+        {
+            "id": "course-math0",
             "name": "Math_0",
-            "type": "lecture",
-            "groupId": "sub-group-a",
-            "instructor": "Dr. Mai Abdel-Ghafar",
-            "location": "I. Farag Hall",
+            "code": "BS 100",
             "credits": 3,
-            "attendAllSessions": false,
-            "sessions": [
+            "classes": [
                 {
-                    "day": "Sun",
-                    "start": "16:15",
-                    "end": "17:45"
-                }
-            ]
-        },
-        {
-            "id": "lec-electronics-a",
-            "name": "Electronics",
-            "type": "lecture",
-            "groupId": "sub-group-a",
-            "instructor": "Dr. Elham Shawky & Dr. Ibrahim Zidan",
-            "location": "I. Farag Hall",
-            "credits": 3,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Mon",
-                    "start": "09:30",
-                    "end": "11:00"
+                    "id": "lec-math-0-a",
+                    "name": "Lecture (Group A)",
+                    "type": "lecture",
+                    "groupId": "sub-group-a",
+                    "instructor": "Dr. Mai Abdel-Ghafar",
+                    "location": "I. Farag Hall",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "16:15",
+                            "end": "17:45"
+                        }
+                    ],
+                    "courseId": "course-math0"
                 },
                 {
-                    "day": "Thu",
-                    "start": "11:15",
-                    "end": "12:45"
-                }
-            ]
-        },
-        {
-            "id": "lec-discrete-mathematics-a",
-            "name": "Discrete Mathematics",
-            "type": "lecture",
-            "groupId": "sub-group-a",
-            "instructor": "Dr. Shourouk Wael & Dr. Mai Abdel-Ghafar",
-            "location": "I. Farag Hall",
-            "credits": 3,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Mon",
-                    "start": "11:15",
-                    "end": "12:45"
+                    "id": "lec-math-0-b",
+                    "name": "Lecture (Group B)",
+                    "type": "lecture",
+                    "groupId": "sub-group-b",
+                    "instructor": "Dr. Mai Abdel-Ghafar",
+                    "location": "I. Farag Hall",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "16:15",
+                            "end": "17:45"
+                        }
+                    ],
+                    "courseId": "course-math0"
                 },
                 {
-                    "day": "Thu",
-                    "start": "09:30",
-                    "end": "11:00"
-                }
-            ]
-        },
-        {
-            "id": "lec-mathematics-1-a",
-            "name": "Mathematics-1",
-            "type": "lecture",
-            "groupId": "sub-group-a",
-            "instructor": "Dr. Hala Fayez",
-            "location": "I. Farag Hall",
-            "credits": 3,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Wed",
-                    "start": "08:00",
-                    "end": "09:30"
+                    "id": "class-math-0-tutorial",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-math-0-tut-a-s1_2_3_4-sat-p3",
+                    "instructor": "",
+                    "location": "Hall 8",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sat",
+                            "start": "11:15",
+                            "end": "12:45"
+                        }
+                    ],
+                    "courseId": "course-math0"
                 },
                 {
-                    "day": "Wed",
-                    "start": "09:30",
-                    "end": "11:00"
-                }
-            ]
-        },
-        {
-            "id": "lec-creative-thinking-communication-skills-b",
-            "name": "Creative Thinking & Communication Skills",
-            "type": "lecture",
-            "groupId": "sub-group-b",
-            "instructor": "Dr. Omima Saeid",
-            "location": "Al-Shafei Hall",
-            "credits": 3,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Sat",
-                    "start": "08:00",
-                    "end": "09:30"
-                }
-            ]
-        },
-        {
-            "id": "lec-technical-report-writing-b",
-            "name": "Technical Report Writing",
-            "type": "lecture",
-            "groupId": "sub-group-b",
-            "instructor": "Prof. Ehab El-Khodary",
-            "location": "Al-Shafei Hall",
-            "credits": 3,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Sun",
-                    "start": "08:00",
-                    "end": "09:30"
-                }
-            ]
-        },
-        {
-            "id": "lec-fundamentals-of-computer-sciences-b",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lecture",
-            "groupId": "sub-group-b",
-            "instructor": "Dr. Manar El-Kady & Dr. Laila Safoury",
-            "location": "Al-Shafei Hall",
-            "credits": 3,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Sun",
-                    "start": "09:30",
-                    "end": "11:00"
+                    "id": "class-math-0-tutorial-2",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-math-0-tut-a-s5_6_7_8-sun-p3",
+                    "instructor": "",
+                    "location": "Hall 10",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "11:15",
+                            "end": "12:45"
+                        }
+                    ],
+                    "courseId": "course-math0"
                 },
                 {
-                    "day": "Thu",
-                    "start": "08:00",
-                    "end": "09:30"
-                }
-            ]
-        },
-        {
-            "id": "lec-math-0-b",
-            "name": "Math_0",
-            "type": "lecture",
-            "groupId": "sub-group-b",
-            "instructor": "Dr. Mai Abdel-Ghafar",
-            "location": "I. Farag Hall",
-            "credits": 3,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Sun",
-                    "start": "16:15",
-                    "end": "17:45"
-                }
-            ]
-        },
-        {
-            "id": "lec-electronics-b",
-            "name": "Electronics",
-            "type": "lecture",
-            "groupId": "sub-group-b",
-            "instructor": "Dr. Elham Shawky & Dr. Ibrahim Zidan",
-            "location": "Al-Shafei Hall",
-            "credits": 3,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Mon",
-                    "start": "08:00",
-                    "end": "09:30"
+                    "id": "class-math-0-tutorial-3",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-math-0-tut-a-s9_10-wed-p2",
+                    "instructor": "",
+                    "location": "Hall 10",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "09:30",
+                            "end": "11:00"
+                        }
+                    ],
+                    "courseId": "course-math0"
                 },
                 {
-                    "day": "Thu",
-                    "start": "11:15",
-                    "end": "12:45"
-                }
-            ]
-        },
-        {
-            "id": "lec-discrete-mathematics-b",
-            "name": "Discrete Mathematics",
-            "type": "lecture",
-            "groupId": "sub-group-b",
-            "instructor": "Dr. Shourouk Wael & Dr. Mai Abdel-Ghafar",
-            "location": "Al-Shafei Hall",
-            "credits": 3,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Mon",
-                    "start": "09:30",
-                    "end": "11:00"
+                    "id": "class-math-0-tutorial-4",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-math-0-tut-b-s11_12_13_14-sun-p4",
+                    "instructor": "",
+                    "location": "Hall 10",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-math0"
                 },
                 {
-                    "day": "Thu",
-                    "start": "09:30",
-                    "end": "11:00"
+                    "id": "class-math-0-tutorial-5",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-math-0-tut-b-s15_16_17_18_19_20-thu-p4",
+                    "instructor": "",
+                    "location": "Hall 8",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Thu",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-math0"
                 }
             ]
         },
         {
-            "id": "lec-mathematics-1-b",
-            "name": "Mathematics-1",
-            "type": "lecture",
-            "groupId": "sub-group-b",
-            "instructor": "Dr. Hala Fayez",
-            "location": "Al-Shafei Hall",
+            "id": "course-electronics",
+            "name": "Electronics",
+            "code": "IT 111",
             "credits": 3,
-            "attendAllSessions": false,
-            "sessions": [
+            "classes": [
                 {
-                    "day": "Wed",
-                    "start": "08:00",
-                    "end": "09:30"
+                    "id": "lec-electronics-a",
+                    "name": "Lecture (Group A)",
+                    "type": "lecture",
+                    "groupId": "sub-group-a",
+                    "instructor": "Dr. Elham Shawky & Dr. Ibrahim Zidan",
+                    "location": "I. Farag Hall",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "09:30",
+                            "end": "11:00"
+                        },
+                        {
+                            "day": "Thu",
+                            "start": "11:15",
+                            "end": "12:45"
+                        }
+                    ],
+                    "courseId": "course-electronics"
                 },
                 {
-                    "day": "Wed",
-                    "start": "09:30",
-                    "end": "11:00"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s3_4-sat-p2",
-            "instructor": "",
-            "location": "Lab 8",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "lec-electronics-b",
+                    "name": "Lecture (Group B)",
+                    "type": "lecture",
+                    "groupId": "sub-group-b",
+                    "instructor": "Dr. Elham Shawky & Dr. Ibrahim Zidan",
+                    "location": "Al-Shafei Hall",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "08:00",
+                            "end": "09:30"
+                        },
+                        {
+                            "day": "Thu",
+                            "start": "11:15",
+                            "end": "12:45"
+                        }
+                    ],
+                    "courseId": "course-electronics"
+                },
                 {
-                    "day": "Sat",
-                    "start": "09:30",
-                    "end": "11:00"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-2",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s5_6-sun-p3",
-            "instructor": "",
-            "location": "Library Lab",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-electronics-tutorial",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-electronics-tut-a-s8_9_10_11-mon-p4",
+                    "instructor": "",
+                    "location": "Hall 9",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-electronics"
+                },
                 {
-                    "day": "Sun",
-                    "start": "11:15",
-                    "end": "12:45"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-3",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s7_8-sun-p4",
-            "instructor": "",
-            "location": "Lab 7",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-electronics-tutorial-2",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-electronics-tut-a-s1_2_3_4_5_6_7-mon-p5",
+                    "instructor": "",
+                    "location": "Hall 7",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "14:30",
+                            "end": "16:00"
+                        }
+                    ],
+                    "courseId": "course-electronics"
+                },
                 {
-                    "day": "Sun",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-4",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s25_26-mon-p1",
-            "instructor": "",
-            "location": "Lab 7",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-electronics-tutorial-3",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-electronics-tut-a-s12_13_14_15_16_17_18-tue-p1",
+                    "instructor": "",
+                    "location": "Hall 7",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Tue",
+                            "start": "08:00",
+                            "end": "09:30"
+                        }
+                    ],
+                    "courseId": "course-electronics"
+                },
                 {
-                    "day": "Mon",
-                    "start": "08:00",
-                    "end": "09:30"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-5",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s9_10-mon-p4",
-            "instructor": "",
-            "location": "Lab 3",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-electronics-tutorial-4",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-electronics-tut-a-s19_20_21_22_23-tue-p4",
+                    "instructor": "",
+                    "location": "Hall 8",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Tue",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-electronics"
+                },
                 {
-                    "day": "Mon",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-6",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s11_12-mon-p5",
-            "instructor": "",
-            "location": "Lab 6",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-electronics-tutorial-5",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-electronics-tut-a-s24_25_26_27_28_29_30-wed-p4",
+                    "instructor": "",
+                    "location": "Hall 7",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-electronics"
+                },
                 {
-                    "day": "Mon",
-                    "start": "14:30",
-                    "end": "16:00"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-7",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s1_2-mon-p6",
-            "instructor": "",
-            "location": "Lab 7",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-electronics-tutorial-6",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-electronics-tut-b-s39_40_41_42_43_44_45_46-sun-p3",
+                    "instructor": "",
+                    "location": "Hall 7",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "11:15",
+                            "end": "12:45"
+                        }
+                    ],
+                    "courseId": "course-electronics"
+                },
                 {
-                    "day": "Mon",
-                    "start": "16:15",
-                    "end": "17:45"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-8",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s13_14-mon-p7",
-            "instructor": "",
-            "location": "Lab 6",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-electronics-tutorial-7",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-electronics-tut-b-s51_52_53_54-mon-p4",
+                    "instructor": "",
+                    "location": "Hall 10",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-electronics"
+                },
                 {
-                    "day": "Mon",
-                    "start": "18:00",
-                    "end": "19:30"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-9",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s15_16_17_18-tue-p4",
-            "instructor": "",
-            "location": "Lab 6 / Lab 3",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-electronics-tutorial-8",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-electronics-tut-b-s35_36_37_38-tue-p2",
+                    "instructor": "",
+                    "location": "Hall 10",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Tue",
+                            "start": "09:30",
+                            "end": "11:00"
+                        }
+                    ],
+                    "courseId": "course-electronics"
+                },
                 {
-                    "day": "Tue",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-10",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s19_20-tue-p5",
-            "instructor": "",
-            "location": "Lab 6",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-electronics-tutorial-9",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-electronics-tut-b-s31_32_33_34-tue-p4",
+                    "instructor": "",
+                    "location": "Hall 10",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Tue",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-electronics"
+                },
                 {
-                    "day": "Tue",
-                    "start": "14:30",
-                    "end": "16:00"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-11",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s27_28_29_30-wed-p4",
-            "instructor": "",
-            "location": "Lab 6 / Lab 7",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-electronics-tutorial-10",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-electronics-tut-b-s55_56_57_58_59_60-wed-p4",
+                    "instructor": "",
+                    "location": "Hall 7",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-electronics"
+                },
                 {
-                    "day": "Wed",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-12",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s21_22-wed-p5",
-            "instructor": "",
-            "location": "Library Lab",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-electronics-tutorial-11",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-electronics-tut-b-s55_56_57_58-thu-p4",
+                    "instructor": "",
+                    "location": "Hall 9",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Thu",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-electronics"
+                },
                 {
-                    "day": "Wed",
-                    "start": "14:30",
-                    "end": "16:00"
+                    "id": "class-electronics-tutorial-12",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-electronics-tut-b-s47_48_49_50-thu-p5",
+                    "instructor": "",
+                    "location": "Hall 9",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Thu",
+                            "start": "14:30",
+                            "end": "16:00"
+                        }
+                    ],
+                    "courseId": "course-electronics"
                 }
             ]
         },
         {
-            "id": "class-fundamentals-of-computer-sciences-lab-13",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s23_24-thu-p5",
-            "instructor": "",
-            "location": "Library Lab",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+            "id": "course-discrete",
+            "name": "Discrete Mathematics",
+            "code": "CS 112",
+            "credits": 3,
+            "classes": [
                 {
-                    "day": "Thu",
-                    "start": "14:30",
-                    "end": "16:00"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-14",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-a-s31_32-thu-p6",
-            "instructor": "",
-            "location": "Library Lab",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "lec-discrete-mathematics-a",
+                    "name": "Lecture (Group A)",
+                    "type": "lecture",
+                    "groupId": "sub-group-a",
+                    "instructor": "Dr. Shourouk Wael & Dr. Mai Abdel-Ghafar",
+                    "location": "I. Farag Hall",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "11:15",
+                            "end": "12:45"
+                        },
+                        {
+                            "day": "Thu",
+                            "start": "09:30",
+                            "end": "11:00"
+                        }
+                    ],
+                    "courseId": "course-discrete"
+                },
                 {
-                    "day": "Thu",
-                    "start": "16:15",
-                    "end": "17:45"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-15",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s33_34-sat-p2",
-            "instructor": "",
-            "location": "Lab 6",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "lec-discrete-mathematics-b",
+                    "name": "Lecture (Group B)",
+                    "type": "lecture",
+                    "groupId": "sub-group-b",
+                    "instructor": "Dr. Shourouk Wael & Dr. Mai Abdel-Ghafar",
+                    "location": "Al-Shafei Hall",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "09:30",
+                            "end": "11:00"
+                        },
+                        {
+                            "day": "Thu",
+                            "start": "09:30",
+                            "end": "11:00"
+                        }
+                    ],
+                    "courseId": "course-discrete"
+                },
                 {
-                    "day": "Sat",
-                    "start": "09:30",
-                    "end": "11:00"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-16",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s35_36-sun-p3",
-            "instructor": "",
-            "location": "Lab 7",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-discrete-mathematics-tutorial",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-discrete-mathematics-tut-a-s25_26_27_28_29_30_31_32-mon-p1",
+                    "instructor": "",
+                    "location": "Hall 9 / Hall 10",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "08:00",
+                            "end": "09:30"
+                        }
+                    ],
+                    "courseId": "course-discrete"
+                },
                 {
-                    "day": "Sun",
-                    "start": "11:15",
-                    "end": "12:45"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-17",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s39_40-sun-p4",
-            "instructor": "",
-            "location": "Lab 8",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-discrete-mathematics-tutorial-2",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-discrete-mathematics-tut-a-s9_10_11_12-tue-p1",
+                    "instructor": "",
+                    "location": "Hall 10",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Tue",
+                            "start": "08:00",
+                            "end": "09:30"
+                        }
+                    ],
+                    "courseId": "course-discrete"
+                },
                 {
-                    "day": "Sun",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-18",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s45_46-mon-p3",
-            "instructor": "",
-            "location": "Lab 7",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-discrete-mathematics-tutorial-3",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-discrete-mathematics-tut-a-s1_2_3_4_5_6_7_8-tue-p2",
+                    "instructor": "",
+                    "location": "Hall 7",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Tue",
+                            "start": "09:30",
+                            "end": "11:00"
+                        }
+                    ],
+                    "courseId": "course-discrete"
+                },
                 {
-                    "day": "Mon",
-                    "start": "11:15",
-                    "end": "12:45"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-19",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s47_48-mon-p5",
-            "instructor": "",
-            "location": "Lab 8",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-discrete-mathematics-tutorial-4",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-discrete-mathematics-tut-a-s13_14_15_16-tue-p4",
+                    "instructor": "",
+                    "location": "Hall 9",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Tue",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-discrete"
+                },
                 {
-                    "day": "Mon",
-                    "start": "14:30",
-                    "end": "16:00"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-20",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s49_50-tue-p2",
-            "instructor": "",
-            "location": "Lab 8",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-discrete-mathematics-tutorial-5",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-discrete-mathematics-tut-a-s17_18_19_20-wed-p3",
+                    "instructor": "",
+                    "location": "Hall 9",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "11:15",
+                            "end": "12:45"
+                        }
+                    ],
+                    "courseId": "course-discrete"
+                },
                 {
-                    "day": "Tue",
-                    "start": "09:30",
-                    "end": "11:00"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-21",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s53_54-tue-p4",
-            "instructor": "",
-            "location": "Library Lab",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-discrete-mathematics-tutorial-6",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-discrete-mathematics-tut-a-s21_22_23_24-wed-p4",
+                    "instructor": "",
+                    "location": "Hall 10",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-discrete"
+                },
                 {
-                    "day": "Tue",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-22",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s37_38-tue-p5",
-            "instructor": "",
-            "location": "Lab 7",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-discrete-mathematics-tutorial-7",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-discrete-mathematics-tut-b-s33_34_35_36_37_38_39_40-sun-p5",
+                    "instructor": "",
+                    "location": "Hall 9 / Hall 10",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "14:30",
+                            "end": "16:00"
+                        }
+                    ],
+                    "courseId": "course-discrete"
+                },
                 {
-                    "day": "Tue",
-                    "start": "14:30",
-                    "end": "16:00"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-23",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s55_56-wed-p3",
-            "instructor": "",
-            "location": "Lab 3",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-discrete-mathematics-tutorial-8",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-discrete-mathematics-tut-b-s49_50_51_52-tue-p1",
+                    "instructor": "",
+                    "location": "Hall 9",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Tue",
+                            "start": "08:00",
+                            "end": "09:30"
+                        }
+                    ],
+                    "courseId": "course-discrete"
+                },
                 {
-                    "day": "Wed",
-                    "start": "11:15",
-                    "end": "12:45"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-24",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s57_58-wed-p5",
-            "instructor": "",
-            "location": "Lab 5",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-discrete-mathematics-tutorial-9",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-discrete-mathematics-tut-b-s41_42_43_44-tue-p2",
+                    "instructor": "",
+                    "location": "Hall 9",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Tue",
+                            "start": "09:30",
+                            "end": "11:00"
+                        }
+                    ],
+                    "courseId": "course-discrete"
+                },
                 {
-                    "day": "Wed",
-                    "start": "14:30",
-                    "end": "16:00"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-25",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s43_44_51_52-wed-p6",
-            "instructor": "",
-            "location": "Lab 5 / Lab 7",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+                    "id": "class-discrete-mathematics-tutorial-10",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-discrete-mathematics-tut-b-s45_46_47_48_53_54_55_56-tue-p4",
+                    "instructor": "",
+                    "location": "Hall 10 / Hall 9",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Tue",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-discrete"
+                },
                 {
-                    "day": "Wed",
-                    "start": "16:15",
-                    "end": "17:45"
+                    "id": "class-discrete-mathematics-tutorial-11",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-discrete-mathematics-tut-b-s57_58_59_60_61_62_63_64-wed-p4",
+                    "instructor": "",
+                    "location": "Hall 9 / Hall 10",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-discrete"
                 }
             ]
         },
         {
-            "id": "class-fundamentals-of-computer-sciences-lab-26",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s59_60-thu-p4",
-            "instructor": "",
-            "location": "Lab 5",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Thu",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-fundamentals-of-computer-sciences-lab-27",
-            "name": "Fundamentals of Computer Sciences",
-            "type": "lab",
-            "groupId": "sub-fundamentals-of-computer-sciences-lab-b-s41_42-thu-p5",
-            "instructor": "",
-            "location": "Lab 7",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Thu",
-                    "start": "14:30",
-                    "end": "16:00"
-                }
-            ]
-        },
-        {
-            "id": "class-math-0-tutorial",
-            "name": "Math_0",
-            "type": "tutorial",
-            "groupId": "sub-math-0-tut-a-s1_2_3_4-sat-p3",
-            "instructor": "",
-            "location": "Hall 8",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Sat",
-                    "start": "11:15",
-                    "end": "12:45"
-                }
-            ]
-        },
-        {
-            "id": "class-math-0-tutorial-2",
-            "name": "Math_0",
-            "type": "tutorial",
-            "groupId": "sub-math-0-tut-a-s5_6_7_8-sun-p3",
-            "instructor": "",
-            "location": "Hall 10",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Sun",
-                    "start": "11:15",
-                    "end": "12:45"
-                }
-            ]
-        },
-        {
-            "id": "class-math-0-tutorial-3",
-            "name": "Math_0",
-            "type": "tutorial",
-            "groupId": "sub-math-0-tut-a-s9_10-wed-p2",
-            "instructor": "",
-            "location": "Hall 10",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Wed",
-                    "start": "09:30",
-                    "end": "11:00"
-                }
-            ]
-        },
-        {
-            "id": "class-math-0-tutorial-4",
-            "name": "Math_0",
-            "type": "tutorial",
-            "groupId": "sub-math-0-tut-b-s11_12_13_14-sun-p4",
-            "instructor": "",
-            "location": "Hall 10",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Sun",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-math-0-tutorial-5",
-            "name": "Math_0",
-            "type": "tutorial",
-            "groupId": "sub-math-0-tut-b-s15_16_17_18_19_20-thu-p4",
-            "instructor": "",
-            "location": "Hall 8",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Thu",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-mathematics-1-tutorial",
+            "id": "course-math1",
             "name": "Mathematics-1",
-            "type": "tutorial",
-            "groupId": "sub-mathematics-1-tut-a-s1_2_3_4-sun-p3",
-            "instructor": "",
-            "location": "Hall 9",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
+            "code": "BS 111",
+            "credits": 3,
+            "classes": [
                 {
-                    "day": "Sun",
-                    "start": "11:15",
-                    "end": "12:45"
+                    "id": "lec-mathematics-1-a",
+                    "name": "Lecture (Group A)",
+                    "type": "lecture",
+                    "groupId": "sub-group-a",
+                    "instructor": "Dr. Hala Fayez",
+                    "location": "I. Farag Hall",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "08:00",
+                            "end": "09:30"
+                        },
+                        {
+                            "day": "Wed",
+                            "start": "09:30",
+                            "end": "11:00"
+                        }
+                    ],
+                    "courseId": "course-math1"
+                },
+                {
+                    "id": "lec-mathematics-1-b",
+                    "name": "Lecture (Group B)",
+                    "type": "lecture",
+                    "groupId": "sub-group-b",
+                    "instructor": "Dr. Hala Fayez",
+                    "location": "Al-Shafei Hall",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "08:00",
+                            "end": "09:30"
+                        },
+                        {
+                            "day": "Wed",
+                            "start": "09:30",
+                            "end": "11:00"
+                        }
+                    ],
+                    "courseId": "course-math1"
+                },
+                {
+                    "id": "class-mathematics-1-tutorial",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-mathematics-1-tut-a-s1_2_3_4-sun-p3",
+                    "instructor": "",
+                    "location": "Hall 9",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "11:15",
+                            "end": "12:45"
+                        }
+                    ],
+                    "courseId": "course-math1"
+                },
+                {
+                    "id": "class-mathematics-1-tutorial-2",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-mathematics-1-tut-a-s9_10_11_12-mon-p4",
+                    "instructor": "",
+                    "location": "Hall 10",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-math1"
+                },
+                {
+                    "id": "class-mathematics-1-tutorial-3",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-mathematics-1-tut-a-s5_6_7_8-mon-p5",
+                    "instructor": "",
+                    "location": "Hall 9",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "14:30",
+                            "end": "16:00"
+                        }
+                    ],
+                    "courseId": "course-math1"
+                },
+                {
+                    "id": "class-mathematics-1-tutorial-4",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-mathematics-1-tut-a-s13_14_15_16-thu-p4",
+                    "instructor": "",
+                    "location": "Hall 10",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Thu",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-math1"
+                },
+                {
+                    "id": "class-mathematics-1-tutorial-5",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-mathematics-1-tut-b-s17_18_19_20-sun-p4",
+                    "instructor": "",
+                    "location": "Hall 9",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-math1"
+                },
+                {
+                    "id": "class-mathematics-1-tutorial-6",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-mathematics-1-tut-b-s29_30_31_32-wed-p3",
+                    "instructor": "",
+                    "location": "Hall 10",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "11:15",
+                            "end": "12:45"
+                        }
+                    ],
+                    "courseId": "course-math1"
+                },
+                {
+                    "id": "class-mathematics-1-tutorial-7",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-mathematics-1-tut-b-s25_26_27_28-wed-p5",
+                    "instructor": "",
+                    "location": "Hall 9",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "14:30",
+                            "end": "16:00"
+                        }
+                    ],
+                    "courseId": "course-math1"
+                },
+                {
+                    "id": "class-mathematics-1-tutorial-8",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "sub-mathematics-1-tut-b-s21_22_23_24-thu-p5",
+                    "instructor": "",
+                    "location": "Hall 10",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Thu",
+                            "start": "14:30",
+                            "end": "16:00"
+                        }
+                    ],
+                    "courseId": "course-math1"
                 }
             ]
         },
         {
-            "id": "class-mathematics-1-tutorial-2",
-            "name": "Mathematics-1",
-            "type": "tutorial",
-            "groupId": "sub-mathematics-1-tut-a-s9_10_11_12-mon-p4",
-            "instructor": "",
-            "location": "Hall 10",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Mon",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-mathematics-1-tutorial-3",
-            "name": "Mathematics-1",
-            "type": "tutorial",
-            "groupId": "sub-mathematics-1-tut-a-s5_6_7_8-mon-p5",
-            "instructor": "",
-            "location": "Hall 9",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Mon",
-                    "start": "14:30",
-                    "end": "16:00"
-                }
-            ]
-        },
-        {
-            "id": "class-mathematics-1-tutorial-4",
-            "name": "Mathematics-1",
-            "type": "tutorial",
-            "groupId": "sub-mathematics-1-tut-a-s13_14_15_16-thu-p4",
-            "instructor": "",
-            "location": "Hall 10",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Thu",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-mathematics-1-tutorial-5",
-            "name": "Mathematics-1",
-            "type": "tutorial",
-            "groupId": "sub-mathematics-1-tut-b-s17_18_19_20-sun-p4",
-            "instructor": "",
-            "location": "Hall 9",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Sun",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-mathematics-1-tutorial-6",
-            "name": "Mathematics-1",
-            "type": "tutorial",
-            "groupId": "sub-mathematics-1-tut-b-s29_30_31_32-wed-p3",
-            "instructor": "",
-            "location": "Hall 10",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Wed",
-                    "start": "11:15",
-                    "end": "12:45"
-                }
-            ]
-        },
-        {
-            "id": "class-mathematics-1-tutorial-7",
-            "name": "Mathematics-1",
-            "type": "tutorial",
-            "groupId": "sub-mathematics-1-tut-b-s25_26_27_28-wed-p5",
-            "instructor": "",
-            "location": "Hall 9",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Wed",
-                    "start": "14:30",
-                    "end": "16:00"
-                }
-            ]
-        },
-        {
-            "id": "class-mathematics-1-tutorial-8",
-            "name": "Mathematics-1",
-            "type": "tutorial",
-            "groupId": "sub-mathematics-1-tut-b-s21_22_23_24-thu-p5",
-            "instructor": "",
-            "location": "Hall 10",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Thu",
-                    "start": "14:30",
-                    "end": "16:00"
-                }
-            ]
-        },
-        {
-            "id": "class-discrete-mathematics-tutorial",
-            "name": "Discrete Mathematics",
-            "type": "tutorial",
-            "groupId": "sub-discrete-mathematics-tut-a-s25_26_27_28_29_30_31_32-mon-p1",
-            "instructor": "",
-            "location": "Hall 9 / Hall 10",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Mon",
-                    "start": "08:00",
-                    "end": "09:30"
-                }
-            ]
-        },
-        {
-            "id": "class-discrete-mathematics-tutorial-2",
-            "name": "Discrete Mathematics",
-            "type": "tutorial",
-            "groupId": "sub-discrete-mathematics-tut-a-s9_10_11_12-tue-p1",
-            "instructor": "",
-            "location": "Hall 10",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Tue",
-                    "start": "08:00",
-                    "end": "09:30"
-                }
-            ]
-        },
-        {
-            "id": "class-discrete-mathematics-tutorial-3",
-            "name": "Discrete Mathematics",
-            "type": "tutorial",
-            "groupId": "sub-discrete-mathematics-tut-a-s1_2_3_4_5_6_7_8-tue-p2",
-            "instructor": "",
-            "location": "Hall 7",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Tue",
-                    "start": "09:30",
-                    "end": "11:00"
-                }
-            ]
-        },
-        {
-            "id": "class-discrete-mathematics-tutorial-4",
-            "name": "Discrete Mathematics",
-            "type": "tutorial",
-            "groupId": "sub-discrete-mathematics-tut-a-s13_14_15_16-tue-p4",
-            "instructor": "",
-            "location": "Hall 9",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Tue",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-discrete-mathematics-tutorial-5",
-            "name": "Discrete Mathematics",
-            "type": "tutorial",
-            "groupId": "sub-discrete-mathematics-tut-a-s17_18_19_20-wed-p3",
-            "instructor": "",
-            "location": "Hall 9",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Wed",
-                    "start": "11:15",
-                    "end": "12:45"
-                }
-            ]
-        },
-        {
-            "id": "class-discrete-mathematics-tutorial-6",
-            "name": "Discrete Mathematics",
-            "type": "tutorial",
-            "groupId": "sub-discrete-mathematics-tut-a-s21_22_23_24-wed-p4",
-            "instructor": "",
-            "location": "Hall 10",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Wed",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-discrete-mathematics-tutorial-7",
-            "name": "Discrete Mathematics",
-            "type": "tutorial",
-            "groupId": "sub-discrete-mathematics-tut-b-s33_34_35_36_37_38_39_40-sun-p5",
-            "instructor": "",
-            "location": "Hall 9 / Hall 10",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Sun",
-                    "start": "14:30",
-                    "end": "16:00"
-                }
-            ]
-        },
-        {
-            "id": "class-discrete-mathematics-tutorial-8",
-            "name": "Discrete Mathematics",
-            "type": "tutorial",
-            "groupId": "sub-discrete-mathematics-tut-b-s49_50_51_52-tue-p1",
-            "instructor": "",
-            "location": "Hall 9",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Tue",
-                    "start": "08:00",
-                    "end": "09:30"
-                }
-            ]
-        },
-        {
-            "id": "class-discrete-mathematics-tutorial-9",
-            "name": "Discrete Mathematics",
-            "type": "tutorial",
-            "groupId": "sub-discrete-mathematics-tut-b-s41_42_43_44-tue-p2",
-            "instructor": "",
-            "location": "Hall 9",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Tue",
-                    "start": "09:30",
-                    "end": "11:00"
-                }
-            ]
-        },
-        {
-            "id": "class-discrete-mathematics-tutorial-10",
-            "name": "Discrete Mathematics",
-            "type": "tutorial",
-            "groupId": "sub-discrete-mathematics-tut-b-s45_46_47_48_53_54_55_56-tue-p4",
-            "instructor": "",
-            "location": "Hall 10 / Hall 9",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Tue",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-discrete-mathematics-tutorial-11",
-            "name": "Discrete Mathematics",
-            "type": "tutorial",
-            "groupId": "sub-discrete-mathematics-tut-b-s57_58_59_60_61_62_63_64-wed-p4",
-            "instructor": "",
-            "location": "Hall 9 / Hall 10",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Wed",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-electronics-tutorial",
-            "name": "Electronics",
-            "type": "tutorial",
-            "groupId": "sub-electronics-tut-a-s8_9_10_11-mon-p4",
-            "instructor": "",
-            "location": "Hall 9",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Mon",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-electronics-tutorial-2",
-            "name": "Electronics",
-            "type": "tutorial",
-            "groupId": "sub-electronics-tut-a-s1_2_3_4_5_6_7-mon-p5",
-            "instructor": "",
-            "location": "Hall 7",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Mon",
-                    "start": "14:30",
-                    "end": "16:00"
-                }
-            ]
-        },
-        {
-            "id": "class-electronics-tutorial-3",
-            "name": "Electronics",
-            "type": "tutorial",
-            "groupId": "sub-electronics-tut-a-s12_13_14_15_16_17_18-tue-p1",
-            "instructor": "",
-            "location": "Hall 7",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Tue",
-                    "start": "08:00",
-                    "end": "09:30"
-                }
-            ]
-        },
-        {
-            "id": "class-electronics-tutorial-4",
-            "name": "Electronics",
-            "type": "tutorial",
-            "groupId": "sub-electronics-tut-a-s19_20_21_22_23-tue-p4",
-            "instructor": "",
-            "location": "Hall 8",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Tue",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-electronics-tutorial-5",
-            "name": "Electronics",
-            "type": "tutorial",
-            "groupId": "sub-electronics-tut-a-s24_25_26_27_28_29_30-wed-p4",
-            "instructor": "",
-            "location": "Hall 7",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Wed",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-electronics-tutorial-6",
-            "name": "Electronics",
-            "type": "tutorial",
-            "groupId": "sub-electronics-tut-b-s39_40_41_42_43_44_45_46-sun-p3",
-            "instructor": "",
-            "location": "Hall 7",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Sun",
-                    "start": "11:15",
-                    "end": "12:45"
-                }
-            ]
-        },
-        {
-            "id": "class-electronics-tutorial-7",
-            "name": "Electronics",
-            "type": "tutorial",
-            "groupId": "sub-electronics-tut-b-s51_52_53_54-mon-p4",
-            "instructor": "",
-            "location": "Hall 10",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Mon",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-electronics-tutorial-8",
-            "name": "Electronics",
-            "type": "tutorial",
-            "groupId": "sub-electronics-tut-b-s35_36_37_38-tue-p2",
-            "instructor": "",
-            "location": "Hall 10",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Tue",
-                    "start": "09:30",
-                    "end": "11:00"
-                }
-            ]
-        },
-        {
-            "id": "class-electronics-tutorial-9",
-            "name": "Electronics",
-            "type": "tutorial",
-            "groupId": "sub-electronics-tut-b-s31_32_33_34-tue-p4",
-            "instructor": "",
-            "location": "Hall 10",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Tue",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-electronics-tutorial-10",
-            "name": "Electronics",
-            "type": "tutorial",
-            "groupId": "sub-electronics-tut-b-s55_56_57_58_59_60-wed-p4",
-            "instructor": "",
-            "location": "Hall 7",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Wed",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-electronics-tutorial-11",
-            "name": "Electronics",
-            "type": "tutorial",
-            "groupId": "sub-electronics-tut-b-s55_56_57_58-thu-p4",
-            "instructor": "",
-            "location": "Hall 9",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Thu",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "class-electronics-tutorial-12",
-            "name": "Electronics",
-            "type": "tutorial",
-            "groupId": "sub-electronics-tut-b-s47_48_49_50-thu-p5",
-            "instructor": "",
-            "location": "Hall 9",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Thu",
-                    "start": "14:30",
-                    "end": "16:00"
-                }
-            ]
-        },
-        {
-            "id": "retake-structprog-lab",
+            "id": "course-structprog",
             "name": "Structured Programming",
-            "type": "lab",
-            "groupId": "grp-retake-structprog",
-            "instructor": "",
-            "location": "Lab 7 / Lab 5 / Lab 6 / Lab 3",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Sat",
-                    "start": "08:00",
-                    "end": "09:30"
-                },
-                {
-                    "day": "Sat",
-                    "start": "09:30",
-                    "end": "11:00"
-                },
-                {
-                    "day": "Sat",
-                    "start": "11:15",
-                    "end": "12:45"
-                },
-                {
-                    "day": "Sat",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "retake-structprog-lec",
-            "name": "Structured Programming",
-            "type": "lecture",
-            "groupId": "grp-retake-structprog",
-            "instructor": "Dr. Soha Makady",
-            "location": "Exam. Room 404",
+            "code": "CS 113",
             "credits": 3,
-            "attendAllSessions": false,
-            "sessions": [
+            "classes": [
                 {
-                    "day": "Sun",
-                    "start": "08:00",
-                    "end": "09:30"
+                    "id": "retake-structprog-lab",
+                    "name": "Lab",
+                    "type": "lab",
+                    "groupId": "grp-retake-structprog",
+                    "instructor": "",
+                    "location": "Lab 7 / Lab 5 / Lab 6 / Lab 3",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sat",
+                            "start": "08:00",
+                            "end": "09:30"
+                        },
+                        {
+                            "day": "Sat",
+                            "start": "09:30",
+                            "end": "11:00"
+                        },
+                        {
+                            "day": "Sat",
+                            "start": "11:15",
+                            "end": "12:45"
+                        },
+                        {
+                            "day": "Sat",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-structprog"
                 },
                 {
-                    "day": "Sun",
-                    "start": "09:30",
-                    "end": "11:00"
+                    "id": "retake-structprog-lec",
+                    "name": "Lecture",
+                    "type": "lecture",
+                    "groupId": "grp-retake-structprog",
+                    "instructor": "Dr. Soha Makady",
+                    "location": "Exam. Room 404",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "08:00",
+                            "end": "09:30"
+                        },
+                        {
+                            "day": "Sun",
+                            "start": "09:30",
+                            "end": "11:00"
+                        }
+                    ],
+                    "courseId": "course-structprog"
                 }
             ]
         },
         {
-            "id": "retake-probstat1-lec",
+            "id": "course-probstat1",
             "name": "Probability and Statistics-1",
-            "type": "lecture",
-            "groupId": "grp-retake-probstat1",
-            "instructor": "Dr. Mai Abdel-Ghafar",
-            "location": "Exam. Room 404",
+            "code": "BS 112",
             "credits": 3,
-            "attendAllSessions": false,
-            "sessions": [
+            "classes": [
                 {
-                    "day": "Sun",
-                    "start": "12:45",
-                    "end": "14:15"
+                    "id": "retake-probstat1-lec",
+                    "name": "Lecture",
+                    "type": "lecture",
+                    "groupId": "grp-retake-probstat1",
+                    "instructor": "Dr. Mai Abdel-Ghafar",
+                    "location": "Exam. Room 404",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "12:45",
+                            "end": "14:15"
+                        },
+                        {
+                            "day": "Sun",
+                            "start": "14:30",
+                            "end": "16:00"
+                        }
+                    ],
+                    "courseId": "course-probstat1"
                 },
                 {
-                    "day": "Sun",
-                    "start": "14:30",
-                    "end": "16:00"
+                    "id": "retake-probstat1-sec",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "grp-retake-probstat1",
+                    "instructor": "",
+                    "location": "Exam. Room 404",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-probstat1"
                 }
             ]
         },
         {
-            "id": "retake-probstat1-sec",
-            "name": "Probability and Statistics-1",
-            "type": "tutorial",
-            "groupId": "grp-retake-probstat1",
-            "instructor": "",
-            "location": "Exam. Room 404",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Mon",
-                    "start": "12:45",
-                    "end": "14:15"
-                }
-            ]
-        },
-        {
-            "id": "retake-math2-lec",
+            "id": "course-math2",
             "name": "Mathematics-2",
-            "type": "lecture",
-            "groupId": "grp-retake-math2",
-            "instructor": "Dr. Shourouk Wael",
-            "location": "Exam. Room 404",
+            "code": "BS 113",
             "credits": 3,
-            "attendAllSessions": false,
-            "sessions": [
+            "classes": [
                 {
-                    "day": "Mon",
-                    "start": "08:00",
-                    "end": "09:30"
+                    "id": "retake-math2-lec",
+                    "name": "Lecture",
+                    "type": "lecture",
+                    "groupId": "grp-retake-math2",
+                    "instructor": "Dr. Shourouk Wael",
+                    "location": "Exam. Room 404",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "08:00",
+                            "end": "09:30"
+                        },
+                        {
+                            "day": "Mon",
+                            "start": "09:30",
+                            "end": "11:00"
+                        }
+                    ],
+                    "courseId": "course-math2"
                 },
                 {
-                    "day": "Mon",
-                    "start": "09:30",
-                    "end": "11:00"
-                }
-            ]
-        },
-        {
-            "id": "retake-math2-sec",
-            "name": "Mathematics-2",
-            "type": "tutorial",
-            "groupId": "grp-retake-math2",
-            "instructor": "",
-            "location": "Exam. Room 404",
-            "credits": 0,
-            "attendAllSessions": false,
-            "sessions": [
-                {
-                    "day": "Mon",
-                    "start": "11:15",
-                    "end": "12:45"
+                    "id": "retake-math2-sec",
+                    "name": "Tutorial",
+                    "type": "tutorial",
+                    "groupId": "grp-retake-math2",
+                    "instructor": "",
+                    "location": "Exam. Room 404",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "11:15",
+                            "end": "12:45"
+                        }
+                    ],
+                    "courseId": "course-math2"
                 }
             ]
         }

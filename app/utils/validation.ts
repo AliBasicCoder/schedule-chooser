@@ -21,7 +21,7 @@ export function validateScheduleJSON(raw: any): ValidationResult & { data?: Sche
 
   if (!data.meta) errors.push('Missing "meta" field.');
   if (!Array.isArray(data.groups)) errors.push('Missing or invalid "groups" array.');
-  if (!Array.isArray(data.classes)) errors.push('Missing or invalid "classes" array.');
+  if (!Array.isArray(data.courses)) errors.push('Missing or invalid "courses" array.');
   if (errors.length > 0) return { valid: false, errors, warnings };
 
   // Meta validation
@@ -130,71 +130,108 @@ export function validateScheduleJSON(raw: any): ValidationResult & { data?: Sche
     }
   }
 
-  // Validate classes
+  // Validate courses and their nested classes
   const dayStartMin = timeToMin(meta.dayStart);
   const dayEndMin = timeToMin(meta.dayEnd);
+  const courseIds = new Set<string>();
   const classIds = new Set<string>();
+  const allClasses: typeof data.classes = [];
 
-  for (const c of data.classes) {
-    if (!c.id) {
-      errors.push('A class is missing an "id".');
-      continue;
-    }
-    if (classIds.has(c.id)) {
-      errors.push(`Duplicate class ID: "${c.id}".`);
-    }
-    classIds.add(c.id);
-
-    // Group references
-    if (c.groupId !== null && c.groupId !== undefined) {
-      if (!groupIds.has(c.groupId)) {
-        errors.push(`Class "${c.id}" references unknown groupId "${c.groupId}".`);
-      }
-    }
-
-    // Sessions
-    if (!c.sessions || !Array.isArray(c.sessions) || c.sessions.length === 0) {
-      errors.push(`Class "${c.id}" has zero sessions.`);
+  for (let cIdx = 0; cIdx < data.courses.length; cIdx++) {
+    const course = data.courses[cIdx];
+    if (!course || typeof course !== 'object') {
+      errors.push(`Course at index ${cIdx} is not a valid object.`);
       continue;
     }
 
-    for (let i = 0; i < c.sessions.length; i++) {
-      const s = c.sessions[i];
-      if (!s.day || !s.start || !s.end) {
-        errors.push(`Class "${c.id}" session ${i + 1} is missing day/start/end.`);
+    if (!course.id) {
+      errors.push(`Course at index ${cIdx} is missing an "id".`);
+      continue;
+    }
+    if (courseIds.has(course.id)) {
+      errors.push(`Duplicate course ID: "${course.id}".`);
+    }
+    courseIds.add(course.id);
+
+    if (!course.name) {
+      errors.push(`Course "${course.id}" is missing a "name".`);
+    }
+
+    if (!Array.isArray(course.classes) || course.classes.length === 0) {
+      errors.push(`Course "${course.id}" must contain a non-empty "classes" array.`);
+      continue;
+    }
+
+    // Validate classes within this course
+    for (const c of course.classes) {
+      if (!c.id) {
+        errors.push(`A class in course "${course.id}" is missing an "id".`);
         continue;
       }
-      if (!meta.dayOrder.includes(s.day)) {
-        warnings.push(`Class "${c.id}" session ${i + 1} day "${s.day}" is not in meta.dayOrder.`);
+      if (classIds.has(c.id)) {
+        errors.push(`Duplicate class ID: "${c.id}".`);
+      }
+      classIds.add(c.id);
+
+      // Link class to course
+      c.courseId = course.id;
+
+      // Group references
+      if (c.groupId !== null && c.groupId !== undefined) {
+        if (!groupIds.has(c.groupId)) {
+          errors.push(`Class "${c.id}" in course "${course.id}" references unknown groupId "${c.groupId}".`);
+        }
       }
 
-      const startMin = timeToMin(s.start);
-      const endMin = timeToMin(s.end);
+      // Sessions
+      if (!c.sessions || !Array.isArray(c.sessions) || c.sessions.length === 0) {
+        errors.push(`Class "${c.id}" in course "${course.id}" has zero sessions.`);
+        continue;
+      }
 
-      if (isNaN(startMin) || isNaN(endMin)) {
-        errors.push(`Class "${c.id}" session ${i + 1} has invalid time format.`);
-      } else {
-        if (startMin >= endMin) {
-          errors.push(`Class "${c.id}" session ${i + 1}: start time must be strictly before end time.`);
+      for (let i = 0; i < c.sessions.length; i++) {
+        const s = c.sessions[i];
+        if (!s.day || !s.start || !s.end) {
+          errors.push(`Class "${c.id}" session ${i + 1} is missing day/start/end.`);
+          continue;
         }
-        if (startMin < dayStartMin || endMin > dayEndMin) {
-          warnings.push(`Class "${c.id}" session ${i + 1} (${s.start}–${s.end}) falls outside dayStart–dayEnd bounds.`);
+        if (!meta.dayOrder.includes(s.day)) {
+          warnings.push(`Class "${c.id}" session ${i + 1} day "${s.day}" is not in meta.dayOrder.`);
         }
-        if (startMin % SLOT_MINUTES !== 0) {
-          warnings.push(`Class "${c.id}" session ${i + 1} start "${s.start}" is not ${SLOT_MINUTES}-min aligned. Auto-rounding.`);
-          s.start = minToTime(Math.round(startMin / SLOT_MINUTES) * SLOT_MINUTES);
-        }
-        if (endMin % SLOT_MINUTES !== 0) {
-          warnings.push(`Class "${c.id}" session ${i + 1} end "${s.end}" is not ${SLOT_MINUTES}-min aligned. Auto-rounding.`);
-          s.end = minToTime(Math.round(endMin / SLOT_MINUTES) * SLOT_MINUTES);
+
+        const startMin = timeToMin(s.start);
+        const endMin = timeToMin(s.end);
+
+        if (isNaN(startMin) || isNaN(endMin)) {
+          errors.push(`Class "${c.id}" session ${i + 1} has invalid time format.`);
+        } else {
+          if (startMin >= endMin) {
+            errors.push(`Class "${c.id}" session ${i + 1}: start time must be strictly before end time.`);
+          }
+          if (startMin < dayStartMin || endMin > dayEndMin) {
+            warnings.push(`Class "${c.id}" session ${i + 1} (${s.start}–${s.end}) falls outside dayStart–dayEnd bounds.`);
+          }
+          if (startMin % SLOT_MINUTES !== 0) {
+            warnings.push(`Class "${c.id}" session ${i + 1} start "${s.start}" is not ${SLOT_MINUTES}-min aligned. Auto-rounding.`);
+            s.start = minToTime(Math.round(startMin / SLOT_MINUTES) * SLOT_MINUTES);
+          }
+          if (endMin % SLOT_MINUTES !== 0) {
+            warnings.push(`Class "${c.id}" session ${i + 1} end "${s.end}" is not ${SLOT_MINUTES}-min aligned. Auto-rounding.`);
+            s.end = minToTime(Math.round(endMin / SLOT_MINUTES) * SLOT_MINUTES);
+          }
         }
       }
-    }
 
-    if (c.attendAllSessions === undefined) {
-      c.attendAllSessions = false;
+      if (c.attendAllSessions === undefined) {
+        c.attendAllSessions = false;
+      }
+
+      allClasses.push(c);
     }
   }
+
+  // Populate normalized classes array
+  data.classes = allClasses;
 
   const valid = errors.length === 0;
 
@@ -204,10 +241,11 @@ export function validateScheduleJSON(raw: any): ValidationResult & { data?: Sche
     warnings,
     data: valid ? data : undefined,
     stats: {
-      classes: data.classes.length,
+      courses: data.courses ? data.courses.length : 0,
+      classes: data.classes ? data.classes.length : 0,
       groups: data.groups.length,
       requiredGroups: data.groups.filter((g) => g.required).length,
-      totalSessions: data.classes.reduce((sum, c) => sum + (c.sessions ? c.sessions.length : 0), 0),
+      totalSessions: data.classes ? data.classes.reduce((sum, c) => sum + (c.sessions ? c.sessions.length : 0), 0) : 0,
     },
   };
 }

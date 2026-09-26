@@ -12,12 +12,23 @@ export interface ClassItem {
   id: string;
   name: string;
   type?: ClassType;
+  courseId?: string;
   groupId?: string | null;
   instructor?: string;
   location?: string;
   credits?: number;
   attendAllSessions?: boolean;
   sessions: Session[];
+}
+
+export interface Course {
+  id: string;
+  name: string;
+  code?: string;
+  credits?: number;
+  description?: string;
+  color?: string;
+  classes: ClassItem[];
 }
 
 export interface Group {
@@ -39,10 +50,12 @@ export interface ScheduleMeta {
 export interface ScheduleData {
   meta: ScheduleMeta;
   groups: Group[];
+  courses: Course[];
   classes: ClassItem[];
 }
 
 export interface ValidationStats {
+  courses: number;
   classes: number;
   groups: number;
   requiredGroups: number;

@@ -2,6 +2,7 @@ import type { ChipLayoutItem, Session } from '../types/schedule';
 
 export const SLOT_MINUTES = 15;
 export const SLOT_WIDTH_PX = 36;
+export const TRACK_HEIGHT = 72;
 
 /** Convert "HH:MM" to minutes since midnight */
 export function timeToMin(t: string): number {

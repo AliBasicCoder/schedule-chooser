@@ -255,6 +255,38 @@
             "required": true,
             "childrenConflict": false,
             "conflictsWith": []
+        },
+        {
+            "id": "grp-st-ai-lab",
+            "name": "Selected Topics in Artificial Intelligence-1 Lab Section",
+            "parentId": null,
+            "required": true,
+            "childrenConflict": true,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-st-ai-s12",
+            "name": "S1,S2",
+            "parentId": "grp-st-ai-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-st-ai-s34",
+            "name": "S3,S4",
+            "parentId": "grp-st-ai-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-st-ai-s56",
+            "name": "S5,S6",
+            "parentId": "grp-st-ai-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": []
         }
     ],
     "courses": [
@@ -912,6 +944,91 @@
                         }
                     ],
                     "courseId": "course-pm"
+                }
+            ]
+        },
+        {
+            "id": "course-st-ai",
+            "name": "Selected Topics in Artificial Intelligence-1",
+            "code": "AI 401",
+            "credits": 3,
+            "classes": [
+                {
+                    "id": "st-ai-lec",
+                    "name": "Lecture",
+                    "type": "lecture",
+                    "groupId": null,
+                    "instructor": "Dr. Eman Ahmed",
+                    "location": "Exam. Room 408",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Mon",
+                            "start": "08:00",
+                            "end": "09:30"
+                        },
+                        {
+                            "day": "Mon",
+                            "start": "09:30",
+                            "end": "11:00"
+                        }
+                    ],
+                    "courseId": "course-st-ai"
+                },
+                {
+                    "id": "st-ai-lab-s12",
+                    "name": "Lab (st-ai-s12)",
+                    "type": "lab",
+                    "groupId": "sub-st-ai-s12",
+                    "instructor": "",
+                    "location": "Ben-ElSarayat Lab 32",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Thu",
+                            "start": "08:00",
+                            "end": "09:30"
+                        }
+                    ],
+                    "courseId": "course-st-ai"
+                },
+                {
+                    "id": "st-ai-lab-s34",
+                    "name": "Lab (st-ai-s34)",
+                    "type": "lab",
+                    "groupId": "sub-st-ai-s34",
+                    "instructor": "",
+                    "location": "Ben-ElSarayat Lab 32",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Thu",
+                            "start": "09:30",
+                            "end": "11:00"
+                        }
+                    ],
+                    "courseId": "course-st-ai"
+                },
+                {
+                    "id": "st-ai-lab-s56",
+                    "name": "Lab (st-ai-s56)",
+                    "type": "lab",
+                    "groupId": "sub-st-ai-s56",
+                    "instructor": "",
+                    "location": "Ben-ElSarayat Lab 32",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Thu",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-st-ai"
                 }
             ]
         }

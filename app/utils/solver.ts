@@ -256,12 +256,6 @@ export function generateSchedules(
     }
   }
 
-  // Build group tree
-  const treeCtx = buildGroupTree(groups);
-
-  // Identify root groups (no parent)
-  const rootGroups = groups.filter((g) => !g.parentId);
-
   const standaloneClasses = classes.filter((c) => c.groupId === null || c.groupId === undefined);
 
   // Build a map of groupId → classes that directly belong to that group
@@ -272,6 +266,28 @@ export function generateSchedules(
       classesByGroup[c.groupId].push(c);
     }
   }
+
+  // Prune groups whose entire subtree has no remaining classes.
+  // This handles the case where a course is crossed off: its classes are
+  // filtered out, but its groups (marked required) would otherwise block
+  // the solver from finding any solution.
+  const tempTreeCtx = buildGroupTree(groups);
+  function subtreeHasClasses(groupId: string): boolean {
+    if (classesByGroup[groupId]?.length > 0) return true;
+    const children = tempTreeCtx.childrenOf.get(groupId) || [];
+    return children.some((childId) => subtreeHasClasses(childId));
+  }
+
+  const activeGroups = groups.filter((g) => subtreeHasClasses(g.id));
+
+  // Build group tree from the pruned group list
+  const treeCtx = buildGroupTree(activeGroups);
+
+  // Identify root groups (no parent, or parent was pruned away)
+  const activeGroupIds = new Set(activeGroups.map((g) => g.id));
+  const rootGroups = activeGroups.filter(
+    (g) => !g.parentId || !activeGroupIds.has(g.parentId)
+  );
 
   // Collect all classes belonging to a group and its descendants
   function getClassesForGroupTree(groupId: string): ClassItem[] {

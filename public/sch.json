@@ -5,6 +5,7 @@
             "Sat",
             "Sun",
             "Mon",
+            "Wed",
             "Thu"
         ],
         "dayStart": "08:00",
@@ -174,6 +175,86 @@
             "conflictsWith": [
                 "sub-comp-s56"
             ]
+        },
+        {
+            "id": "grp-da-lab",
+            "name": "Data Analytics Lab Section",
+            "parentId": null,
+            "required": true,
+            "childrenConflict": true,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-da-s14",
+            "name": "S1,S2,S3,S4",
+            "parentId": "grp-da-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-da-s58",
+            "name": "S5,S6,S7,S8",
+            "parentId": "grp-da-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-da-s912",
+            "name": "S9,S10,S11,S12",
+            "parentId": "grp-da-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-da-s1316",
+            "name": "S13,S14,S15,S16",
+            "parentId": "grp-da-lab",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": []
+        },
+        {
+            "id": "grp-pm-sec",
+            "name": "Project Management Section",
+            "parentId": null,
+            "required": true,
+            "childrenConflict": true,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-pm-s15",
+            "name": "S1,S2,S3,S4,S5",
+            "parentId": "grp-pm-sec",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-pm-s610",
+            "name": "S6,S7,S8,S9,S10",
+            "parentId": "grp-pm-sec",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-pm-s1115",
+            "name": "S11,S12,S13,S14,S15",
+            "parentId": "grp-pm-sec",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": []
+        },
+        {
+            "id": "sub-pm-s1620",
+            "name": "S16,S17,S18,S19,S20",
+            "parentId": "grp-pm-sec",
+            "required": true,
+            "childrenConflict": false,
+            "conflictsWith": []
         }
     ],
     "courses": [
@@ -550,6 +631,287 @@
                         }
                     ],
                     "courseId": "course-selectedtopics"
+                }
+            ]
+        },
+        {
+            "id": "course-lip",
+            "name": "Linear and Integer Programming",
+            "code": "OR 301",
+            "credits": 3,
+            "classes": [
+                {
+                    "id": "lip-lec",
+                    "name": "Lecture",
+                    "type": "lecture",
+                    "groupId": null,
+                    "instructor": "Dr. Basma Mostafa",
+                    "location": "Exam. Room 410",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sat",
+                            "start": "11:15",
+                            "end": "12:45"
+                        },
+                        {
+                            "day": "Sat",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-lip"
+                },
+                {
+                    "id": "lip-sec-s16",
+                    "name": "Section (S1, S2, S3, S4, S5, S6)",
+                    "type": "tutorial",
+                    "groupId": null,
+                    "instructor": "",
+                    "location": "Exam. Room 409",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "08:00",
+                            "end": "09:30"
+                        }
+                    ],
+                    "courseId": "course-lip"
+                }
+            ]
+        },
+        {
+            "id": "course-da",
+            "name": "Data Analytics",
+            "code": "OR 401",
+            "credits": 3,
+            "classes": [
+                {
+                    "id": "da-lec",
+                    "name": "Lecture",
+                    "type": "lecture",
+                    "groupId": null,
+                    "instructor": "Dr. Sally Kasem & Dr. Marwa Mostafa",
+                    "location": "Exam. Room 410",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Thu",
+                            "start": "08:00",
+                            "end": "09:30"
+                        },
+                        {
+                            "day": "Thu",
+                            "start": "09:30",
+                            "end": "11:00"
+                        }
+                    ],
+                    "courseId": "course-da"
+                },
+                {
+                    "id": "da-lab-s14",
+                    "name": "Lab (da-s14)",
+                    "type": "lab",
+                    "groupId": "sub-da-s14",
+                    "instructor": "",
+                    "location": "Exam. Room 408",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "11:15",
+                            "end": "12:45"
+                        }
+                    ],
+                    "courseId": "course-da"
+                },
+                {
+                    "id": "da-lab-s58",
+                    "name": "Lab (da-s58)",
+                    "type": "lab",
+                    "groupId": "sub-da-s58",
+                    "instructor": "",
+                    "location": "Exam. Room 408",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-da"
+                },
+                {
+                    "id": "da-lab-s912",
+                    "name": "Lab (da-s912)",
+                    "type": "lab",
+                    "groupId": "sub-da-s912",
+                    "instructor": "",
+                    "location": "Exam. Room 404",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-da"
+                },
+                {
+                    "id": "da-lab-s1316",
+                    "name": "Lab (da-s1316)",
+                    "type": "lab",
+                    "groupId": "sub-da-s1316",
+                    "instructor": "",
+                    "location": "Exam. Room 404",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "14:30",
+                            "end": "16:00"
+                        }
+                    ],
+                    "courseId": "course-da"
+                }
+            ]
+        },
+        {
+            "id": "course-entrepreneurship",
+            "name": "Entrepreneurship",
+            "code": "HUM 401",
+            "credits": 3,
+            "classes": [
+                {
+                    "id": "entrepreneurship-lec",
+                    "name": "Lecture",
+                    "type": "lecture",
+                    "groupId": null,
+                    "instructor": "Dr. Sherif Zahran",
+                    "location": "",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sat",
+                            "start": "09:30",
+                            "end": "11:00"
+                        }
+                    ],
+                    "courseId": "course-entrepreneurship"
+                }
+            ]
+        },
+        {
+            "id": "course-pm",
+            "name": "Project Management",
+            "code": "HUM 402",
+            "credits": 3,
+            "classes": [
+                {
+                    "id": "pm-lec",
+                    "name": "Lecture",
+                    "type": "lecture",
+                    "groupId": null,
+                    "instructor": "Dr. Doaa Saleh",
+                    "location": "Exam. Room 408",
+                    "credits": 3,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "08:00",
+                            "end": "09:30"
+                        },
+                        {
+                            "day": "Sun",
+                            "start": "09:30",
+                            "end": "11:00"
+                        }
+                    ],
+                    "courseId": "course-pm"
+                },
+                {
+                    "id": "pm-sec-s15",
+                    "name": "Section (pm-s15)",
+                    "type": "tutorial",
+                    "groupId": "sub-pm-s15",
+                    "instructor": "",
+                    "location": "Exam. Room 408",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "14:30",
+                            "end": "16:00"
+                        }
+                    ],
+                    "courseId": "course-pm"
+                },
+                {
+                    "id": "pm-sec-s610",
+                    "name": "Section (pm-s610)",
+                    "type": "tutorial",
+                    "groupId": "sub-pm-s610",
+                    "instructor": "",
+                    "location": "Exam. Room 408",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Sun",
+                            "start": "16:15",
+                            "end": "17:45"
+                        }
+                    ],
+                    "courseId": "course-pm"
+                },
+                {
+                    "id": "pm-sec-s1115",
+                    "name": "Section (pm-s1115)",
+                    "type": "tutorial",
+                    "groupId": "sub-pm-s1115",
+                    "instructor": "",
+                    "location": "Exam. Room 409",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "12:45",
+                            "end": "14:15"
+                        }
+                    ],
+                    "courseId": "course-pm"
+                },
+                {
+                    "id": "pm-sec-s1620",
+                    "name": "Section (pm-s1620)",
+                    "type": "tutorial",
+                    "groupId": "sub-pm-s1620",
+                    "instructor": "",
+                    "location": "Exam. Room 409",
+                    "credits": 0,
+                    "attendAllSessions": false,
+                    "sessions": [
+                        {
+                            "day": "Wed",
+                            "start": "14:30",
+                            "end": "16:00"
+                        }
+                    ],
+                    "courseId": "course-pm"
                 }
             ]
         }

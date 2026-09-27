@@ -1,5 +1,15 @@
 import React, { useState, useMemo } from 'react';
-import { BookOpen, GraduationCap, ChevronDown, ChevronRight, Pin, X, Search } from 'lucide-react';
+import {
+  BookOpen,
+  GraduationCap,
+  ChevronDown,
+  ChevronRight,
+  Pin,
+  X,
+  Search,
+  ChevronsUpDown,
+  ChevronsDownUp,
+} from 'lucide-react';
 import { useSchedule } from '../../context/ScheduleContext';
 import type { ClassItem, Course } from '../../types/schedule';
 
@@ -17,10 +27,8 @@ export function ClassesListPanel() {
     isSessionCrossed,
   } = useSchedule();
 
-  const [expandedCourseIds, setExpandedCourseIds] = useState<Set<string>>(() => {
-    // Default: expand all courses
-    return new Set(courses.map((c) => c.id));
-  });
+  // Default: make all courses compacted
+  const [expandedCourseIds, setExpandedCourseIds] = useState<Set<string>>(() => new Set());
   const [searchQuery, setSearchQuery] = useState('');
 
   if (!scheduleData) return null;
@@ -65,6 +73,37 @@ export function ClassesListPanel() {
     return matchCourse || matchClass;
   });
 
+  const targetCourses = searchQuery.trim() ? filteredCourses : courses;
+  const isAllExpanded =
+    targetCourses.length > 0 && targetCourses.every((c) => expandedCourseIds.has(c.id));
+
+  const toggleExpandAll = () => {
+    if (targetCourses.length === 0) return;
+
+    if (isAllExpanded) {
+      // Compact all target courses
+      setExpandedCourseIds((prev) => {
+        if (!searchQuery.trim()) {
+          return new Set();
+        }
+        const next = new Set(prev);
+        for (const c of targetCourses) {
+          next.delete(c.id);
+        }
+        return next;
+      });
+    } else {
+      // Expand all target courses
+      setExpandedCourseIds((prev) => {
+        const next = new Set(prev);
+        for (const c of targetCourses) {
+          next.add(c.id);
+        }
+        return next;
+      });
+    }
+  };
+
   return (
     <div className="rounded-2xl border border-white/10 bg-[#101224]/80 p-5 shadow-xl backdrop-blur-xl">
       {/* Panel Header */}
@@ -79,16 +118,44 @@ export function ClassesListPanel() {
           </span>
         </div>
 
-        {/* Search input */}
-        <div className="relative">
-          <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-slate-400" />
-          <input
-            type="text"
-            placeholder="Filter courses or classes..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full sm:w-56 rounded-lg border border-white/10 bg-white/5 pl-8 pr-2.5 py-1 text-xs text-white placeholder-slate-500 focus:border-[#6C63FF] focus:outline-none transition"
-          />
+        {/* Controls: Expand/Compact All Button + Search */}
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            id="expand-compact-all-btn"
+            onClick={toggleExpandAll}
+            disabled={targetCourses.length === 0}
+            title={isAllExpanded ? 'Compact all courses' : 'Expand all courses'}
+            className={`inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1 text-xs font-semibold transition active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed shrink-0 ${
+              isAllExpanded
+                ? 'border-[#00D4AA]/30 bg-[#00D4AA]/10 text-[#00D4AA] hover:bg-[#00D4AA]/20 hover:border-[#00D4AA]/50'
+                : 'border-white/10 bg-white/5 text-slate-300 hover:border-white/20 hover:bg-white/10 hover:text-white'
+            }`}
+          >
+            {isAllExpanded ? (
+              <>
+                <ChevronsDownUp className="h-3.5 w-3.5 text-[#00D4AA]" />
+                <span>Compact All</span>
+              </>
+            ) : (
+              <>
+                <ChevronsUpDown className="h-3.5 w-3.5 text-[#8B85FF]" />
+                <span>Expand All</span>
+              </>
+            )}
+          </button>
+
+          {/* Search input */}
+          <div className="relative flex-1 sm:flex-initial">
+            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-slate-400" />
+            <input
+              type="text"
+              placeholder="Filter courses or classes..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full sm:w-44 lg:w-48 rounded-lg border border-white/10 bg-white/5 pl-8 pr-2.5 py-1 text-xs text-white placeholder-slate-500 focus:border-[#6C63FF] focus:outline-none transition"
+            />
+          </div>
         </div>
       </div>
 

@@ -18,7 +18,7 @@ interface ScheduleGridProps {
 }
 
 export function ScheduleGrid({ data, interactive = true, selections }: ScheduleGridProps) {
-  const { blockedSlots, toggleBlockedSlot, toggleEntireDay, isEntireDayBlocked } = useSchedule();
+  const { blockedSlots, toggleBlockedSlot, toggleEntireDay, isEntireDayBlocked, isCourseCrossed } = useSchedule();
 
   const meta = data.meta;
   const days = meta.dayOrder;
@@ -35,8 +35,11 @@ export function ScheduleGrid({ data, interactive = true, selections }: ScheduleG
       const dayChips: ChipLayoutItem[] = [];
 
       if (!selections) {
-        // Setup view: show all sessions for all classes
+        // Setup view: show all sessions for active classes (skip crossed off courses)
         for (const cls of data.classes) {
+          if (cls.courseId && isCourseCrossed(cls.courseId)) {
+            continue;
+          }
           for (let si = 0; si < cls.sessions.length; si++) {
             const session = cls.sessions[si];
             if (session.day !== day) continue;
@@ -89,7 +92,7 @@ export function ScheduleGrid({ data, interactive = true, selections }: ScheduleG
     }
 
     return result;
-  }, [data, days, selections, startMin]);
+  }, [data, days, selections, startMin, isCourseCrossed]);
 
   return (
     <div className="w-full overflow-x-auto rounded-2xl border border-white/10 bg-[#0b0d1a]/90 shadow-2xl backdrop-blur-xl">
